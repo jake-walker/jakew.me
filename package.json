@@ -1,0 +1,12 @@
+{
+  "name": "jakew-me",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Jake Walker <hi@jakew.me> (https://jakew.me)",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "helmet": "^3.13.0"
+  }
+}
