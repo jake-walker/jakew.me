@@ -15,6 +15,10 @@ app.get("/", (req, res) => {
 
 app.use("/assets", express.static("./assets"));
 
+app.use((req, res, next) => {
+  res.status(404).render("404");
+});
+
 console.log(`Starting jakew-me in ${process.env.NODE_ENV || "[development]"} mode!`);
 
 

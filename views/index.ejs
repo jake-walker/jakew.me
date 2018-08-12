@@ -4,70 +4,10 @@
     <%- include("meta"); %>
     <%- include("css"); %>
 
-    <style>
-      body {
-        background: linear-gradient(90deg, rgba(0, 210, 255, 0.8) 0%, rgba(58, 71, 213, 0.8) 100%), url("/assets/img/sai-kiran-anagani-61187-unsplash.jpg") no-repeat center center fixed;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
-
-        color: #fff;
-      }
-
-      .bg-clear {
-        background: rgba(255, 255, 255, 0.2);
-      }
-
-      html, body {
-        height: 100%;
-        width: 100%;
-      }
-
-      .center-all {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        text-align: center;
-
-        padding: 2em;
-
-        height: calc(100% - 56px);
-      }
-
-      .jw-small-width {
-        max-width: 30em;
-      }
-
-      .jw-btn-social {
-        background: rgba(255, 255, 255, 0.2);
-        border-radius: 50%;
-        color: #fff;
-        font-size: 1.5em;
-        padding: 9px 12px 9px 12px;
-        margin: 15px 5px 5px 5px;
-      }
-
-      .jw-btn-social:hover {
-        background: rgba(255, 255, 255, 0.5);
-        color: #fff;
-      }
-
-      .tooltip .tooltip-inner {
-        background: rgba(255, 255, 255, 0.2);
-        color: #fff;
-      }
-
-      .tooltip .arrow::before {
-        border-bottom-color: rgba(255, 255, 255, 0.2);
-      }
-    </style>
-
     <title>Jake Walker</title>
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-clear">
+    <nav class="navbar navbar-expand-lg navbar-dark jw-bg-clear">
       <a class="navbar-brand jw-text-primary" href="/">Jake Walker</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -85,18 +25,20 @@
       </div>
     </nav>
 
-    <div class="center-all">
+    <div class="jw-center-all">
       <div class="jw-small-width">
         <h2><%= greeting %> I'm Jake Walker.</h2>
         <p class="lead">I'm a full stack developer and tech enthusiast living in the United Kingdom.</p>
         <p>
           Check out my profiles and feel free to drop me a message:
-          <a href="mailto:hi@jakew.me" class="btn jw-btn-social" data-toggle="tooltip" data-placement="bottom" title="Email"><i class="fas fa-envelope fa-fw"></i></a>
-          <a href="https://github.com/jake-walker" class="btn jw-btn-social" data-toggle="tooltip" data-placement="bottom" title="GitHub"><i class="fab fa-github fa-fw"></i></a>
-          <a href="https://gitlab.com/_jakew" class="btn jw-btn-social" data-toggle="tooltip" data-placement="bottom" title="GitLab"><i class="fab fa-gitlab fa-fw"></i></a>
-          <a href="https://twitter.com/__jakew" class="btn jw-btn-social" data-toggle="tooltip" data-placement="bottom" title="Twitter"><i class="fab fa-twitter fa-fw"></i></a>
-          <a href="https://keybase.io/jakew" class="btn jw-btn-social" data-toggle="tooltip" data-placement="bottom" title="Keybase"><i class="fas fa-key fa-fw"></i></a>
-          <a href="https://strfe.co/Infinity" class="btn jw-btn-social" data-toggle="tooltip" data-placement="bottom" title="Strfe"><i class="fas fa-gamepad fa-fw"></i></a>
+        </p>
+        <p>
+          <a href="mailto:hi@jakew.me" aria-label="Email" class="btn jw-btn-social" data-toggle="tooltip" data-placement="bottom" title="Email"><i class="fas fa-envelope fa-fw"></i></a>
+          <a href="https://github.com/jake-walker" aria-label="GitHub" class="btn jw-btn-social" data-toggle="tooltip" data-placement="bottom" title="GitHub"><i class="fab fa-github fa-fw"></i></a>
+          <a href="https://gitlab.com/_jakew" aria-label="GitLab" class="btn jw-btn-social" data-toggle="tooltip" data-placement="bottom" title="GitLab"><i class="fab fa-gitlab fa-fw"></i></a>
+          <a href="https://twitter.com/__jakew" aria-label="Twitter" class="btn jw-btn-social" data-toggle="tooltip" data-placement="bottom" title="Twitter"><i class="fab fa-twitter fa-fw"></i></a>
+          <a href="https://keybase.io/jakew" aria-label="Keybase" class="btn jw-btn-social" data-toggle="tooltip" data-placement="bottom" title="Keybase"><i class="fas fa-key fa-fw"></i></a>
+          <a href="https://strfe.co/Infinity" aria-label="Strfe Gaming" class="btn jw-btn-social" data-toggle="tooltip" data-placement="bottom" title="Strfe"><i class="fas fa-gamepad fa-fw"></i></a>
         </p>
       </div>
     </div>
