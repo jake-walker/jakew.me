@@ -1,5 +1,6 @@
 const express = require("express");
 const greetings = require("./greetings.json");
+const request = require("request");
 
 const app = express();
 
@@ -7,9 +8,27 @@ app.set("trust proxy", (process.env.NODE_ENV === "production"));
 app.set("view engine", "ejs");
 app.use(require("helmet")());
 
+const earnerId = 415794;
+const groupId = 141217;
+
 app.get("/", (req, res) => {
-	res.render("index", {
-		greeting: greetings[Math.floor(Math.random()*greetings.length)],
+	request({
+		url: `https://backpack.openbadges.org/displayer/${earnerId}/group/${groupId}.json`,
+		json: true
+	}, (err, response, body) => {
+		let badges = [];
+
+		if (err) {
+			console.error("Error grabbing badges:");
+			console.error(err);
+		} else if (response.statusCode == 200) {
+			badges = body.badges;
+		}
+
+		res.render("index", {
+			greeting: greetings[Math.floor(Math.random()*greetings.length)],
+			badges: badges
+		});
 	});
 });
 
