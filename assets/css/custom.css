@@ -1,0 +1,98 @@
+#main {
+  padding-bottom: 0.5em;
+}
+
+#badges {
+  padding-bottom: 1em;
+}
+
+.jw-badge {
+  transition: transform .2s;
+  height: 100px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.jw-badge:hover {
+  transform: scale(1.25);
+}
+
+body {
+  font-family: 'Work Sans', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6, .jw-text-primary {
+  font-family: 'Space Mono', monospace;
+}
+
+::selection {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgba(255, 255, 255, 1);
+  text-decoration: underline;
+}
+
+body {
+  background: linear-gradient(90deg, rgba(0, 210, 255, 0.8) 0%, rgba(58, 71, 213, 0.8) 100%), url("/assets/img/sai-kiran-anagani-61187-unsplash.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+
+  color: #fff;
+}
+
+.jw-bg-clear {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+.jw-center-all {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+
+  padding: 2em;
+
+  min-height: calc(100% - 56px);
+}
+
+.jw-small-width {
+  max-width: 30em;
+}
+
+.jw-btn-social {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  color: #fff;
+  font-size: 1.5em;
+  padding: 9px 12px 9px 12px;
+  margin: 15px 5px 5px 5px;
+}
+
+.jw-btn-social:hover {
+  background: rgba(255, 255, 255, 0.5);
+  color: #fff;
+}
+
+.tooltip .tooltip-inner {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.tooltip .arrow::before {
+  border-bottom-color: rgba(255, 255, 255, 0.2);
+}
