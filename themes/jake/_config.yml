@@ -1,0 +1,9 @@
+
+# html lang
+language: en
+
+# main menu navigation
+nav:
+  Home: /
+  Contact: /contact
+  Archives: /archives

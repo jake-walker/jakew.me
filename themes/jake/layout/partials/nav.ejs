@@ -1,0 +1,17 @@
+<nav class="navbar navbar-expand-lg navbar-dark <%= is_home() ? 'bg-transparent' : 'bg-primary' %>">
+  <a class="navbar-brand font-p" href="/">Jake Walker</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarContent">
+    <ul class="navbar-nav mr-auto">
+      <% for (var i in theme.nav) { %>
+        <% let active = is_current(theme.nav[i]); %>
+        <li class="nav-item <%- active ? 'active' : '' %>">
+          <a class="nav-link" href="<%- url_for(theme.nav[i]) %>"><%= __('nav.'+i).replace("nav.", "") %> <%- active ? '<span class="sr-only">(current)</span>' : '' %></a>
+        </li>
+      <% } %>
+    </ul>
+  </div>
+</nav>

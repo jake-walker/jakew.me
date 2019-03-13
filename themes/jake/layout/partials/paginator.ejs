@@ -1,0 +1,53 @@
+<% if (page.total > 1) { %>
+  <%
+    const current = page.current || 0;
+    const total = page.total || 1;
+    const endSize = 1;
+    const midSize = 2;
+    const base = page.base || '';
+    const format = `${config.pagination_dir}/%d`;
+
+    const link = i => url_for(i === 1 ? base : base + format.replace("%d", i));
+
+    const currentPage = `<li class="page-item active" aria-current="page"><a class="page-link" href="">${current} <span class="sr-only">(current)</span></a></li>`;
+    const pageLink = i => `<li class="page-item"><a class="page-link" href="${link(i)}">${i}</a></li>`;
+
+    let result = "";
+
+    result += `<li class="page-item ${(current > 1) ? '' : 'disabled'}"><a class="page-link" href="${(current > 1) ? link(current - 1) : ''}">Prev</a></li>`;
+
+    const leftEnd = current <= endSize ? current - 1 : endSize;
+    const rightEnd = total - current <= endSize ? current + 1 : total - endSize + 1;
+    const leftMid = current - midSize <= endSize ? leftEnd + 1 : current - midSize;
+    const rightMid = current + midSize + endSize > total ? rightEnd - 1 : current + midSize;
+
+    for (let i = 1; i <= leftEnd; i++) {
+      result += pageLink(i);
+    }
+
+    if (leftMid > leftEnd) {
+      for (let i = leftMid; i < current; i++) {
+        result += pageLink(i);
+      }
+    }
+
+    result += currentPage;
+
+    if (rightMid < rightEnd) {
+      for (let i = current + 1; i <= rightMid; i++) {
+        result += pageLink(i);
+      }
+    }
+
+    for (let i = rightEnd; i <= total; i++) {
+      result += pageLink(i);
+    }
+
+    result += `<li class="page-item ${(current < total) ? '' : 'disabled'}"><a class="page-link" href="${(current < total) ? link(current + 1) : ''}">Next</a></li>`;
+  %>
+  <nav>
+    <ul class="pagination">
+      <%- result %>
+    </ul>
+  </nav>
+<% } %>

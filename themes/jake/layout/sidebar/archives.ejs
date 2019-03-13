@@ -1,0 +1,45 @@
+<div class="sidebar-card card">
+  <div class="card-header">
+    Archives
+  </div>
+  <%
+    const posts = site.posts.sort("date", -1);
+
+    const data = [];
+    let length = 0;
+
+    posts.forEach(post => {
+      let date = post.date.clone();
+
+      if (config.timezone) date = date.tz(config.timezone);
+      if (config.language) date = date.locale(config.language);
+
+      const year = date.year();
+      const month = date.month() + 1;
+      const name = date.format("MMMM YYYY");
+      const lastData = data[length - 1];
+
+      if (!lastData || lastData.name !== name) {
+        length = data.push({
+          name,
+          year,
+          month,
+          count: 1
+        });
+      } else {
+        lastData.count++;
+      }
+    });
+  %>
+  <ul class="list-group list-group-flush">
+    <% data.forEach(archive => { %>
+      <%
+        let url = `${config.archive_dir}/${archive.year}/`;
+
+        if (archive.month < 10) url += 0;
+        url += `${archive.month}/`;
+      %>
+      <a class="list-group-item list-group-item-action" href="<%= url %>"><%= archive.name %> <span class="badge badge-primary"><%= archive.count %></span></a>
+    <% }) %>
+  </ul>
+</div>

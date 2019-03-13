@@ -1,0 +1,8 @@
+<% if (page.posts.length > 0) { %>
+  <div id="recent-posts">
+    <h1>Recent Posts</h1>
+    <%- partial("partials/list-post", {
+      posts: page.posts.sort('date', -1).limit(10)
+    }); %>
+  </div>
+<% } %>

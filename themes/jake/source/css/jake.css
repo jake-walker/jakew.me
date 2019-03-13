@@ -1,0 +1,69 @@
+.section {
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+
+#main-content {
+  margin-bottom: 1em;
+}
+
+/* STICKY FOOTER */
+
+.content {
+  min-height: 100vh;
+}
+
+#footer {
+  width: 100%;
+}
+
+/* NO TEXT SELECT */
+.no-select, nav, .hero, .meta-item {
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -webkit-touch-callout: none;
+  -o-user-select: none;
+  -moz-user-select: none;
+}
+
+/* HERO */
+.hero {
+  background: linear-gradient(90deg, rgba(0, 210, 255, 0.8) 0%, rgba(58, 71, 213, 0.8) 100%),
+    url(/img/background.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: #fff;
+}
+
+.hero-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 80vh;
+  padding: 2em;
+}
+
+.hero-avatar {
+  width: 300px;
+  padding: 2em;
+}
+
+/* SIDEBAR */
+.sidebar-card {
+  margin-top: 1em;
+}
+
+/* PAGINATOR */
+.pagination {
+  padding-top: 1em;
+}
+
+/* POST STYLING */
+#post > p > img {
+  max-width: 100%;
+  height: auto;
+}
