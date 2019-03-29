@@ -63,7 +63,37 @@
 }
 
 /* POST STYLING */
-#post > p > img {
+#post img {
   max-width: 100%;
   height: auto;
+
+  padding-bottom: 16px;
+}
+
+#post > table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  
+  margin-bottom: 1rem;
+  color: #212529;
+
+  border-collapse: collapse;
+
+  box-sizing: border-box;
+}
+
+#post > table > thead th, thead td {
+  vertical-align: bottom;
+  border-bottom: 2px solid #dee2e6;
+}
+
+#post > table td, #post > table th  {
+  padding: .75rem;
+  border-top: 1px solid #dee2e6;
+  text-align: inherit;
+}
+
+#post > table > tbody tr:nth-of-type(odd) {
+  background-color: rgba(0, 0, 0, 0.05);
 }
