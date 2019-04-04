@@ -12,14 +12,43 @@ var windowTitle = pageTitle + ((pageTitle != "") ? " | " : "") + config.title;
 <!DOCTYPE html>
 <html lang="<%= config.language %>">
 <head>
+  <!-- responsive and requried meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <title><%= windowTitle %></title>
 
+  <!-- css -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Overpass|Overpass+Mono">
   <link rel="stylesheet" href="/css/bootstrap.min.css">
   <link rel="stylesheet" href="/css/jake.css">
+
+  <!-- favicon and theme meta tags -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#65c9ff">
+  <meta name="apple-mobile-web-app-title" content="Jake Walker">
+  <meta name="application-name" content="Jake Walker">
+  <meta name="msapplication-TileColor" content="#2d89ef">
+  <meta name="theme-color" content="#65c9ff">
+
+  <!-- social media meta tags -->
+  <meta property="og:image" content="https://jakew.me/og-image.jpg">
+  <meta property="og:image:width" content="279">
+  <meta property="og:image:height" content="279">
+  <meta property="og:title" content="Jake Walker">
+  <meta property="og:description" content="Hi! I'm Jake Walker, a Full Stack Developer and Tech Enthusiast living in the United Kingdom.">
+  <meta property="og:url" content="https://jakew.me">
+
+  <!-- seo meta tags -->
+  <meta name="description" content="Hi! I'm Jake Walker, a Full Stack Developer and Tech Enthusiast living in the United Kingdom." />
+  <meta name="keywords" content="blog, jake walker, developer, portfolio, tech, technology, dev, nodejs, javascript, full stack, raspberry pi, arduino, maker, electronics, iot, node, python" />
+  <meta name="author" content="metatags generator">
+  <meta name="robots" content="index, follow">
+  <meta name="revisit-after" content="1 month">
 </head>
 <body>
 
