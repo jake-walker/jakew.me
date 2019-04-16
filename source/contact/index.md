@@ -10,6 +10,8 @@ Check out my profiles:
 * [<i class="fab fa-twitter fa-fw"></i> Twitter](https://twitter.com/_jakewalker1)
 * [<i class="fas fa-key fa-fw"></i> Keybase](https://keybase.io/jakew)
 * [<i class="fab fa-mastodon fa-fw"></i> Mastodon](https://toot.cafe/@jakew)
+* [<i class="fab fa-npm fa-fw"></i> NPM](https://www.npmjs.com/~jakew)
+* [<i class="fas fa-play fa-fw"></i> asciinema](https://asciinema.org/~jakew)
 
 # Contact Form
 If you'd prefer to send an email right here, right now, feel free to fill in the form below.
