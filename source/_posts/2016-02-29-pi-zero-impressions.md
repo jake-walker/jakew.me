@@ -3,6 +3,7 @@ title: Pi Zero Impressions
 date: 2016-02-29 17:54:00
 tags:
   - raspberry-pi
+description: "[OLD] First Impressions of the new tiny £5 Raspberry Pi Zero."
 ---
 > This post is quite old, so the formatting isn't as fabulous as some of my newer posts.
 

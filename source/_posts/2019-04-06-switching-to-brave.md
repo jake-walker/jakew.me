@@ -1,7 +1,7 @@
 ---
 title: Switching to the Brave Browser
 date: 2019-04-06 16:47:43
-tags:
+description: "My experience of switching to the Brave Web Browser."
 ---
 I wouldn't normally make a post about switching web browsers. I've switched browsers many times in the past and never made a big deal of it, but [Brave](https://brave.com/) is different.
 

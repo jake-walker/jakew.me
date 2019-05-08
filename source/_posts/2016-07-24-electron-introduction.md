@@ -3,6 +3,7 @@ title: Introduction to Electron Apps
 date: 2016-07-24 09:21:00
 tags:
   - node
+description: "Creating a simple desktop app with JavaScript, HTML and CSS using Electron."
 ---
 Yesterday, I was downloading Visual Studio and then I thought to myself: *What if I could write desktop apps with Node.JS, HTML and CSS?*. After a bit of Googling around I found something called Electron.
 

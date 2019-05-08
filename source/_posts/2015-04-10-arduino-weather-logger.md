@@ -5,6 +5,7 @@ tags:
   - iot
   - arduino
   - electronics
+description: "[OLD] Creating an Arduino Weather Station."
 ---
 > This post is quite old, so the formatting isn't as fabulous as some of my newer posts.
 

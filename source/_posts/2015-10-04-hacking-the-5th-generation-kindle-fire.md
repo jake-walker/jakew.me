@@ -3,6 +3,7 @@ title: Hacking the 5th Generation Kindle Fire
 date: 2015-10-04 21:05:00
 tags:
   - kindle-hacking
+description: "[OLD] Adding Google Apps, Rooting, Removing Bloatware and Changing the Launcher of a 5th Generation Kindle Fire"
 ---
 > This post is quite old, so the formatting isn't as fabulous as some of my newer posts.
 

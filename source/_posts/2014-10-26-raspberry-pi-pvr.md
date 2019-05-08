@@ -2,6 +2,7 @@
 title: Raspberry Pi PVR
 date: 2014-10-26 20:59:00
 tags: raspberry-pi
+description: "[OLD] Creating a digital TV recorder and viewer with a Raspberry Pi and OpenELEC."
 ---
 > This post is quite old, so the formatting insn't as fabulous as some of my newer posts.
 

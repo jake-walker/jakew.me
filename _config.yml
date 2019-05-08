@@ -84,3 +84,12 @@ deploy:
   type: git
   repo: https://__GITHUB_TOKEN__@github.com/jake-walker/jakew.me.git
   branch: master
+
+# RSS Feed
+feed:
+  type: rss2
+  path: rss2.xml
+  limit: 0
+  content: true
+  order_by: -date
+  icon: https://jakew.me/img/avatar.svg
