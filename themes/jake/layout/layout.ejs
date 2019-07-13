@@ -19,7 +19,7 @@ var windowTitle = pageTitle + ((pageTitle != "") ? " | " : "") + config.title;
   <title><%= windowTitle %></title>
 
   <!-- css -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Overpass|Overpass+Mono">
+  <link href="https://fonts.googleapis.com/css?family=Inconsolata|Literata&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/bootstrap.min.css">
   <link rel="stylesheet" href="/css/jake.css">
 
@@ -65,10 +65,10 @@ var windowTitle = pageTitle + ((pageTitle != "") ? " | " : "") + config.title;
   
   <div class="container" id="main-content">
     <div class="row">
-      <div class="col-md-8">
+      <div class="col-lg-8">
         <%- body %>
       </div>
-      <div class="col-md-4">  
+      <div class="col-lg-4">  
         <%- partial('sidebar/gpg'); %>
         <%- partial('sidebar/tagcloud'); %>
         <%- partial('sidebar/recentposts'); %>
