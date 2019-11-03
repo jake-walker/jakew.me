@@ -1,19 +1,19 @@
 # 🌐 jakew.me
 
-[![GitHub last commit](https://img.shields.io/github/last-commit/jake-walker/jakew.me/source.svg?style=for-the-badge)](https://github.com/jake-walker/jakew.me/commits/source) [![Travis CI Status](https://img.shields.io/travis/com/jake-walker/jakew.me.svg?style=for-the-badge)](https://travis-ci.com/jake-walker/jakew.me) [![GitHub Repository Size](https://img.shields.io/github/repo-size/jake-walker/jakew.me.svg?style=for-the-badge)](https://github.com/jake-walker/jakew.me/tree/source)
+[![GitHub Last Commit](https://img.shields.io/github/last-commit/jake-walker/jakew.me/source.svg?style=for-the-badge)](https://github.com/jake-walker/jakew.me/commits/source) ![Drone Build Status](https://img.shields.io/drone/build/jake-walker/jakew.me/source?server=https%3A%2F%2Fci.jakewalker.xyz&style=for-the-badge) [![GitHub Repository Size](https://img.shields.io/github/repo-size/jake-walker/jakew.me.svg?style=for-the-badge)](https://github.com/jake-walker/jakew.me/tree/source)
 
 <!-- TOC -->
 
 - [Structure](#structure)
 - [Custom Theme](#custom-theme)
-  - [Structure](#structure-1)
+    - [Structure](#structure-1)
 - [Contributing](#contributing)
 
 <!-- /TOC -->
 
 ---
 
-This is my main website which contains my blog along with some social links and other things. This website is built using the [Hexo](https://hexo.io) static site generator and uses [Travis CI](https://travis-ci.com) to automatically build the `source` branch and push the generated site to the `master` branch.
+This is my main website which contains my blog along with some social links and other things. This website is built using the [Hexo](https://hexo.io) static site generator and uses [Drone](https://drone.io/) to automatically build the `source` branch and push the generated site to the `master` branch.
 
 This site is available at [https://jakew.me](https://jakew.me).
 
