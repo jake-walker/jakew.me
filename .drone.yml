@@ -1,0 +1,27 @@
+---
+kind: pipeline
+type: docker
+name: publish
+
+steps:
+  - name: build
+    image: node:current-alpine
+    commands:
+      - yarn global add hexo
+      - yarn install
+      - hexo clean && hexo generate
+  - name: publish
+    image: plugins/gh-pages
+    settings:
+      username:
+        from_secret: github_username
+      password:
+        from_secret: github_token
+      pages_directory: public/
+      target_branch: master
+
+trigger:
+  branch:
+    - source
+  event:
+    - push
