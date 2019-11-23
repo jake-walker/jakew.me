@@ -14,14 +14,14 @@ Prerequisites: ADB and Fastboot (guide: http://goo.gl/SLpJXX), Drivers (http://g
 # 1. Google Apps (no root required)
 *Source: http://goo.gl/btPy9W*
 
-* Install ES File Explorer from Amazon’s Appstore for free on the Kindle Fire.
+* Install ES File Explorer from Amazon’s App Store for free on the Kindle Fire.
 * Open Settings > Security > Unknown Sources and check it or turn it on.
-* Download the Google Core APK .zip archive here: https://goo.gl/ansjr1 to the device and find it in ES File Explorer under the internal sd card in the Downloads folder
+* Download the Google Core APK .zip archive here: https://goo.gl/ansjr1 to the device and find it in ES File Explorer under the internal SD card in the Downloads folder
 Install each of the below in order by tapping on the particular file name in ES File Explorer. 
- * com.android.vending-5.9.12-80391200-minAPI9.apk
- * com.google.android.gms-6.6.03_(1681564-036)-6603036-minAPI9.apk 
- * GoogleLoginService.apk 
- * GoogleServicesFramework.apk
+ * `com.android.vending-5.9.12-80391200-minAPI9.apk`
+ * `com.google.android.gms-6.6.03_(1681564-036)-6603036-minAPI9.apk`
+ * `GoogleLoginService.apk`
+ * `GoogleServicesFramework.apk`
 * Reboot the Kindle Fire
 Open Settings > Device Options and repeatedly tap the Serial Number until it says something like “No need you are already a developer”.
 Open Settings > Device Options > Developer Options and check or turn the option saying Enable ADB
@@ -43,43 +43,43 @@ Windows: Double click root.bat and follow instructions. Linux: Open a terminal a
 
 * Install an app called “System App Remover (ROOT)” from the Google Play Store.
 * Remove any app in the list below by opening the app and checking the apps and tapping remove at the bottom of the app.
- * com.amazon.webapp | Bookstore
- * com.amazon.zico | Documents | 2.0_205111610
- * com.amazon.mp3 | Amazon music
- * com.android.music |Music | 10.0.51-D-20151009-NA-7
- * com.amazon.kindle.ottercom.amazon.kindle | Kindle Reader
- * com.audible.application.kindle | Audible
- * com.amazon.tahoe | FreeTime | 1.5.345.26-FreeTimeForTabletGen6_201365610
- * com.amazon.kindle.otter.oobe | Device Setup | 1.0.171.0_3337310
- * com.amazon.client.metrics | Amazon Metrics Service Application | 1.0.175.0_9610
- * com.amazon.device.backup | Amazon Backup and Restore | 5.0.410.0_5107610
- * com.amazon.platform | Amazon platform | 1.0.9.2_1009710
- * com.amazon.photos | photos FOS | 20115210 (Needed to change the wallpaper)
- * com.nuance.edr.androidservice.service
- * com.amazon.whisperlink.core.android | Whisperlinkplay Daemon | 2.0.100021.00
- * com.amazon.camera | Camera | 1.0.088.0_1002120310
- * com.amazon.csapp | Help App
- * com.amazon.legalsettings | Legal Settings App
- * com.amazon.venezia | Amazon App Store
- * com.amazon.h2settingsfortablet | Profiles & Family Library App
- * com.amazon.weather | Weather App
- * com.goodreads.kindle | Goodreads | 1.6.1+1060100710
- * com.android.calendar | Calendar App
- * com.amazon.kindle.kso	| Special Offers / Ads (lockscreen ads)
- * com.android.email | Email App
- * com.amazon.kindle.personal_video | Video App
- * com.amazon.avod | Video App
- * com.amazon.contacts | Contacts App
- * com.amazon.windowshop | Amazon Windowshop (Amazon Shopping App)
- * com.amazon.cloud9	| Silk Browser App
- * com.amazon.ags.app | Amazon Game Circle App
- * com.amazon.kindle.otter.settings	| Amazon Registration Service
+ * `com.amazon.webapp | Bookstore`
+ * `com.amazon.zico | Documents | 2.0_205111610`
+ * `com.amazon.mp3 | Amazon music`
+ * `com.android.music |Music | 10.0.51-D-20151009-NA-7`
+ * `com.amazon.kindle.ottercom.amazon.kindle | Kindle Reader`
+ * `com.audible.application.kindle | Audible`
+ * `com.amazon.tahoe | FreeTime | 1.5.345.26-FreeTimeForTabletGen6_201365610`
+ * `com.amazon.kindle.otter.oobe | Device Setup | 1.0.171.0_3337310`
+ * `com.amazon.client.metrics | Amazon Metrics Service Application | 1.0.175.0_9610`
+ * `com.amazon.device.backup | Amazon Backup and Restore | 5.0.410.0_5107610`
+ * `com.amazon.platform | Amazon platform | 1.0.9.2_1009710`
+ * `com.amazon.photos | photos FOS | 20115210 (Needed to change the wallpaper)`
+ * `com.nuance.edr.androidservice.service`
+ * `com.amazon.whisperlink.core.android | Whisperlinkplay Daemon | 2.0.100021.00`
+ * `com.amazon.camera | Camera | 1.0.088.0_1002120310`
+ * `com.amazon.csapp | Help App`
+ * `com.amazon.legalsettings | Legal Settings App`
+ * `com.amazon.venezia | Amazon App Store`
+ * `com.amazon.h2settingsfortablet | Profiles & Family Library App`
+ * `com.amazon.weather | Weather App`
+ * `com.goodreads.kindle | Goodreads | 1.6.1+1060100710`
+ * `com.android.calendar | Calendar App`
+ * `com.amazon.kindle.kso	| Special Offers / Ads (lockscreen ads)`
+ * `com.android.email | Email App`
+ * `com.amazon.kindle.personal_video | Video App`
+ * `com.amazon.avod | Video App`
+ * `com.amazon.contacts | Contacts App`
+ * `com.amazon.windowshop | Amazon Windowshop (Amazon Shopping App)`
+ * `com.amazon.cloud9	| Silk Browser App`
+ * `com.amazon.ags.app | Amazon Game Circle App`
+ * `com.amazon.kindle.otter.settings	| Amazon Registration Service`
 * Restart the Device.
 # 4. Changing Launcher (requires root)
 * Make sure you have another launcher before continuing.
 * Open ES File Explorer and open the side menu and open the Tools part then turn on the Root Explorer option
 * Navigate to the root of the device and open the system folder then the priv-app folder [ /system/priv-app/ ]
-* Copy the folder called com.amazon.firelauncher to the sdcard of the device and then go back to the priv-app folder and delete the folder you just copied. You should then end up with no folder called  com.amazon.firelauncher in the priv-app folder and a folder called  com.amazon.firelauncher in the sdcard.
+* Copy the folder called com.amazon.firelauncher to the SD card of the device and then go back to the priv-app folder and delete the folder you just copied. You should then end up with no folder called  com.amazon.firelauncher in the priv-app folder and a folder called  com.amazon.firelauncher in the SD card.
 * Restart the device.
 
 ---

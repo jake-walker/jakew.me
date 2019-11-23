@@ -7,7 +7,7 @@ description: "Creating a simple desktop app with JavaScript, HTML and CSS using 
 ---
 Yesterday, I was downloading Visual Studio and then I thought to myself: *What if I could write desktop apps with Node.JS, HTML and CSS?*. After a bit of Googling around I found something called Electron.
 
-Electron is made by Github and it's Atom editor uses it. Essentially it is an iframe in a window. But of coarse nothing is as simple as that. It also manages the processes.
+Electron is made by GitHub and it's Atom editor uses it. Essentially it is an iframe in a window. But of coarse nothing is as simple as that. It also manages the processes.
 
 > This tutorial was written for Windows but I'm sure it's not too hard to replicate on Linux *(or other)*
 
@@ -110,9 +110,9 @@ After it's installed, you can now include it into the project. Go to `index.html
 * Add `var request = require('request')` to include the request library.
 * Add `request('http://random.cat/meow', function (error, response, body) { })` to fetch the cat image.
 * Then inside the request function add `if (!error && response.statusCode == 200) { }` which will check that there are no errors like the site being down.
-* Then inside the if statement add `var jsonObj = JSON.parse(body)` which will parse the output from the website and make it easy to extract the image url.
+* Then inside the if statement add `var jsonObj = JSON.parse(body)` which will parse the output from the website and make it easy to extract the image URL.
 * Then underneath the last line add `var image = document.getElementById('myImage')` which will search the file for an element with the id of 'myImage'.
-* Then, again underneath the last line add `image.setAttribute("src", jsonObj.file)` which will set the image url of the image tag to the image of the cat.
+* Then, again underneath the last line add `image.setAttribute("src", jsonObj.file)` which will set the image URL of the image tag to the image of the cat.
 
 All that code should look like this:
 
@@ -190,6 +190,6 @@ and it works!
 
 ---
 
-I think the Javascript we put in could have gone into `renderer.js` but I didn't get it to work.
+I think the JavaScript we put in could have gone into `renderer.js` but I didn't get it to work.
 
 Now for awesome some new Node.JS apps huh?

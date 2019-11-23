@@ -15,7 +15,7 @@ My first impression of the Pi Zero was that it was extremely small. The only pla
 # Setup
 * I first plugged in the HDMI adapter then a (powered) HDMI to VGA adapter as my monitor is VGA.
 * Next, I plugged in my OTG cable then plugged that into a powered USB Hub which I had my keyboard, mouse and Wi-Fi dongle connected.
-* Then, I inserted my microSD card which I had put [Raspbian](https://www.raspberrypi.org/downloads/raspbian/) on (I used the lite version (which has no desktop gui) as I like to run my Pi's headless and its more fun to learn bash :))
+* Then, I inserted my microSD card which I had put [Raspbian](https://www.raspberrypi.org/downloads/raspbian/) on (I used the lite version (which has no desktop GUI) as I like to run my Pi's headless and its more fun to learn bash :))
 * I plugged in the power then waited for it to boot up for the first time.
 * I typed in `pi` for the username and `raspberry` for the password.
 * I then expanded the filesystem to use the whole of my SD card by typing `sudo raspi-config` then selecting 'Expand Filesystem'.
