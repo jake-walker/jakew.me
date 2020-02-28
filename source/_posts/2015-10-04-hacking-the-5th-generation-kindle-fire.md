@@ -3,10 +3,8 @@ title: Hacking the 5th Generation Kindle Fire
 date: 2015-10-04 21:05:00
 tags:
   - kindle-hacking
-description: "[OLD] Adding Google Apps, Rooting, Removing Bloatware and Changing the Launcher of a 5th Generation Kindle Fire"
+description: "Adding Google Apps, Rooting, Removing Bloatware and Changing the Launcher of a 5th Generation Kindle Fire"
 ---
-> This post is quite old, so the formatting isn't as fabulous as some of my newer posts.
-
 On Black Friday I bought a Kindle Fire (5th Gen) for £35. I decided to hack it. My main aim was to install Google Play, change the launcher and remove the bloatware, however, to achieve this I also needed to root the device.
 
 Prerequisites: ADB and Fastboot (guide: http://goo.gl/SLpJXX), Drivers (http://goo.gl/sqJgpL)

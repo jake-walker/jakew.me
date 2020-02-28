@@ -3,10 +3,8 @@ title: Pi Zero Impressions
 date: 2016-02-29 17:54:00
 tags:
   - raspberry-pi
-description: "[OLD] First Impressions of the new tiny £5 Raspberry Pi Zero."
+description: "First Impressions of the new tiny £5 Raspberry Pi Zero."
 ---
-> This post is quite old, so the formatting isn't as fabulous as some of my newer posts.
-
 I brought a Raspberry Pi Zero on Friday because it was really hyped up and it was also very cheap. I brought mine from [The Pi Hut](http://thepihut.com/), I got the [Zero + Essentials Kit](http://thepihut.com/collections/raspberry-pi-zero/products/raspberry-pi-zero?variant=14062725188) variation (which costed £10.25 at the time of purchase).
 
 # First Impressions

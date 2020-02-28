@@ -3,10 +3,8 @@ title: Installing a Custom ROM onto the 5th Generation Kindle Fire
 date: 2015-12-27 17:36:55
 tags:
   - kindle-hacking
-description: "[OLD] Installing a custom Android version onto the 5th Generation Kindle Fire"
+description: "Installing a custom Android version onto the 5th Generation Kindle Fire"
 ---
-> This post is quite old, so the formatting isn't as fabulous as some of my newer posts.
-
 After playing with my Kindle for a few weeks, I thought how much bloatware was installed and how locked down the device was. I then decided to install a custom ROM.
 
 # Prep
