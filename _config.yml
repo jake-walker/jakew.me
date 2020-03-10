@@ -82,13 +82,6 @@ prism_plugin:
   theme: default
   line_number: false
 
-# Deployment
-## Docs: https://hexo.io/docs/deployment.html
-deploy:
-  type: git
-  repo: https://__GITHUB_TOKEN__@github.com/jake-walker/jakew.me.git
-  branch: master
-
 # RSS Feed
 feed:
   type: rss2
