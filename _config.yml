@@ -97,3 +97,13 @@ feed:
   content: true
   order_by: -date
   icon: https://jakew.me/img/avatar.svg
+
+asset_pipeline:
+  clean_css:
+    enable: true
+  uglify_js:
+    enable: true
+  imagemin:
+    enable: true
+  html_minifier:
+    enable: true
