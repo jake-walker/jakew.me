@@ -40,12 +40,12 @@ var windowTitle = pageTitle + ((pageTitle != "") ? " | " : "") + config.title;
   <meta property="og:image:width" content="279">
   <meta property="og:image:height" content="279">
   <meta property="og:title" content="Jake Walker">
-  <meta property="og:description" content="Hi! I'm Jake Walker, a Full Stack Developer and Tech Enthusiast living in the United Kingdom.">
+  <meta property="og:description" content="Hi! I'm Jake Walker, a Developer and Tech Enthusiast living in the United Kingdom.">
   <meta property="og:url" content="https://jakew.me">
 
   <!-- seo meta tags -->
-  <meta name="description" content="Hi! I'm Jake Walker, a Full Stack Developer and Tech Enthusiast living in the United Kingdom." />
-  <meta name="keywords" content="blog, jake walker, developer, portfolio, tech, technology, dev, nodejs, javascript, full stack, raspberry pi, arduino, maker, electronics, iot, node, python" />
+  <meta name="description" content="Hi! I'm Jake Walker, a Developer and Tech Enthusiast living in the United Kingdom." />
+  <meta name="keywords" content="blog, jake walker, developer, portfolio, tech, technology, dev, nodejs, javascript, raspberry pi, arduino, maker, electronics, iot, node, python" />
   <meta name="author" content="metatags generator">
   <meta name="robots" content="index, follow">
   <meta name="revisit-after" content="1 month">
@@ -53,22 +53,22 @@ var windowTitle = pageTitle + ((pageTitle != "") ? " | " : "") + config.title;
 <body>
 
 <div class="content">
-  <% if (is_home()) { %><div class="hero"><% } %> 
+  <% if (is_home()) { %><div class="hero"><% } %>
     <%- partial('partials/nav'); %>
-  <% if (is_home()) { %><div class="hero-content"><%- partial('partials/hero') %></div></div><% } %> 
+  <% if (is_home()) { %><div class="hero-content"><%- partial('partials/hero') %></div></div><% } %>
 
   <% if (!is_home()) { %>
     <%- partial('partials/meta-jumbotron.ejs', {
       pageTitle: pageTitle
     }); %>
   <% } %>
-  
+
   <div class="container" id="main-content">
     <div class="row">
       <div class="col-lg-8">
         <%- body %>
       </div>
-      <div class="col-lg-4">  
+      <div class="col-lg-4">
         <%- partial('sidebar/gpg'); %>
         <%- partial('sidebar/tagcloud'); %>
         <%- partial('sidebar/recentposts'); %>
