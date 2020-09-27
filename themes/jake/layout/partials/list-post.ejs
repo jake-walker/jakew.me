@@ -1,5 +1,0 @@
-<ul class="list-group">
-  <% posts.each(post => { %>
-    <a class="list-group-item list-group-item-action" href="<%= url_for(post.path) %>"><b><%= post.title %></b> - <%= date(post.date) %></a>
-  <% }); %>
-</ul>
