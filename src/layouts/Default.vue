@@ -14,11 +14,26 @@
       </div>
     </div>
 
-    <transition name="fade" appear>
-      <main>
-        <slot/>
-      </main>
-    </transition>
+    <div id="content">
+      <transition name="fade" appear>
+        <main>
+          <slot/>
+        </main>
+      </transition>
+    </div>
+
+    <div id="footer" class="bg-gray-200">
+      <div class="container mx-auto text-center py-2 text-gray-700 text-xs">
+        <p>
+          <span class="font-bold">{{ $static.metadata.siteName }}</span>
+          &bull;
+          <span class="">
+            Powered by <a href="https://gridsome.org/" class="no-underline hover:underline text-primary">Gridsome</a>, <a href="https://tailwindcss.com/" class="no-underline hover:underline text-primary">Tailwind CSS</a> and <a href="https://www.netlify.com/" class="no-underline hover:underline text-primary">Netlify</a>.
+            Licensed under the <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" class="no-underline hover:underline text-primary">GNU GPL v3.0 licence</a> and source code is available on <a href="https://www.github.com/jake-walker/jakew.me" class="no-underline hover:underline text-primary">GitHub</a>.
+          </span>
+        </p>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -73,5 +88,15 @@ export default {
 
   .fade-enter {
     opacity: 0;
+  }
+
+  .layout {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  #content {
+    flex: 1;
   }
 </style>
