@@ -13,7 +13,7 @@ module.exports = {
         primary: "#7F00FF",
         secondary: "#E100FF",
         black: "#151515",
-        white: "#eee",
+        white: "#fff",
         purple: "#7F00FF",
         pink: "#E100FF"
       }

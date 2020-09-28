@@ -15,13 +15,44 @@
         own projects.
       </p>
     </div>
+
+    <div class="container mx-auto py-5">
+      <h2 class="text-2xl">Latest Posts</h2>
+      <ul class="list-disc list-inside">
+        <li v-for="post in $page.posts.edges" :key="post.node.id">
+          <g-link :to="post.node.path" class="no-underline hover:underline text-primary">{{ post.node.title }}</g-link>
+          <span class="ml-2 text-xs text-gray-600">({{ post.node.date }}, {{ post.node.timeToRead }} min read)</span>
+        </li>
+      </ul>
+    </div>
   </Layout>
 </template>
 
 <script>
+import PostList from "@/components/PostList";
+
 export default {
   metaInfo: {
     title: 'Home'
+  },
+  components: {
+    PostList
   }
 }
 </script>
+
+<page-query>
+query {
+  posts: allBlogPost(filter: { date: { gte: "2020" }}, limit: 5) {
+    edges {
+      node {
+        id
+        title
+        timeToRead
+        date (format: "D MMM YYYY")
+        path
+      }
+    }
+  }
+}
+</page-query>
