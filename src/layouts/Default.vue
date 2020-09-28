@@ -1,6 +1,6 @@
 <template>
   <div class="layout">
-    <div id="header" class="bg-gray-300">
+    <div id="header" class="bg-gray-300 dark:bg-gray-900">
       <div class="container mx-auto text-center py-10">
         <g-image class="inline" src="~/assets/avatar.png" width="150" height="150" fit="inside"/>
         <g-link to="/">
@@ -22,14 +22,14 @@
       </transition>
     </div>
 
-    <div id="footer" class="bg-gray-200">
-      <div class="container mx-auto text-center py-2 text-gray-700 text-xs">
+    <div id="footer" class="bg-gray-200 dark:bg-gray-800">
+      <div class="container mx-auto text-center py-2 text-gray-700 dark:text-gray-500 text-xs">
         <p>
           <span class="font-bold">{{ $static.metadata.siteName }}</span>
           &bull;
           <span class="">
-            Powered by <a href="https://gridsome.org/" class="no-underline hover:underline text-primary">Gridsome</a>, <a href="https://tailwindcss.com/" class="no-underline hover:underline text-primary">Tailwind CSS</a> and <a href="https://www.netlify.com/" class="no-underline hover:underline text-primary">Netlify</a>.
-            Licensed under the <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" class="no-underline hover:underline text-primary">GNU GPL v3.0 licence</a> and source code is available on <a href="https://www.github.com/jake-walker/jakew.me" class="no-underline hover:underline text-primary">GitHub</a>.
+            Powered by <a href="https://gridsome.org/" class="no-underline hover:underline text-primary dark:text-secondary">Gridsome</a>, <a href="https://tailwindcss.com/" class="no-underline hover:underline text-primary dark:text-secondary">Tailwind CSS</a> and <a href="https://www.netlify.com/" class="no-underline hover:underline text-primary dark:text-secondary">Netlify</a>.
+            Licensed under the <a href="https://www.gnu.org/licenses/gpl-3.0.en.html" class="no-underline hover:underline text-primary dark:text-secondary">GNU GPL v3.0 licence</a> and source code is available on <a href="https://www.github.com/jake-walker/jakew.me" class="no-underline hover:underline text-primary dark:text-secondary">GitHub</a>.
           </span>
         </p>
       </div>

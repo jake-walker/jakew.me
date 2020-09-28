@@ -1,6 +1,6 @@
 <template>
   <Layout>
-    <div class="bg-gray-200">
+    <div class="bg-gray-200 dark:bg-gray-800">
       <div class="container mx-auto py-8">
         <h1 id="article-title" class="text-3xl font-semibold tracking-tighter">{{ $page.post.title }}</h1>
         <p class="text-gray-600 font-light">
@@ -10,7 +10,7 @@
       </div>
     </div>
     <div class="container mx-auto py-5">
-      <article id="article-content" class="prose prose-lg lg:prose-xl mx-auto" v-html="$page.post.content"/>
+      <article id="article-content" class="prose prose-lg lg:prose-xl mx-auto dark:prose-dark" v-html="$page.post.content"/>
     </div>
   </Layout>
 </template>

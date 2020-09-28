@@ -5,9 +5,15 @@ module.exports = {
   },
   theme: {
     extend: {
+      screens: {
+        light: { raw: "(prefers-color-scheme: light)" },
+        dark: { raw: "(prefers-color-scheme: dark)" }
+      },
       colors: {
         primary: "#7F00FF",
         secondary: "#E100FF",
+        black: "#151515",
+        white: "#eee",
         purple: "#7F00FF",
         pink: "#E100FF"
       }
@@ -39,10 +45,62 @@ module.exports = {
             }
           }
         }
+      },
+      dark: {
+        css: {
+          color: theme('colors.gray.300'),
+          a: {
+            color: theme("colors.secondary"),
+            "&:hover": {
+              color: theme("colors.secondary")
+            }
+          },
+          h1: {
+            color: theme('colors.gray.300'),
+          },
+          h2: {
+              color: theme('colors.gray.300'),
+          },
+          h3: {
+              color: theme('colors.gray.300'),
+          },
+          h4: {
+              color: theme('colors.gray.300'),
+          },
+          h5: {
+              color: theme('colors.gray.300'),
+          },
+          h6: {
+              color: theme('colors.gray.300'),
+          },
+          strong: {
+              color: theme('colors.gray.300'),
+          },
+          code: {
+              color: theme('colors.gray.300'),
+          },
+          figcaption: {
+              color: theme('colors.gray.500'),
+          }
+        }
       }
     })
   },
   plugins: [
-    require("@tailwindcss/typography")
+    require("@tailwindcss/typography"),
+    function({ addBase, config }) {
+      addBase({
+        body: {
+          color: config("theme.colors.black"),
+          backgroundColor: config("theme.colors.white")
+        },
+        "@screen dark": {
+          body: {
+            color: config("theme.colors.white"),
+            backgroundColor: config("theme.colors.black")
+          }
+        }
+      })
+    }
   ],
 }
