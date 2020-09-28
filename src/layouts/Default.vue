@@ -13,7 +13,12 @@
         </ul>
       </div>
     </div>
-    <slot/>
+
+    <transition name="fade" appear>
+      <main>
+        <slot/>
+      </main>
+    </transition>
   </div>
 </template>
 
@@ -60,5 +65,13 @@ export default {
   .nav-link:hover {
     text-decoration: none;
     border-bottom: 2px solid currentColor;
+  }
+
+  .fade-enter-active {
+    transition: opacity .5s;
+  }
+
+  .fade-enter {
+    opacity: 0;
   }
 </style>
