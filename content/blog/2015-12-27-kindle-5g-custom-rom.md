@@ -1,4 +1,5 @@
 ---
+slug: kindle-5g-custom-rom
 title: Installing a Custom ROM onto the 5th Generation Kindle Fire
 date: 2015-12-27 17:36:55
 tags:

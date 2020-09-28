@@ -1,4 +1,5 @@
 ---
+slug: raspberry-pi-pvr
 title: Raspberry Pi PVR
 date: 2014-10-26 20:59:00
 tags: raspberry-pi

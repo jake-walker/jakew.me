@@ -1,4 +1,5 @@
 ---
+slug: switching-to-brave
 title: Switching to the Brave Browser
 date: 2019-04-06 16:47:43
 description: "My experience of switching to the Brave Web Browser."
@@ -7,17 +8,17 @@ I wouldn't normally make a post about switching web browsers. I've switched brow
 
 I first heard about [Brave](https://brave.com/) a few months after it came out on the 20th January 2016 and I thought that the built-in Ad blocking feature was pretty cool, so I tried it for a day or so.
 
-{% asset_img old-brave.png "Old Brave Browser" %}
+![Old Brave Browser](./2019-04-06-switching-to-brave/old-brave.png)
 
 The initial version of Brave, was a little basic, for me at least, not having extension support (which was a must as I use a password manager) and generally just an early build version, not meant for daily use. I ended up not switching over to Brave after all, and I ended up forgetting about Brave.
 
 Fast-forward to April 2019, where I see one of my friends using it. I instantly knew that I had to try it again now that it's been polished up. I load up the Brave Website and see the biggest text on my screen: "You are not a product".
 
-{% asset_img brave-site.png "Brave Website" %}
+![Brave Website](./2019-04-06-switching-to-brave/brave-site.png)
 
 And those 5 words made me want to switch to Brave, even before installing it. When I do install it though, I love the experience.
 
-{% asset_img new-brave.jpg "Current Brave Browser" %}
+![Current Brave Browser](./2019-04-06-switching-to-brave/new-brave.jpg)
 
 # The Brave Browser
 
@@ -31,7 +32,7 @@ This seems great for Brave users, but not so great for publishers and content cr
 
 If you decide to give a 'tip' to a website, you'll get a little pop-up which looks something like this.
 
-{% asset_img brave-banner.jpg "Brave Tip Banner" %}
+![Brave Tip Banner](./2019-04-06-switching-to-brave/brave-banner.jpg)
 
 And this pop-up lets users decide how much they would like to tip and whether they would like to tip every month or not. This lets users securely and anonymously give back to creators, which I would assume will be more profitable for creators than with traditional advertising.
 

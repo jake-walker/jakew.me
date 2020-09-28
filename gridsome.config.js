@@ -5,7 +5,7 @@
 // To restart press CTRL + C in terminal and run `gridsome develop`
 
 module.exports = {
-  siteName: 'Gridsome',
+  siteName: 'Jake Walker',
   transformers: {
     remark: {
       externalLinksTarget: '_blank',
@@ -17,6 +17,9 @@ module.exports = {
     }
   },
   plugins: [
+    {
+      use: "gridsome-plugin-tailwindcss"
+    },
     {
       use: '@gridsome/source-filesystem',
       options: {

@@ -1,14 +1,18 @@
 <template>
   <div class="layout">
-    <header class="header">
-      <strong>
-        <g-link to="/">{{ $static.metadata.siteName }}</g-link>
-      </strong>
-      <nav class="nav">
-        <g-link class="nav__link" to="/">Home</g-link>
-        <g-link class="nav__link" to="/about/">About</g-link>
-      </nav>
-    </header>
+    <div id="header" class="bg-gray-300">
+      <div class="container mx-auto text-center py-10">
+        <g-image class="inline" src="~/assets/avatar.png" width="150" height="150" fit="inside"/>
+        <g-link to="/">
+          <h1 class="text-5xl tracking-tight font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text bg-repeat" id="site-title">{{ $static.metadata.siteName }}</h1>
+        </g-link>
+        <ul class="flex justify-center">
+          <li class="mr-3" v-for="item in nav" :key="item.name">
+            <g-link class="nav-link text-primary text-lg" exact-active-class="text-secondary underline" :to="item.path">{{ item.name }}</g-link>
+          </li>
+        </ul>
+      </div>
+    </div>
     <slot/>
   </div>
 </template>
@@ -21,30 +25,40 @@ query {
 }
 </static-query>
 
-<style>
-body {
-  font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
-  margin:0;
-  padding:0;
-  line-height: 1.5;
+<script>
+export default {
+  data: () => ({
+    nav: [
+      {
+        name: "Home",
+        path: "/"
+      },
+      {
+        name: "Blog",
+        path: "/blog"
+      },
+      {
+        name: "Contact",
+        path: "/contact"
+      }
+    ]
+  })
 }
+</script>
 
-.layout {
-  max-width: 760px;
-  margin: 0 auto;
-  padding-left: 20px;
-  padding-right: 20px;
-}
+<style scoped>
+  #site-title {
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+  }
 
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-  height: 80px;
-}
+  .nav-link.underline {
+    text-decoration: none;
+    border-bottom: 2px solid currentColor;
+  }
 
-.nav__link {
-  margin-left: 20px;
-}
+  .nav-link:hover {
+    text-decoration: none;
+    border-bottom: 2px solid currentColor;
+  }
 </style>

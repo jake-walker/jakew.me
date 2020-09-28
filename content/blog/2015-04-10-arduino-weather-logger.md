@@ -1,4 +1,5 @@
 ---
+slug: arduino-weather-logger
 title: Arduino Weather Logger
 date: 2015-04-10 19:57:00
 tags:
@@ -11,7 +12,8 @@ description: "Creating an Arduino Weather Station."
 This was originally a way to test out an app I found called ‘Blynk’ which I first tested on the Raspberry Pi. I then decided to try and get it working with an Arduino and a cheap Wi-Fi module then I plugged in my BMP180 and a light sensor and successfully got it working. I then decided to remove the components I was testing it with and turn it into a data logging weather station.
 
 # Wiring
-{% asset_img circuit.png "Circuit Diagram" %}
+
+![Circuit Diagram](./2015-04-10-arduino-weather-logger/circuit.png)
 
 [View on Fritzing](http://fritzing.org/projects/arduino-weather-logger)
 

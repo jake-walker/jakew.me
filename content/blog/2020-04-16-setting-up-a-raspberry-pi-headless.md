@@ -1,4 +1,5 @@
 ---
+slug: setting-up-a-raspberry-pi-headless
 title: Setting up a Raspberry Pi Zero W without a Display, Keyboard and Mouse
 date: 2020-04-16 12:53:27
 tags:
@@ -16,7 +17,7 @@ Unlike most other things, it's quite important to have a good quality SD card fo
 - **Class**. SD cards are given a class which summarises what kind of speeds you should expect to get from the SD card. Most places online recommend a class of 10 or higher. The SD card that I have below is class 10 (which you can see by the 10 in the small circle).
 - **Size**. SD cards also come in a variety of sizes. 8GB is the recommended minimum for Raspbian but you could possibly fit it all on a smaller SD card.
 
-{% asset_img rpi-009.jpg "Micro SD Card" %}
+![Micro SD Card](./2020-04-16-setting-up-a-raspberry-pi-headless/rpi-009.jpg)
 
 ## Flashing the SD card
 
@@ -28,23 +29,23 @@ Firstly, you'll need to download the Raspberry Pi Imager for your specific opera
 
 After you've downloaded the imager, install and launch it:
 
-{% asset_img imager1.jpg "Raspberry Pi Imager" %}
+![Raspberry Pi Imager](./2020-04-16-setting-up-a-raspberry-pi-headless/imager1.jpg)
 
 The next step is then to select which operating system you would like. There are many different official varieties. Most of the time you'll just want ordinary Raspbian which is the first item in the list.
 
-{% asset_img imager2.jpg "Raspberry Pi Imager Operating System Selection" %}
+![Raspberry Pi Imager Operating System Selection](./2020-04-16-setting-up-a-raspberry-pi-headless/imager2.jpg)
 
 As I'm walking through a headless setup, I'd recommend using Raspbian Lite which has no desktop (just a command line). You can find this by clicking 'Raspbian (other)' and then selecting 'Raspbian Lite'.
 
-{% asset_img imager3.png "Raspberry Pi Imager with Selected Operating System" %}
+![Raspberry Pi Imager with Selected Operating System](./2020-04-16-setting-up-a-raspberry-pi-headless/imager3.png)
 
 The next step is to connect the SD card that you want to flash. There might be only one device to choose from, but if not make sure that you are selecting one with a similar size to your SD card (it might not be exactly the same, mine shows up as 7GB in the list even though it is 8GB).
 
-{% asset_img imager4.png "Raspberry Pi Imager SD Card Selection" %}
+![Raspberry Pi Imager SD Card Selection](./2020-04-16-setting-up-a-raspberry-pi-headless/imager4.png)
 
 Finally, after selecting the operating system and SD card, you can hit the write button and wait.
 
-{% asset_img imager5.png "Raspberry Pi Imager" %}
+![Raspberry Pi Imager](./2020-04-16-setting-up-a-raspberry-pi-headless/imager5.png)
 
 It could take a couple of minutes to download the image and flash it depending on your internet speed.
 
@@ -54,17 +55,17 @@ At this point, you could stop and plug in the SD card to your Raspberry Pi with 
 
 The Raspberry Pi Imager automatically ejects the SD card after it has been flashed so you might need to unplug and plug back in your SD card in order to see the files stored on it.
 
-{% asset_img boot.png "SD Card in Windows Explorer showing as boot" %}
+![SD Card in Windows Explorer showing as boot](./2020-04-16-setting-up-a-raspberry-pi-headless/boot.png)
 
 ### Enabling SSH
 
 Open up the 'boot' drive that shows up and in Windows you can hold down <kbd>Shift</kbd> while right-clicking to bring up a menu with the option 'Open PowerShell window here':
 
-{% asset_img ssh1.png "Selecting 'Open PowerShell window here' on the 'boot' drive" %}
+![Selecting 'Open PowerShell window here' on the 'boot' drive](./2020-04-16-setting-up-a-raspberry-pi-headless/ssh1.png)
 
 On Windows, you can then type the command `echo $null >> ssh` to create a blank file called 'ssh'. On Linux and MacOS, you can use the command `touch ssh` in order to create the same blank file.
 
-{% asset_img ssh2.png "PowerShell window with the command to create a new blank file called 'ssh'" %}
+![PowerShell window with the command to create a new blank file called 'ssh'](./2020-04-16-setting-up-a-raspberry-pi-headless/ssh2.png)
 
 Creating a blank file called 'ssh' tells Raspbian to enable SSH.
 
@@ -86,23 +87,23 @@ network={
 
 Replace 'network' with your Wi-Fi network's name and 'password' with your Wi-Fi network's password. Then save the file as 'wpa_supplicant.conf' to the root of the SD card.
 
-{% asset_img wifi1.png "Visual Studio Code with 'wpa_supplicant.conf' open" %}
+![Visual Studio Code with 'wpa_supplicant.conf' open](./2020-04-16-setting-up-a-raspberry-pi-headless/wifi1.png)
 
 After doing both of those steps, you should now have 2 new files in the root of the SD card like so:
 
-{% asset_img file.png "The 2 new files in on the SD card" %}
+![The 2 new files in on the SD card](./2020-04-16-setting-up-a-raspberry-pi-headless/files.png)
 
 ## Booting Up
 
 Now you're good to pop the SD card into the Raspberry Pi and connect power.
 
-{% asset_img rpi-011.jpg "Raspberry Pi Zero with SD card" %}
+![Raspberry Pi Zero with SD card](./2020-04-16-setting-up-a-raspberry-pi-headless/rpi-011.jpg)
 
-{% asset_img rpi-012.jpg "Raspberry Pi Zero with SD card and Power" %}
+![Raspberry Pi Zero with SD card and Power](./2020-04-16-setting-up-a-raspberry-pi-headless/rpi-012.jpg)
 
 Then you can use an app like [Fing](https://www.fing.com/products/fing-app) to scan your Wi-Fi network for a Raspberry Pi. Looking at the app, I found that my Pi's IP address is 192.168.1.125.
 
-{% asset_img fing.jpg "Screenshot of Fing showing the new Raspberry Pi" %}
+![Screenshot of Fing showing the new Raspberry Pi](./2020-04-16-setting-up-a-raspberry-pi-headless/fing.jpg)
 
 ## Connecting via SSH
 
@@ -110,16 +111,16 @@ To connect via SSH, you'll first need an SSH client. [Termius](https://termius.c
 
 To connect with Termius, click the 'New Host' button at the top and type in the IP address in the 'Address' box.
 
-{% asset_img termius1.png "Screenshot of Fing showing the new Raspberry Pi" %}
+![Adding a new host for the Raspberry Pi in Termius](./2020-04-16-setting-up-a-raspberry-pi-headless/termius1.png)
 
 Then scroll down to the SSH configuration section and type in the username and password. By default the username is 'pi' and the password is 'raspberry' (you should probably change these when you get logged in).
 
-{% asset_img termius2.png "Screenshot of Fing showing the new Raspberry Pi" %}
+![Setting the username and password for the new host in Termius](./2020-04-16-setting-up-a-raspberry-pi-headless/termius2.png)
 
 Finally, double-click on the new host that you've created and wait for it to connect.
 
-{% asset_img termius3.png "Screenshot of Fing showing the new Raspberry Pi" %}
+![Connecting to the new host in Termius](./2020-04-16-setting-up-a-raspberry-pi-headless/termius3.png)
 
 And bam, we're in. Now you can use your Raspberry Pi from anywhere in Wi-Fi range and without plugging anything in but power.
 
-{% asset_img termius4.png "Screenshot of Fing showing the new Raspberry Pi" %}
+![Terminal over SSH in Termius](./2020-04-16-setting-up-a-raspberry-pi-headless/termius4.png)

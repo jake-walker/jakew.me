@@ -1,4 +1,5 @@
 ---
+slug: hacking-the-5th-generation-kindle-fire
 title: Hacking the 5th Generation Kindle Fire
 date: 2015-10-04 21:05:00
 tags:
@@ -15,7 +16,7 @@ Prerequisites: ADB and Fastboot (guide: http://goo.gl/SLpJXX), Drivers (http://g
 * Install ES File Explorer from Amazon’s App Store for free on the Kindle Fire.
 * Open Settings > Security > Unknown Sources and check it or turn it on.
 * Download the Google Core APK .zip archive here: https://goo.gl/ansjr1 to the device and find it in ES File Explorer under the internal SD card in the Downloads folder
-Install each of the below in order by tapping on the particular file name in ES File Explorer. 
+Install each of the below in order by tapping on the particular file name in ES File Explorer.
  * `com.android.vending-5.9.12-80391200-minAPI9.apk`
  * `com.google.android.gms-6.6.03_(1681564-036)-6603036-minAPI9.apk`
  * `GoogleLoginService.apk`

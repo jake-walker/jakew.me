@@ -1,4 +1,5 @@
 ---
+slug: wannacry-vm
 title: Running WannaCry in a Virtual Machine
 date: 2020-02-28 16:30:00
 tags: malware
@@ -25,77 +26,77 @@ I am using [VMware Workstation 15 Pro](https://www.vmware.com/uk/products/workst
 
 I started off by creating a new Typical Virtual Machine:
 
-{% asset_img vm-wizard-1.png "VMware Virtual Machine Wizard" %}
+![VMware Virtual Machine Wizard](./2020-02-28-wannacry-vm/vm-wizard-1.png)
 
 Then although I had in ISO file to use, I picked 'I will install the operating system' later so that VMware didn't use it's Easy Install feature which skips through the installation wizard.
 
-{% asset_img vm-wizard-2.png "VMware Virtual Machine Wizard" %}
+![VMware Virtual Machine Wizard](./2020-02-28-wannacry-vm/vm-wizard-2.png)
 
 Next up, I picked the version of Windows that I was using:
 
-{% asset_img vm-wizard-3.png "VMware Virtual Machine Wizard" %}
+![VMware Virtual Machine Wizard](./2020-02-28-wannacry-vm/vm-wizard-3.png)
 
 And gave it a name
 
-{% asset_img vm-wizard-4.png "VMware Virtual Machine Wizard" %}
+![VMware Virtual Machine Wizard](./2020-02-28-wannacry-vm/vm-wizard-4.png)
 
 Then I created the virtual hard drive. The recommended size is 60 GB, but I decided to go for half of that as I wouldn't be doing anything other than copying some files into the VM and running WannaCry.
 
-{% asset_img vm-wizard-5.png "VMware Virtual Machine Wizard" %}
+![VMware Virtual Machine Wizard](./2020-02-28-wannacry-vm/vm-wizard-5.png)
 
 Then I needed to give the VM slightly more processor, RAM and setup the ISO to be in the virtual machine's CD drive by clicking 'Customize Hardware...':
 
-{% asset_img vm-wizard-6.png "VMware Virtual Machine Wizard" %}
+![VMware Virtual Machine Wizard](./2020-02-28-wannacry-vm/vm-wizard-6.png)
 
 In the Memory tab, I increased the memory from 1024 MB to 2048 MB:
 
-{% asset_img vm-hardware-1.png "VMware Virtual Machine Hardware Configuration" %}
+![VMware Virtual Machine Hardware Configuration](./2020-02-28-wannacry-vm/vm-hardware-1.png)
 
 In the Processors tab, I increased the number of processors from 1 to 2:
 
-{% asset_img vm-hardware-2.png "VMware Virtual Machine Hardware Configuration" %}
+![VMware Virtual Machine Hardware Configuration](./2020-02-28-wannacry-vm/vm-hardware-2.png)
 
 Then I removed the Network Adapter by selecting it and hitting the remove button at the bottom of the menu.
 
-{% asset_img vm-hardware-3.png "VMware Virtual Machine Hardware Configuration" %}
+![VMware Virtual Machine Hardware Configuration](./2020-02-28-wannacry-vm/vm-hardware-3.png)
 
 Then on the 'CD/DVD (SATA)' tab, I selected the 'Use ISO image file' and opened the ISO image that I had for Windows 7:
 
-{% asset_img vm-hardware-4.png "VMware Virtual Machine Hardware Configuration" %}
+![VMware Virtual Machine Hardware Configuration](./2020-02-28-wannacry-vm/vm-hardware-4.png)
 
 Finally, I checked over the new VM's settings and hit Finish:
 
-{% asset_img vm-wizard-7.png "VMware Virtual Machine Wizard" %}
+![VMware Virtual Machine Wizard](./2020-02-28-wannacry-vm/vm-wizard-7.png)
 
 ### Setting up Windows
 
 After creating the virtual machine, it was time to setup and install Windows 7. The ISO image was already mounted to the VM from the previous steps, so it is ready to boot.
 
-{% asset_img vm-boot.png "Initial Virtual Machine boot" %}
+![Initial Virtual Machine boot](./2020-02-28-wannacry-vm/vm-boot.png)
 
 Then I just went through the setup wizard as on a normal computer.
 
-{% asset_img vm-setup-1.png "Virtual Machine installing Windows 7" %}
+![Virtual Machine installing Windows 7](./2020-02-28-wannacry-vm/vm-setup-1.png)
 
 I created a new user called 'CADS' and gave it a suitable name:
 
-{% asset_img vm-setup-2.png "Virtual Machine installing Windows 7" %}
+![Virtual Machine installing Windows 7](./2020-02-28-wannacry-vm/vm-setup-2.png)
 
 I clicked next when it asked for a product key as it doesn't matter that this VM isn't activated. Then I selected 'Use recommended settings' and set my time zone, date and time. Then I was greeted with the Windows 7 desktop. At this point, it's a good idea to make sure that the virtual machine **does not** have an internet connection.
 
-{% asset_img vm-done.png "Virtual Machine with Windows 7 Desktop" %}
+![Virtual Machine with Windows 7 Desktop](./2020-02-28-wannacry-vm/vm-done.png)
 
 From my earlier research, it is recommended that you **don't** install VMware tools, so if you are prompted by VMware to add them, it's best to ignore the message.
 
 One of the downsides of not installing VMware tools is that the screen is tiny. As I'm doing a demonstration I can't really use it with a tiny screen resolution. I fixed this by going into the settings and changing the screen resolution and also turning on screen stretching in VMware so that it would scale the screen to the size of the window.
 
-{% asset_img vm-screen-res.png %}
+![](./2020-02-28-wannacry-vm/vm-screen-res.png)
 
 I then customised Windows 7 a bit by adding a wallpaper, user avatar and adding some random files to the desktop, documents and pictures folders which would demonstrate the files getting encrypted. I copied all of the things I'd need on the virtual machine to a USB drive plugged into my host machine.
 
 I then attached the USB drive to the virtual machine and copied all of the files off to their relevant places:
 
-{% asset_img vm-drive.png %}
+![](./2020-02-28-wannacry-vm/vm-drive.png)
 
 ## Malware Sample
 
@@ -103,19 +104,19 @@ Now that the virtual machine is setup, it's time to download the malware sample 
 
 To download the sample, I went to [theZoo on GitHub](https://github.com/ytisf/theZoo/tree/master/malwares/Binaries/Ransomware.WannaCry) on my host machine and went into `malwares` → `Binaries` → `Ransomware.WannaCry` and then downloaded the `Ransomware.WannaCry.zip` file.
 
-{% asset_img wannacry-download.png %}
+![](./2020-02-28-wannacry-vm/wannacry-download.png)
 
 After downloading, Windows Defender should immediately detect that you have just downloaded malware and quarantine it.
 
-{% asset_img defender.png %}
+![](./2020-02-28-wannacry-vm/defender.png)
 
 We need to allow the malware to be on our host computer. The malware is safe as long as it is inside the ZIP file. To do this, open up Windows Defender and find where the threat has been blocked and hit the allow button:
 
-{% asset_img defender-allow.png %}
+![](./2020-02-28-wannacry-vm/defender-allow.png)
 
 Now that it is allowed, we can copy it onto the USB drive like with the other files (you might need to disconnect it from the virtual machine for it to show up on the host machine). Then connect the USB drive back to the virtual machine and copy the newly downloaded file onto the desktop (or another convenient folder).
 
-{% asset_img wannacry-copy.png %}
+![](./2020-02-28-wannacry-vm/wannacry-copy.png)
 
 Now disconnect the USB drive from the virtual machine. It's best not to unzip the malware until it is about to be used.
 
@@ -123,7 +124,7 @@ Now disconnect the USB drive from the virtual machine. It's best not to unzip th
 
 It's a good idea to take a snapshot of the virtual machine at this point. A snapshot is a 'copy' of the virtual machine at it's current state with all of it's files and settings. Doing this will allow us to restore a snapshot after we have executed the malware.
 
-{% asset_img vm-snapshot.png %}
+![](./2020-02-28-wannacry-vm/vm-snapshot.png)
 
 Give the snapshot a suitable name and then hit 'Take Snapshot'. At the bottom of VMware, there will be a percentage of the progress of the snapshot (e.g. 'Saving state... 42%'). Ensure that you wait until this message has disappeared before continuing. It's also best to not use the virtual machine whilst it is saving a snapshot.
 
@@ -145,11 +146,11 @@ Boot the virtual machine back up and double click on the `Ransomware.WannaCry.zi
 
 Then simply double click on the EXE to start WannaCry and watch the carnage.
 
-{% asset_img wannacry.gif %}
+![](./2020-02-28-wannacry-vm/wannacry.gif)
 
 Then to reset the virtual machine, click the restore snapshot button at the top of the window and wait for a couple of seconds.
 
-{% asset_img restore-snapshot.png %}
+![](./2020-02-28-wannacry-vm/restore-snapshot.png)
 
 ## Improvements
 

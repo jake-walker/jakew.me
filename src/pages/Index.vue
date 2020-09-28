@@ -1,33 +1,27 @@
 <template>
   <Layout>
-
-    <!-- Learn how to use images here: https://gridsome.org/docs/images -->
-    <g-image alt="Example image" src="~/favicon.png" width="135" />
-
-    <h1>Hello, world!</h1>
-
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur excepturi labore tempore expedita, et iste tenetur suscipit explicabo! Dolores, aperiam non officia eos quod asperiores
-    </p>
-
-    <p class="home-links">
-      <a href="https://gridsome.org/docs/" target="_blank" rel="noopener">Gridsome Docs</a>
-      <a href="https://github.com/gridsome/gridsome" target="_blank" rel="noopener">GitHub</a>
-    </p>
-
+    <div class="container mx-auto py-5">
+      <p class="text-lg mb-4">
+        Hi! I'm Jake Walker, a Developer and Tech Enthusiast living in the United Kingdom.
+      </p>
+      <p>
+        When I was around 7 years old, I started programming, starting off with
+        the <a class="no-underline hover:underline text-primary" href="http://smallbasic.com/">Small Basic</a> programming
+        language. Ever since I have been refining my programming skills by
+        learning more complex languages and by creating small applications,
+        websites and more. In 2015, I started
+        <a class="no-underline hover:underline text-primary" href="https://github.com/jake-walker">my GitHub account</a> and
+        began to contribute to open source software and published some of my
+        own projects.
+      </p>
+    </div>
   </Layout>
 </template>
 
 <script>
 export default {
   metaInfo: {
-    title: 'Hello, world!'
+    title: 'Home'
   }
 }
 </script>
-
-<style>
-.home-links a {
-  margin-right: 1rem;
-}
-</style>
