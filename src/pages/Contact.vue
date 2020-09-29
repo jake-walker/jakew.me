@@ -3,7 +3,7 @@
     <div class="container mx-auto py-5">
       <h2 class="text-3xl mb-4">Profiles</h2>
 
-      <a v-for="link in links" :key="link.name" :href="link.link" class="mr-3 inline-block bg-primary hover:bg-transparent text-white hover:text-primary border border-primary hover:border-primary font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mb-4">{{ link.name }}</a>
+      <a target="_blank" v-for="link in links" :key="link.name" :href="link.link" class="mr-3 inline-block bg-primary hover:bg-transparent text-white hover:text-primary border border-primary hover:border-primary font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mb-4">{{ link.name }}</a>
 
       <h2 class="text-3xl mb-4">Contact Form</h2>
       <form name="contact" method="post" v-on:submit.prevent="handleSubmit" action="/success/" data-netlify="true" class="mb-4">
