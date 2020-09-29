@@ -2,9 +2,18 @@
   <Layout>
     <div class="container mx-auto py-5">
       <p class="text-lg mb-4">
-        Hi! I'm Jake Walker, a Developer and Tech Enthusiast living in the United Kingdom.
+        Hi! I'm Jake Walker, a tech enthusiast and developer living in the United Kingdom.
       </p>
-      <p>
+
+      <p class="mb-4">
+        At the moment, I enjoy web development (including frontend and backend) and Python
+        development and I am trying to get more into open source software.
+        I also enjoy managing a handful of cloud hosted applications a Raspberry Pi home server and
+        other small Arduino/Raspberry Pi projects at home.
+        I am currently learning about cyber security.
+      </p>
+
+      <p class="mb-4">
         When I was around 7 years old, I started programming, starting off with
         the <a class="no-underline hover:underline text-primary" href="http://smallbasic.com/">Small Basic</a> programming
         language. Ever since I have been refining my programming skills by
