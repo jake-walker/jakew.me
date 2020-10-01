@@ -6,6 +6,9 @@
 
 module.exports = {
   siteName: 'Jake Walker',
+  siteDescription: "Hi! I'm Jake Walker a tech enthusiast and developer living in the United Kingdom.",
+  siteUrl: "https://jakew.me",
+  icon: "./src/assets/avatar.png",
   transformers: {
     remark: {
       externalLinksTarget: '_blank',
