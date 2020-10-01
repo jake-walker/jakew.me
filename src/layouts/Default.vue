@@ -28,8 +28,8 @@
           <span class="font-bold">{{ $static.metadata.siteName }}</span>
           &bull;
           <span class="">
-            Powered by <a target="_blank" href="https://gridsome.org/" class="no-underline hover:underline text-primary dark:text-secondary">Gridsome</a>, <a target="_blank" href="https://tailwindcss.com/" class="no-underline hover:underline text-primary dark:text-secondary">Tailwind CSS</a> and <a target="_blank" href="https://www.netlify.com/" class="no-underline hover:underline text-primary dark:text-secondary">Netlify</a>.
-            Licensed under the <a target="_blank" href="https://www.gnu.org/licenses/gpl-3.0.en.html" class="no-underline hover:underline text-primary dark:text-secondary">GNU GPL v3.0 licence</a> and source code is available on <a target="_blank" href="https://www.github.com/jake-walker/jakew.me" class="no-underline hover:underline text-primary dark:text-secondary">GitHub</a>.
+            Powered by <a rel="nofollow noopener noreferrer" target="_blank" href="https://gridsome.org/" class="no-underline hover:underline text-primary dark:text-secondary">Gridsome</a>, <a rel="nofollow noopener noreferrer" target="_blank" href="https://tailwindcss.com/" class="no-underline hover:underline text-primary dark:text-secondary">Tailwind CSS</a> and <a rel="nofollow noopener noreferrer" target="_blank" href="https://www.netlify.com/" class="no-underline hover:underline text-primary dark:text-secondary">Netlify</a>.
+            Licensed under the <a rel="nofollow noopener noreferrer" target="_blank" href="https://www.gnu.org/licenses/gpl-3.0.en.html" class="no-underline hover:underline text-primary dark:text-secondary">GNU GPL v3.0 licence</a> and source code is available on <a rel="nofollow noopener noreferrer" target="_blank" href="https://www.github.com/jake-walker/jakew.me" class="no-underline hover:underline text-primary dark:text-secondary">GitHub</a>.
           </span>
         </p>
       </div>

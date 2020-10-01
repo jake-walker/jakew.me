@@ -15,11 +15,11 @@
 
       <p class="mb-4">
         When I was around 7 years old, I started programming, starting off with
-        the <a target="_blank" class="no-underline hover:underline text-primary" href="http://smallbasic.com/">Small Basic</a> programming
+        the <a rel="nofollow noopener noreferrer" target="_blank" class="no-underline hover:underline text-primary" href="http://smallbasic.com/">Small Basic</a> programming
         language. Ever since I have been refining my programming skills by
         learning more complex languages and by creating small applications,
         websites and more. In 2015, I started
-        <a target="_blank" class="no-underline hover:underline text-primary" href="https://github.com/jake-walker">my GitHub account</a> and
+        <a rel="nofollow noopener noreferrer" target="_blank" class="no-underline hover:underline text-primary" href="https://github.com/jake-walker">my GitHub account</a> and
         began to contribute to open source software and published some of my
         own projects.
       </p>
