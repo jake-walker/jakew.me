@@ -1,0 +1,67 @@
+<template>
+  <Layout>
+    <div class="container mx-auto py-5">
+      <p class="text-lg mb-4">
+        Hi! I'm Jake Walker, a tech enthusiast and developer living in the United Kingdom.
+      </p>
+
+      <p class="mb-4">
+        At the moment, I enjoy web development (including frontend and backend) and Python
+        development and I am trying to get more into open source software.
+        I also enjoy managing a handful of cloud hosted applications a Raspberry Pi home server and
+        other small Arduino/Raspberry Pi projects at home.
+        I am currently learning about cyber security.
+      </p>
+
+      <p class="mb-4">
+        When I was around 7 years old, I started programming, starting off with
+        the <a rel="nofollow noopener noreferrer" target="_blank" class="no-underline hover:underline text-primary" href="http://smallbasic.com/">Small Basic</a> programming
+        language. Ever since I have been refining my programming skills by
+        learning more complex languages and by creating small applications,
+        websites and more. In 2015, I started
+        <a rel="nofollow noopener noreferrer" target="_blank" class="no-underline hover:underline text-primary" href="https://github.com/jake-walker">my GitHub account</a> and
+        began to contribute to open source software and published some of my
+        own projects.
+      </p>
+    </div>
+
+    <div class="container mx-auto py-5">
+      <h2 class="">Latest Posts</h2>
+      <ul class="list-disc list-inside">
+        <li v-for="post in $page.posts.edges" :key="post.node.id">
+          <g-link :to="post.node.path" class="no-underline hover:underline text-primary">{{ post.node.title }}</g-link>
+          <span class="ml-2 text-xs text-gray-600">({{ post.node.date }}, {{ post.node.timeToRead }} min read)</span>
+        </li>
+      </ul>
+    </div>
+  </Layout>
+</template>
+
+<script>
+import PostList from "@/components/PostList";
+
+export default {
+  metaInfo: {
+    title: 'Home'
+  },
+  components: {
+    PostList
+  }
+}
+</script>
+
+<page-query>
+query {
+  posts: allBlogPost(filter: { date: { gte: "2020" }}, limit: 5) {
+    edges {
+      node {
+        id
+        title
+        timeToRead
+        date (format: "D MMM YYYY")
+        path
+      }
+    }
+  }
+}
+</page-query>
