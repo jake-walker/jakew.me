@@ -11,19 +11,19 @@
           <label class="block text-gray-700 font-bold mb-2" for="name">
             Name
           </label>
-          <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-900 dark:text-white" id="name" name="name" type="text" placeholder="Your name" v-model="formData.name" required>
+          <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" name="name" type="text" placeholder="Your name" v-model="formData.name" required>
         </div>
         <div class="mb-4">
           <label class="block text-gray-700 font-bold mb-2" for="name">
             Email
           </label>
-          <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-900 dark:text-white" id="email" name="email" type="email" placeholder="Your email" v-model="formData.email" required>
+          <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" name="email" type="email" placeholder="Your email" v-model="formData.email" required>
         </div>
         <div class="mb-4">
           <label class="block text-gray-700 font-bold mb-2" for="name">
             Message
           </label>
-          <textarea class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline dark:bg-gray-900 dark:text-white" id="message" name="message" placeholder="Your message" rows="5" v-model="formData.message" required/>
+          <textarea class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="message" name="message" placeholder="Your message" rows="5" v-model="formData.message" required/>
         </div>
         <input type="hidden" name="form-name" value="contact"/>
         <div>
