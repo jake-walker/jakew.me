@@ -1,6 +1,6 @@
 <template>
   <div class="layout">
-    <div id="header" class="bg-gray-300">
+    <div id="header" class="bg-gray-300 bg-hero-circuit-board">
       <div class="container mx-auto text-center py-10">
         <g-image alt="Jake Walker Avatar" class="inline" src="~/assets/avatar.png" width="150" height="150" fit="inside"/>
         <h1 class="text-5xl tracking-tight font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text bg-repeat" id="site-title">{{ $static.metadata.siteName }}</h1>

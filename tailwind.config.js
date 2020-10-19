@@ -81,6 +81,15 @@ module.exports = {
         "h6": { fontWeight: config("theme.fontWeight.bold"), fontSize: config("theme.fontSize.base"), fontFamily: config("theme.fontFamily.serif").join(", ") },
         "body": { fontSize: config("theme.fontSize.base") }
       })
+    }),
+    require("tailwind-heropatterns")({
+      patterns: ["circuit-board"],
+      colors: {
+        default: "#a0aec0"
+      },
+      opacity: {
+        default: "0.2"
+      }
     })
   ],
 }
