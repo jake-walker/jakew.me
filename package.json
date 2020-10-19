@@ -11,6 +11,8 @@
     "@gridsome/source-filesystem": "^0.6.2",
     "@gridsome/transformer-remark": "^0.6.3",
     "@tailwindcss/typography": "^0.2.0",
+    "fontsource-space-mono": "^3.0.9",
+    "fontsource-work-sans": "^3.0.3",
     "gridsome": "^0.7.0",
     "gridsome-plugin-remark-prismjs-all": "^0.3.5",
     "gridsome-plugin-tailwindcss": "^3.0.1"

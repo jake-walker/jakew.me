@@ -20,7 +20,7 @@ And those 5 words made me want to switch to Brave, even before installing it. Wh
 
 ![Current Brave Browser](./2019-04-06-switching-to-brave/new-brave.jpg)
 
-# The Brave Browser
+## The Brave Browser
 
 Brave is a free and open source web browser which is based on Chromium (essentially an open source version of the Chrome browser). Brave blocks ads and website trackers by default.
 

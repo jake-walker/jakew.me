@@ -8,10 +8,10 @@ description: "First Impressions of the new tiny £5 Raspberry Pi Zero."
 ---
 I brought a Raspberry Pi Zero on Friday because it was really hyped up and it was also very cheap. I brought mine from [The Pi Hut](http://thepihut.com/), I got the [Zero + Essentials Kit](http://thepihut.com/collections/raspberry-pi-zero/products/raspberry-pi-zero?variant=14062725188) variation (which costed £10.25 at the time of purchase).
 
-# First Impressions
+## First Impressions
 My first impression of the Pi Zero was that it was extremely small. The only place I had seen it is in magazines which made it look bigger. When I first booted it up it took a while making me think it was going to be quite slow but once it was booted up it seemed quite snappy (in bash/command line mode).
 
-# Setup
+## Setup
 * I first plugged in the HDMI adapter then a (powered) HDMI to VGA adapter as my monitor is VGA.
 * Next, I plugged in my OTG cable then plugged that into a powered USB Hub which I had my keyboard, mouse and Wi-Fi dongle connected.
 * Then, I inserted my microSD card which I had put [Raspbian](https://www.raspberrypi.org/downloads/raspbian/) on (I used the lite version (which has no desktop GUI) as I like to run my Pi's headless and its more fun to learn bash :))

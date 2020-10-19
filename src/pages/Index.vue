@@ -26,7 +26,7 @@
     </div>
 
     <div class="container mx-auto py-5">
-      <h2 class="text-2xl">Latest Posts</h2>
+      <h2 class="">Latest Posts</h2>
       <ul class="list-disc list-inside">
         <li v-for="post in $page.posts.edges" :key="post.node.id">
           <g-link :to="post.node.path" class="no-underline hover:underline text-primary">{{ post.node.title }}</g-link>

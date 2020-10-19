@@ -1,6 +1,6 @@
 <template>
   <div class="pb-8">
-    <h1 class="text-3xl font-semibold text-primary">{{ year }}</h1>
+    <h1 class="font-semibold text-primary">{{ year }}</h1>
     <PostItem :key="post.node.id" v-for="post in this.postsByYear" :post="post.node" />
   </div>
 </template>

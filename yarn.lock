@@ -4037,6 +4037,16 @@ flush-write-stream@^1.0.0:
     inherits "^2.0.3"
     readable-stream "^2.3.6"
 
+fontsource-space-mono@^3.0.9:
+  version "3.0.9"
+  resolved "https://registry.yarnpkg.com/fontsource-space-mono/-/fontsource-space-mono-3.0.9.tgz#1d42fb89bdcb3f2b0a4616f87168a2efd8151a1d"
+  integrity sha512-KJbXkGbi3MA/mtYV1GBZEC0tEI26MlENgee0Mjh0J11PRGHbvCVybNflgw22m9ugFV9rEjh/FFH3aFdc0syqew==
+
+fontsource-work-sans@^3.0.3:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/fontsource-work-sans/-/fontsource-work-sans-3.0.3.tgz#7412e5340d2a6229d57a45914e7dbcfffdbff2b7"
+  integrity sha512-FzR66rxQslfPLYxJxAlUl3FLK26KrP4R6qrUtufHcMT8Bjgfc74F7Ii4hVv+VaMmLELufXRS+h78a+2kyyyoSg==
+
 for-in@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/for-in/-/for-in-1.0.2.tgz#81068d295a8142ec0ac726c6e2200c30fb6d5e80"

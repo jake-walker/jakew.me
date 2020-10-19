@@ -12,7 +12,7 @@ Electron is made by GitHub and it's Atom editor uses it. Essentially it is an if
 
 > This tutorial was written for Windows but I'm sure it's not too hard to replicate on Linux *(or other)*
 
-# Installing Node.JS
+## Installing Node.JS
 
 First your going to want to [Download Node.JS](https://nodejs.org/en/). Download the one on the right.
 
@@ -32,7 +32,7 @@ v6.2.0
 
 And also you might want to get Git [here for Windows](https://git-scm.com/download/win) ([Linux](https://git-scm.com/download/linux), [Mac](https://git-scm.com/download/mac)).
 
-# Writing an App
+## Writing an App
 
 Firstly, navigate to where ever you want your app to live:
 

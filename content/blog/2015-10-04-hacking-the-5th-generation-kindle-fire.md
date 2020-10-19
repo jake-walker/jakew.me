@@ -10,7 +10,7 @@ On Black Friday I bought a Kindle Fire (5th Gen) for £35. I decided to hack it.
 
 Prerequisites: ADB and Fastboot (guide: http://goo.gl/SLpJXX), Drivers (http://goo.gl/sqJgpL)
 
-# 1. Google Apps (no root required)
+## 1. Google Apps (no root required)
 *Source: http://goo.gl/btPy9W*
 
 * Install ES File Explorer from Amazon’s App Store for free on the Kindle Fire.
@@ -29,7 +29,7 @@ Open Settings > Device Options > Developer Options and check or turn the option 
 * Type `adb shell pm grant com.google.android.gms android.permission.INTERACT_ACROSS_USERS`. There will be no text returned after running this
 * Check if Google Play works by finding it in the apps list. If it immediately closes after opening it follow step 12 if not you’re done!
 Reinstall ‘com.android.vending-5.9.12-80391200-minAPI9.apk’ in ES File Explorer.
-# 2. Rooting
+## 2. Rooting
 *Source: http://goo.gl/FQhGl0*
 
 * Enable ADB on the Device (see section 1, steps 6 and 7)
@@ -37,7 +37,7 @@ Reinstall ‘com.android.vending-5.9.12-80391200-minAPI9.apk’ in ES File Explo
 * Unzip the file and plug in the Kindle Fire to your PC.
 Windows: Double click root.bat and follow instructions. Linux: Open a terminal and navigate to the place you unzipped the archive and type `sh root.sh` and wait for the script to complete. The Kindle Fire will restart multiple times, don’t worry this is normal. The Kindle Fire may say Installing Firmware, this is also normal and just means it it is optimising apps.
 * You should be rooted you can try this by installing a Root Checker app from the Google Play Store.
-# 3. Remove Bloat (root required)
+## 3. Remove Bloat (root required)
 *Source: http://goo.gl/ud7HWU*
 
 * Install an app called “System App Remover (ROOT)” from the Google Play Store.
@@ -74,7 +74,7 @@ Windows: Double click root.bat and follow instructions. Linux: Open a terminal a
  * `com.amazon.ags.app | Amazon Game Circle App`
  * `com.amazon.kindle.otter.settings	| Amazon Registration Service`
 * Restart the Device.
-# 4. Changing Launcher (requires root)
+## 4. Changing Launcher (requires root)
 * Make sure you have another launcher before continuing.
 * Open ES File Explorer and open the side menu and open the Tools part then turn on the Root Explorer option
 * Navigate to the root of the device and open the system folder then the priv-app folder [ /system/priv-app/ ]

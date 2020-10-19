@@ -8,16 +8,16 @@ tags:
   - electronics
 description: "Creating an Arduino Weather Station."
 ---
-# Introduction
+## Introduction
 This was originally a way to test out an app I found called ‘Blynk’ which I first tested on the Raspberry Pi. I then decided to try and get it working with an Arduino and a cheap Wi-Fi module then I plugged in my BMP180 and a light sensor and successfully got it working. I then decided to remove the components I was testing it with and turn it into a data logging weather station.
 
-# Wiring
+## Wiring
 
 ![Circuit Diagram](./2015-04-10-arduino-weather-logger/circuit.png)
 
 [View on Fritzing](http://fritzing.org/projects/arduino-weather-logger)
 
-# Code
+## Code
 Virtual Pin 1 is Temperature (degC), Virtual Pin 2 is Pressure (Pa).
 
 ```cpp
@@ -88,5 +88,5 @@ void loop()
 }
 ```
 
-# In the Future
+## In the Future
 In the future I am planning to put it actually outside (and provide a thumbnail) and possibly improve code or switch to another platform.

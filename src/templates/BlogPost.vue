@@ -2,7 +2,7 @@
   <Layout>
     <div class="bg-gray-200">
       <div class="container mx-auto py-8">
-        <h1 id="article-title" class="text-3xl font-semibold tracking-tighter">{{ $page.post.title }}</h1>
+        <h1 id="article-title" class="font-semibold tracking-tighter">{{ $page.post.title }}</h1>
         <p class="text-gray-600 font-light">
           <span id="article-date">{{ $page.post.date }}</span> &bull;
           <span id="article-read-time">{{ $page.post.timeToRead }} min read</span>
