@@ -40,9 +40,6 @@ import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 
 export default {
-  metaInfo: {
-    title: "Home"
-  },
   components: {
     NavBar,
     Footer

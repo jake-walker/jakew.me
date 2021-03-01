@@ -19,6 +19,22 @@
   </Layout>
 </template>
 
+<script>
+export default {
+  metaInfo() {
+    return {
+      title: this.$page.post.title,
+      meta: [
+        {
+          name: "description",
+          content: this.$page.post.description || (this.$page.post.excerpt + '...')
+        }
+      ]
+    }
+  }
+}
+</script>
+
 <page-query>
 query Post ($path: String!) {
    post: blogPost (path: $path) {
@@ -26,6 +42,8 @@ query Post ($path: String!) {
     content
     date (format: "D MMMM YYYY")
     timeToRead
+    description
+    excerpt
   }
 }
 </page-query>
