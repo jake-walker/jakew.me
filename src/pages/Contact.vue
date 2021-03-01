@@ -1,38 +1,42 @@
 <template>
   <Layout>
-    <div class="container mx-auto py-5">
-      <h1 class="mb-4">Profiles</h1>
+    <section class="section">
+      <div class="container">
+        <h1 class="title is-1">Contact</h1>
 
-      <a rel="nofollow noopener noreferrer" target="_blank" v-for="link in links" :key="link.name" :href="link.link" class="mr-3 inline-block bg-primary hover:bg-transparent text-white hover:text-primary border border-primary hover:border-primary font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mb-4">{{ link.name }}</a>
+        <form name="contact" method="post" v-on:submit.prevent="handleSubmit" action="/success/" data-netlify="true">
+          <b-field label="Name">
+            <b-input id="name" name="name" type="text" placeholder="Your name" v-model="formData.name" required />
+          </b-field>
 
-      <h1 class="mb-4">Contact Form</h1>
-      <form name="contact" method="post" v-on:submit.prevent="handleSubmit" action="/success/" data-netlify="true" class="mb-4">
-        <div class="mb-4">
-          <label class="block text-gray-700 font-bold mb-2" for="name">
-            Name
-          </label>
-          <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" name="name" type="text" placeholder="Your name" v-model="formData.name" required>
+          <b-field label="Email">
+            <b-input id="email" name="email" type="email" placeholder="Your email" v-model="formData.email" required />
+          </b-field>
+
+          <b-field label="Message">
+            <b-input id="message" name="message" type="textarea" placeholder="Your message" rows="5" v-model="formData.message" required />
+          </b-field>
+
+          <input type="hidden" name="form-name" value="contact"/>
+
+          <b-field>
+            <div class="control">
+              <button class="button is-link">Submit</button>
+            </div>
+          </b-field>
+        </form>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="title is-2">Socials</h2>
+
+        <div class="buttons">
+          <a class="button is-link" rel="nofollow noopener noreferrer" target="_blank" v-for="link in links" :key="link.name" :href="link.link">{{ link.name }}</a>
         </div>
-        <div class="mb-4">
-          <label class="block text-gray-700 font-bold mb-2" for="name">
-            Email
-          </label>
-          <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" name="email" type="email" placeholder="Your email" v-model="formData.email" required>
-        </div>
-        <div class="mb-4">
-          <label class="block text-gray-700 font-bold mb-2" for="name">
-            Message
-          </label>
-          <textarea class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="message" name="message" placeholder="Your message" rows="5" v-model="formData.message" required/>
-        </div>
-        <input type="hidden" name="form-name" value="contact"/>
-        <div>
-          <button class="bg-primary hover:bg-transparent text-white hover:text-primary border border-primary hover:border-primary font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
-            Send
-          </button>
-        </div>
-      </form>
-    </div>
+      </div>
+    </section>
   </Layout>
 </template>
 

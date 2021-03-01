@@ -1,28 +1,27 @@
 <template>
   <Layout>
-    <div class="bg-gray-200">
-      <div class="container mx-auto py-8">
-        <h1 id="article-title" class="font-semibold tracking-tighter">{{ $page.post.title }}</h1>
-        <p class="text-gray-600 font-light">
-          <span id="article-date">{{ $page.post.date }}</span> &bull;
-          <span id="article-read-time">{{ $page.post.timeToRead }} min read</span>
-        </p>
+    <section class="hero is-light">
+      <div class="hero-body">
+        <div class="container">
+          <p class="title" v-text="$page.post.title" />
+          <p class="subtitle">
+            {{ $page.post.date }} &bull; {{ $page.post.timeToRead }} min read
+          </p>
+        </div>
       </div>
-    </div>
-    <div class="container mx-auto py-5">
-      <article id="article-content" class="prose prose-lg lg:prose-xl mx-auto" v-html="$page.post.content"/>
-    </div>
+    </section>
+
+    <section class="section">
+      <div class="container is-max-desktop">
+        <article id="article-content" class="content" v-html="$page.post.content"/>
+      </div>
+    </section>
   </Layout>
 </template>
 
 <page-query>
 query Post ($path: String!) {
-  metadata {
-    siteName
-    siteDescription
-  }
    post: blogPost (path: $path) {
-    id
     title
     content
     date (format: "D MMMM YYYY")
@@ -30,3 +29,34 @@ query Post ($path: String!) {
   }
 }
 </page-query>
+
+<style>
+  img {
+    display: block;
+    margin: 0 auto;
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
+  }
+
+  .gridsome-highlight {
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+
+  #article-content {
+    font-size: 1.2rem;
+  }
+
+  pre code [class~=token] {
+    font: inherit;
+    background: inherit;
+    margin: 0;
+    padding: 0;
+    min-width: auto;
+    height: auto;
+  }
+
+  code {
+    word-break: break-word !important;
+  }
+</style>

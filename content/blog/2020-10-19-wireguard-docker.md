@@ -5,6 +5,8 @@ date: 2020-10-19 20:16:00
 tags:
   - docker
   - security
+feature:
+  image: ./2020-10-19-wireguard-docker/featured.webp
 ---
 
 I'm a big fan of Docker, it really easily lets you set up applications without much effort and keeps everything organised on my server. I already run an OpenVPN server for the few times that I find myself on public Wi-Fi these days and I've been wanting to replace it with WireGuard which seems like a better solution.
@@ -21,7 +23,7 @@ These Docker installation instructions will only work on Linux machines, if you 
 
 This two-liner installs Docker on most major Linux distributions.
 
-```shell
+```bash
 curl -fsSL https://get.docker.com -o get-docker.sh
 sudo sh get-docker.sh
 ```
@@ -109,7 +111,10 @@ Now set up a device with a configuration and make sure that it works correctly. 
 Although the VPN is now working, it may be worth setting up automatic updates to make sure you have the best security. There is a tool called watchtower that is run inside a Docker container that checks all of your other Docker containers for updates and will automatically download the update and restart the container seamlessly.
 
 ```shell
-docker run -d --name watchtower -v /var/run/docker.sock:/var/run/docker.sock containerrr/watchtower wireguard
+docker run -d \
+           --name watchtower \
+           -v /var/run/docker.sock:/var/run/docker.sock \
+           containerrr/watchtower wireguard
 ```
 
 If you have more containers that you would like to keep updated, it would be worth checking out the [watchtower documentation](https://containrrr.dev/watchtower/) to make sure that you have it set up properly for how you would expect. I have mine set up by adding a label to each container that I would like to have updates on and leaving critical containers to be updated manually. You can also configure other useful things like notifications when containers get updated.

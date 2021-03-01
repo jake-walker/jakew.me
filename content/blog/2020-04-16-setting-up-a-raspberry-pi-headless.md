@@ -4,6 +4,8 @@ title: Setting up a Raspberry Pi Zero W without a Display, Keyboard and Mouse
 date: 2020-04-16 12:53:27
 tags:
   - raspberry-pi
+feature:
+  image: ./2020-04-16-setting-up-a-raspberry-pi-headless/rpi-011.jpg
 ---
 
 I often find myself setting up a Raspberry Pi and I always forget the right way to set it up headlessly (without anything plugged in but power) so I thought I'd write a quick post about how I end up setting them up.
@@ -75,7 +77,7 @@ The next step is to enable Wi-Fi on the Pi. This can be done by creating a new f
 
 Make a new blank file in your text editor of choice, ensuring that line endings are set to 'LF', then copy the text below into the file:
 
-```plain
+```conf
 ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
 update_config=1
 

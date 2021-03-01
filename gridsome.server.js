@@ -1,13 +1,18 @@
-// Server API makes it possible to hook into various parts of Gridsome
-// on server-side and add custom data to the GraphQL data layer.
-// Learn more: https://gridsome.org/docs/server-api/
+const fs = require("fs");
+const yaml = require("js-yaml");
 
-// Changes here require a server restart.
-// To restart press CTRL + C in terminal and run `gridsome develop`
+const navContents = fs.readFileSync("./src/data/nav.yaml", "utf8");
+const navItems = yaml.load(navContents);
 
 module.exports = function (api) {
   api.loadSource(({ addCollection }) => {
-    // Use the Data Store API here: https://gridsome.org/docs/data-store-api/
+    const navCollection = addCollection({
+      typeName: 'NavItems'
+    })
+
+    for (const navItem of navItems) {
+      navCollection.addNode(navItem);
+    }
   })
 
   api.createPages(({ createPage }) => {

@@ -2,11 +2,15 @@
 // The Client API can be used here. Learn more: gridsome.org/docs/client-api
 
 import DefaultLayout from '~/layouts/Default.vue';
-import "gridsome-plugin-remark-prismjs-all/themes/night-owl.css";
-import "fontsource-space-mono";
-import "fontsource-work-sans";
+import Buefy from 'buefy';
+import "gridsome-plugin-remark-prismjs-all/themes/tomorrow.css";
+import "prismjs/plugins/command-line/prism-command-line.css";
+// import "buefy/dist/buefy.css";
+import "./style/main.scss";
 
 export default function (Vue, { router, head, isClient }) {
+  Vue.use(Buefy);
+
   // Set default layout as a global component
   Vue.component('Layout', DefaultLayout);
 
