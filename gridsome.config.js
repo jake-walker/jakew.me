@@ -25,6 +25,18 @@ module.exports = {
           ]
         }
       }
+    },
+    {
+      use: '@gridsome/plugin-sitemap'
+    },
+    {
+      use: '@microflash/gridsome-plugin-feed',
+      options: {
+        contentTypes: ['BlogPost'],
+        feedOptions: {
+          title: 'Jake Walker'
+        }
+      }
     }
   ],
   templates: {
