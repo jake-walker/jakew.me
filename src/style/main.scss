@@ -1,11 +1,6 @@
-@import "~@fontsource/source-sans-pro/index.css";  // Weight 400
-
 // Colors
 $primary: hsl(270, 100%, 50%);
 $link: hsl(293, 100%, 50%);
-
-// Fonts
-$family-sans-serif: "Source Sans Pro", BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
 
 @import "~bulma/sass/utilities/_all";
 @import "~bulma";

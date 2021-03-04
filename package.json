@@ -8,7 +8,6 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@fontsource/source-sans-pro": "^4.2.1",
     "@gridsome/source-filesystem": "^0.6.2",
     "@gridsome/transformer-remark": "^0.6.3",
     "buefy": "^0.9.4",
