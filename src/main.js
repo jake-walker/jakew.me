@@ -16,10 +16,10 @@ export default function (Vue, { router, head, isClient }) {
 
   // Analytics
   head.script.push({
-    src: "https://shynet.jakewalker.xyz/ingress/db7e13ba-9f5d-492c-a946-289a74e7ab00/script.js",
+    src: "https://shynet.jakewalker.xyz/ingress/a54b2aec-e9d5-41e3-ba04-b02e70271cdf/script.js",
     body: true
   });
   head.noscript.push({
-    innerHtml: "<img src='https://shynet.jakewalker.xyz/ingress/db7e13ba-9f5d-492c-a946-289a74e7ab00/pixel.gif'>"
+    innerHtml: "<img src='https://shynet.jakewalker.xyz/ingress/a54b2aec-e9d5-41e3-ba04-b02e70271cdf/pixel.gif'>"
   });
 }
