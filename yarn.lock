@@ -881,6 +881,11 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
+
+"@fontsource/overpass@^4.2.2":
+  version "4.2.2"
+  resolved "https://registry.yarnpkg.com/@fontsource/overpass/-/overpass-4.2.2.tgz#e01caaf9a726224acb31a59ef46a5eaa157c71e7"
+  integrity sha512-d3Mwa7BqdBYghAQ3KXmrt44shSTWyySqI7Ul9UTZILF7eUBSusawb2AVTkrIo6c22QjOCjbvwLVg8Uwpasw27Q==
 "@gridsome/cli@^0.3.4":
   version "0.3.4"
   resolved "https://registry.yarnpkg.com/@gridsome/cli/-/cli-0.3.4.tgz#42fa7a4368a80bd04ec497c93cae5a66b041fe22"
