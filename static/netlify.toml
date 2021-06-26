@@ -1,0 +1,15 @@
+[build]
+  publish = "dist/"
+  command = "gridsome build"
+
+[[redirects]]
+  from = "/gh/*"
+  to = "https://github.com/jake-walker/:splat"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/g/*"
+  to = "https://git.jakew.me/jakew"
+  status = 200
+  force = true
