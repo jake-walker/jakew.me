@@ -1,5 +1,5 @@
 ---
-slug: wireguard-docker
+slug: 2020/10/19/wireguard-docker
 title: Create a WireGuard VPN in 10 minutes with Docker
 date: 2020-10-19 20:16:00
 tags:

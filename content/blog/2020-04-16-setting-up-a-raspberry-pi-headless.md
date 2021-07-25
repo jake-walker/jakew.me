@@ -1,5 +1,5 @@
 ---
-slug: setting-up-a-raspberry-pi-headless
+slug: 2020/04/16/setting-up-a-raspberry-pi-headless
 title: Setting up a Raspberry Pi Zero W without a Display, Keyboard and Mouse
 date: 2020-04-16 12:53:27
 tags:

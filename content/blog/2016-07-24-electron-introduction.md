@@ -1,5 +1,5 @@
 ---
-slug: electron-introduction
+slug: 2016/07/24/electron-introduction
 title: Introduction to Electron Apps
 date: 2016-07-24 09:21:00
 tags:

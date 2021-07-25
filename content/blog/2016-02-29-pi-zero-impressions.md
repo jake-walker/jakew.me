@@ -1,5 +1,5 @@
 ---
-slug: pi-zero-impressions
+slug: 2016/02/29/pi-zero-impressions
 title: Pi Zero Impressions
 date: 2016-02-29 17:54:00
 tags:

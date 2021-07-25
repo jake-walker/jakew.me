@@ -1,5 +1,5 @@
 ---
-slug: elecrow-5inch-balena
+slug: 2021/06/01/elecrow-5inch-balena
 title: Using the Elecrow 5" TFT display with Balena
 date: 2021-06-01 18:30:00
 tags:

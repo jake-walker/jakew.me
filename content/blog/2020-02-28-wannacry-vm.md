@@ -1,8 +1,9 @@
 ---
-slug: wannacry-vm
+slug: 2020/02/28/wannacry-vm
 title: Running WannaCry in a Virtual Machine
 date: 2020-02-28 16:30:00
-tags: malware
+tags:
+  - malware
 feature:
   image: ./2020-02-28-wannacry-vm/feature.png
 ---
