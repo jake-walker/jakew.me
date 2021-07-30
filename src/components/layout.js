@@ -56,22 +56,35 @@ const Layout = ({ title, description, children }) => {
           cardType: 'summary_large_image'
         }}
       />
-      <Navbar bg="primary" variant="dark" expand="sm">
-        <Container fluid>
-          <Navbar.Brand>{data.site.siteMetadata.siteTitle}</Navbar.Brand>
-          <Navbar.Toggle aria-controls="navbar-nav"/>
-          <Navbar.Collapse id="navbar-nav">
-            <Nav className="me-auto">
-              <Link className="nav-link" activeClassName="active" to="/">Home</Link>
-              <Link className="nav-link" activeClassName="active" to="/blog">Blog</Link>
-              <Link className="nav-link" activeClassName="active" to="/contact">Contact</Link>
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-      <main>
-        {children}
-      </main>
+
+      <div id="site">
+        <Navbar bg="primary" variant="dark" expand="sm">
+          <Container fluid>
+            <Navbar.Brand>{data.site.siteMetadata.siteTitle}</Navbar.Brand>
+            <Navbar.Toggle aria-controls="navbar-nav"/>
+            <Navbar.Collapse id="navbar-nav">
+              <Nav className="me-auto">
+                <Link className="nav-link" activeClassName="active" to="/">Home</Link>
+                <Link className="nav-link" activeClassName="active" to="/blog">Blog</Link>
+                <Link className="nav-link" activeClassName="active" to="/contact">Contact</Link>
+              </Nav>
+            </Navbar.Collapse>
+          </Container>
+        </Navbar>
+
+        <main>
+          {children}
+        </main>
+
+        <footer className="bg-light">
+          <Container className="text-center py-3">
+            <b>{data.site.siteMetadata.siteTitle}</b>.
+            The <a href="https://github.com/jake-walker/jakew.me">source code</a> is licensed
+            under <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">GNU GPL v3.0</a> and
+            website content is licensed under <a href="http://creativecommons.org/licenses/by/4.0">CC BY 4.0</a>.
+          </Container>
+        </footer>
+      </div>
     </>
   )
 }

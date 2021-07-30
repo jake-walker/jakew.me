@@ -40,7 +40,7 @@ const PostCard = ({ post, size = "regular" }) => {
           </Col>
           <Col sm={12} md={8}>
             <Card.Body>
-              <Card.Title>{post.frontmatter.title} {size}</Card.Title>
+              <Card.Title>{post.frontmatter.title}</Card.Title>
               <Card.Text>
                 {post.frontmatter.description || post.excerpt}
               </Card.Text>

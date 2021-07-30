@@ -17,7 +17,13 @@ module.exports = {
     {
       resolve: "gatsby-plugin-manifest",
       options: {
-        icon: "src/images/avatar.png",
+        name: "Jake Walker",
+        short_name: "Jake Walker",
+        start_url: "/",
+        background_color: "#f8f9fa",
+        theme_color: "#8000ff",
+        display: "standalone",
+        icon: "src/images/avatarbg.png"
       },
     },
     {
