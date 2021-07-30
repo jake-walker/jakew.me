@@ -16,7 +16,7 @@ Electron is made by GitHub and it's Atom editor uses it. Essentially it is an if
 
 First your going to want to [Download Node.JS](https://nodejs.org/en/). Download the one on the right.
 
-![Download Node.JS](https://i.imgur.com/3mGIZfV.png)
+![Download Node.JS](./2016-07-24-electron-introduction/3mGIZfV.png)
 
 Then once you've installed, go to a command line `WIN-R` then type `cmd`. Then type
 
@@ -63,11 +63,11 @@ npm start
 
 and you should see this:
 
-![Application](https://i.imgur.com/JymmzQn.png)
+![Application](./2016-07-24-electron-introduction/JymmzQn.png)
 
 Now let's dive into the code and make some changes. I am using [Atom](http://atom.io) to edit these files.
 
-![](https://i.imgur.com/Oml6eCp.png)
+![](./2016-07-24-electron-introduction/Oml6eCp.png)
 
 Opening `index.html` shows the HTML shown in the main screen and it looks like it has Node inline.
 
@@ -187,7 +187,7 @@ npm start
 
 and it works!
 
-![](https://i.imgur.com/4DOlyTq.png)
+![](./2016-07-24-electron-introduction/4DOlyTq.png)
 
 ---
 
