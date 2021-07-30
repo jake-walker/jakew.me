@@ -4,14 +4,24 @@
 
 .post code {
   overflow-wrap: break-word;
+  font-size: 1rem;
 }
 
 .post {
   max-width: 800px;
+  font-size: 1.2rem;
   margin-left: auto;
   margin-right: auto;
 }
 
+.post h1, .post h2, .post h3, .post h4, .post h5, .post h6 {
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+
 .post blockquote.blockquote {
-  border-left: 2px solid black;
+  border-left: 3px solid var(--bs-primary);
+  color: var(--bs-gray);
+  font-style: italic;
+  padding: 1rem 0 1rem 1rem;
 }

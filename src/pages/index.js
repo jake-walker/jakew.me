@@ -37,7 +37,7 @@ const IndexPage = ({ data }) => {
       </section>
       <section>
         <Container>
-          <h2>Latest Blog Posts</h2>
+          <h2 className="title">Latest Blog Posts</h2>
           <Row>
             {
               data.allMdx.edges.map(({ node }) => (

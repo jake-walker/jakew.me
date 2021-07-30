@@ -1,7 +1,11 @@
 module.exports = {
   siteMetadata: {
-    siteUrl: "https://jakew.me",
     title: "Jake Walker",
+    author: "Jake Walker",
+    description: "Hi! I'm Jake Walker a tech enthusiast and developer living in the United Kingdom.",
+    siteUrl: "https://jakew.me/",
+    ogImage: "https://jakew.me/img/avatar2bg.png",
+    twitterUsername: "@_jakewalker1"
   },
   plugins: [
     "gatsby-remark-images",
@@ -38,6 +42,8 @@ module.exports = {
         name: "blog",
         path: `${__dirname}/content/blog/`
       },
-    }
+    },
+    "gatsby-plugin-netlify",
+    "gatsby-plugin-next-seo"
   ],
 };

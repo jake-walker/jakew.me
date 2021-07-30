@@ -3,22 +3,19 @@ import { Container, Row, Col } from 'react-bootstrap';
 import Layout from '../components/layout';
 import PostCard from '../components/post-card';
 import { graphql } from 'gatsby';
+import { BlogJsonLd } from 'gatsby-plugin-next-seo';
 
 const BlogPage = ({ data }) => {
   return (
     <Layout title="Blog">
       <section>
         <Container>
-          <h1>Blog</h1>
-          <Row>
-            {
-              data.allMdx.edges.map(({ node }) => (
-                <Col key={node.id} xs={12} lg={4}>
-                  <PostCard post={node}/>
-                </Col>
-              ))
-            }
-          </Row>
+          <h1 className="title">Blog</h1>
+          {
+            data.allMdx.edges.map(({ node }) => (
+              <PostCard key={node.id} post={node} size="big"/>
+            ))
+          }
         </Container>
       </section>
     </Layout>
@@ -47,6 +44,12 @@ export const query = graphql`
           excerpt
           timeToRead
         }
+      }
+    }
+    site {
+      siteMetadata {
+        siteUrl
+        author
       }
     }
   }
