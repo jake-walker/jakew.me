@@ -5,6 +5,7 @@ date: 2021-06-01 18:30:00
 tags:
   - raspberry-pi
   - small
+description: How to use a cheap 5 inch display with Balena without pulling your hair out.
 ---
 Balena is a really cool cloud platform for managing your IoT projects. Essentially, you can write some code, and Balena will manage your devices, keeping track of versions and automatically updating your devices.
 

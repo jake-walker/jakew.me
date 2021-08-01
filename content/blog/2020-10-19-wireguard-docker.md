@@ -7,6 +7,7 @@ tags:
   - security
 feature:
   image: ./2020-10-19-wireguard-docker/featured.webp
+description: Creating a quick, easy and most importantly, secure VPN using Docker and WireGuard.
 ---
 
 I'm a big fan of Docker, it really easily lets you set up applications without much effort and keeps everything organised on my server. I already run an OpenVPN server for the few times that I find myself on public Wi-Fi these days and I've been wanting to replace it with WireGuard which seems like a better solution.

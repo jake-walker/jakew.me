@@ -6,6 +6,7 @@ tags:
   - raspberry-pi
 feature:
   image: ./2020-04-16-setting-up-a-raspberry-pi-headless/rpi-011.jpg
+description: The right way to set up a Raspberry Pi Zero headlessly.
 ---
 
 I often find myself setting up a Raspberry Pi and I always forget the right way to set it up headlessly (without anything plugged in but power) so I thought I'd write a quick post about how I end up setting them up.
