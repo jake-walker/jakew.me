@@ -57,23 +57,24 @@ const ContactPage = () => {
       <section>
         <Container>
           <h1 className="title">Contact</h1>
-          <Form method="post" netlify-honeypot="bot-field" data-netlify="true" name="contact">
-            <input type="hidden" name="bot-field"/>
+          <Form method="post" data-netlify="true" data-netlify-recaptcha="true" name="contact">
             <input type="hidden" name="form-name" value="contact"/>
             <Form.Group className="mb-3">
               <Form.Label>Name</Form.Label>
-              <Form.Control type="text"/>
+              <Form.Control type="text" name="name"/>
             </Form.Group>
 
             <Form.Group className="mb-3">
               <Form.Label>Email address</Form.Label>
-              <Form.Control type="email"/>
+              <Form.Control type="email" name="email"/>
             </Form.Group>
 
             <Form.Group className="mb-3">
               <Form.Label>Message</Form.Label>
-              <Form.Control as="textarea" rows={5}/>
+              <Form.Control as="textarea" rows={5} name="message"/>
             </Form.Group>
+
+            <Form.Group className="mb-3" data-netlify-recaptcha="true"></Form.Group>
 
             <Button variant="primary" type="submit">
               <Send className="me-1"/> Submit
