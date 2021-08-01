@@ -1,10 +1,12 @@
 ---
-slug: wannacry-vm
+slug: 2020/02/28/wannacry-vm
 title: Running WannaCry in a Virtual Machine
 date: 2020-02-28 16:30:00
-tags: malware
+tags:
+  - malware
 feature:
   image: ./2020-02-28-wannacry-vm/feature.png
+description: Setting up a virtual machine for safely running the WannaCry ransomware (and other malware).
 ---
 I'm part of a club in my Sixth Form called [CADS](https://cadscheme.co.uk/) which among other things, involves learning about soft skills and cyber skills and applying those in the real world. Next week, we are attending an event where we are trying to spread awareness about Cyber Security and to achieve that we have decided to do a couple of demonstrations.
 

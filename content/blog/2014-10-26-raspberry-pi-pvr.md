@@ -1,8 +1,9 @@
 ---
-slug: raspberry-pi-pvr
+slug: 2014/10/26/raspberry-pi-pvr
 title: Raspberry Pi PVR
 date: 2014-10-26 20:59:00
-tags: raspberry-pi
+tags:
+  - raspberry-pi
 description: "Creating a digital TV recorder and viewer with a Raspberry Pi and OpenELEC."
 ---
 In this project I used a Raspberry Pi (I used a model B) with OpenELEC on the SD card, a USB TV Receiver and a cheap Indoor Ariel to create a PVR.

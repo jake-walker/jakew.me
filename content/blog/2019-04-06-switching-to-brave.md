@@ -1,5 +1,5 @@
 ---
-slug: switching-to-brave
+slug: 2019/04/06/switching-to-brave
 title: Switching to the Brave Browser
 date: 2019-04-06 16:47:43
 description: "My experience of switching to the Brave Web Browser."

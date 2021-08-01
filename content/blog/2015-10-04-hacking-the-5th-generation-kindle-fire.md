@@ -1,5 +1,5 @@
 ---
-slug: hacking-the-5th-generation-kindle-fire
+slug: 2015/10/04/hacking-the-5th-generation-kindle-fire
 title: Hacking the 5th Generation Kindle Fire
 date: 2015-10-04 21:05:00
 tags:

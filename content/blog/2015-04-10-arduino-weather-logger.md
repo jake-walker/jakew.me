@@ -1,5 +1,5 @@
 ---
-slug: arduino-weather-logger
+slug: 2015/04/10/arduino-weather-logger
 title: Arduino Weather Logger
 date: 2015-04-10 19:57:00
 tags:
