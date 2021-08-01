@@ -13,7 +13,7 @@ const BlogPage = ({ data }) => {
           <h1 className="title">Blog</h1>
           {
             data.allMdx.edges.map(({ node }) => (
-              <PostCard key={node.id} post={node} size="big"/>
+              <PostCard key={node.id} post={node}/>
             ))
           }
         </Container>

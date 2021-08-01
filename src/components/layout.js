@@ -77,7 +77,7 @@ const Layout = ({ title, description, children }) => {
         </main>
 
         <footer className="bg-light">
-          <Container className="text-center py-3">
+          <Container className="text-center py-3 fw-lighter">
             <b>{data.site.siteMetadata.siteTitle}</b>.
             The <a href="https://github.com/jake-walker/jakew.me">source code</a> is licensed
             under <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">GNU GPL v3.0</a> and

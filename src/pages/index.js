@@ -1,7 +1,8 @@
-import { graphql } from 'gatsby';
+import { graphql, Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 import * as React from 'react'
-import { Container, Row, Col, Card, Button } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
+import { ArrowRight } from 'react-feather';
 import Layout from '../components/layout';
 import PostCard from '../components/post-card';
 
@@ -38,15 +39,12 @@ const IndexPage = ({ data }) => {
       <section>
         <Container>
           <h2 className="title">Latest Blog Posts</h2>
-          <Row>
-            {
-              data.allMdx.edges.map(({ node }) => (
-                <Col key={node.id} xs={12} lg={4}>
-                  <PostCard post={node}/>
-                </Col>
-              ))
-            }
-          </Row>
+          {
+            data.allMdx.edges.map(({ node }) => (
+              <PostCard key={node.id} post={node}/>
+            ))
+          }
+          <Link to="/blog" className="btn btn-primary float-end"><ArrowRight className="me-1"/> More</Link>
         </Container>
       </section>
     </Layout>
