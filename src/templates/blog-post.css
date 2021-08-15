@@ -25,3 +25,7 @@
   font-style: italic;
   padding: 1rem 0 1rem 1rem;
 }
+
+.post .gatsby-highlight {
+  padding-bottom: 1rem;
+}
