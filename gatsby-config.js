@@ -50,6 +50,7 @@ module.exports = {
       },
     },
     "gatsby-plugin-netlify",
-    "gatsby-plugin-next-seo"
+    "gatsby-plugin-next-seo",
+    "gatsby-plugin-sitemap"
   ],
 };
