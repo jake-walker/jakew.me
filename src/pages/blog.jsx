@@ -1,26 +1,23 @@
-import * as React from 'react'
-import { Container, Row, Col } from 'react-bootstrap';
+import * as React from 'react';
+import { Container } from 'react-bootstrap';
+import { graphql } from 'gatsby';
 import Layout from '../components/layout';
 import PostCard from '../components/post-card';
-import { graphql } from 'gatsby';
-import { BlogJsonLd } from 'gatsby-plugin-next-seo';
 
-const BlogPage = ({ data }) => {
-  return (
-    <Layout title="Blog">
-      <section>
-        <Container>
-          <h1 className="title">Blog</h1>
-          {
+const BlogPage = ({ data }) => (
+  <Layout title="Blog">
+    <section>
+      <Container>
+        <h1 className="title">Blog</h1>
+        {
             data.allMdx.edges.map(({ node }) => (
-              <PostCard key={node.id} post={node}/>
+              <PostCard key={node.id} post={node} />
             ))
           }
-        </Container>
-      </section>
-    </Layout>
-  )
-}
+      </Container>
+    </section>
+  </Layout>
+);
 
 export const query = graphql`
   query {
@@ -53,6 +50,6 @@ export const query = graphql`
       }
     }
   }
-`
+`;
 
-export default BlogPage
+export default BlogPage;

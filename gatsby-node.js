@@ -1,3 +1,4 @@
+/* eslint-disable func-names */
 exports.createPages = async function ({ actions, graphql, reporter }) {
   const result = await graphql(`
     query {
@@ -13,7 +14,7 @@ exports.createPages = async function ({ actions, graphql, reporter }) {
         }
       }
     }
-  `)
+  `);
 
   if (result.errors) {
     reporter.panicOnBuild('Error while running blog pages GraphQL query');
@@ -23,10 +24,10 @@ exports.createPages = async function ({ actions, graphql, reporter }) {
   result.data.allMdx.edges.forEach(({ node }) => {
     actions.createPage({
       path: node.frontmatter.slug,
-      component: require.resolve('./src/templates/blog-post.js'),
+      component: require.resolve('./src/templates/blog-post.jsx'),
       context: {
-        id: node.id
-      }
+        id: node.id,
+      },
     });
   });
-}
+};

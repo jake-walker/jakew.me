@@ -2,38 +2,37 @@ import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import * as React from 'react';
 import { Container, Alert } from 'react-bootstrap';
-import Layout from '../components/layout';
-import { MDXProvider } from "@mdx-js/react"
-
-import "prismjs/themes/prism-okaidia.css";
-import "./blog-post.css";
 import { BlogPostJsonLd, GatsbySeo } from 'gatsby-plugin-next-seo';
+import { MDXProvider } from '@mdx-js/react';
+import Layout from '../components/layout';
 
-const Blockquote = props => <blockquote className="blockquote text-end" {...props}/>
-const Table = props => <table className="table" {...props}/>
+import 'prismjs/themes/prism-okaidia.css';
+import './blog-post.css';
+
+const Blockquote = (props) => <blockquote className="blockquote text-end" {...props} />;
+const Table = (props) => <table className="table" {...props} />;
 
 const components = {
   blockquote: Blockquote,
-  table: Table
-}
+  table: Table,
+};
 
-const OldPostWarning = () => {
-  return (
-    <Alert variant="secondary" className="mb-5">
-      <strong>This post is at least 4 years old. This post is being kept
-      around in case it contains any useful information.</strong> Please
-      keep in mind that some of the information contained in this post
-      may be outdated and links may be broken. The post may not reflect my
-      current thoughts and feelings.
-    </Alert>
-  )
-}
+const OldPostWarning = () => (
+  <Alert variant="secondary" className="mb-5">
+    <strong>This post is at least 4 years old. This post is being kept
+      around in case it contains any useful information.
+    </strong> Please
+    keep in mind that some of the information contained in this post
+    may be outdated and links may be broken. The post may not reflect my
+    current thoughts and feelings.
+  </Alert>
+);
 
 const PostLayout = ({ data }) => {
-  const oldPost = ((new Date()).getFullYear() -
-                   (new Date(data.mdx.frontmatter.rawDate)).getFullYear()) > 4;
+  const oldPost = ((new Date()).getFullYear()
+                   - (new Date(data.mdx.frontmatter.rawDate)).getFullYear()) > 4;
   const url = `${data.site.siteMetadata.siteUrl}/${data.mdx.frontmatter.slug}`;
-  const description = data.mdx.frontmatter.description || data.mdx.excerpt
+  const description = data.mdx.frontmatter.description || data.mdx.excerpt;
 
   return (
     <Layout title={data.mdx.frontmatter.title} description={description}>
@@ -45,8 +44,8 @@ const PostLayout = ({ data }) => {
           type: 'article',
           article: {
             publishedTime: data.mdx.frontmatter.rawDate,
-            tags: data.mdx.frontmatter.tags
-          }
+            tags: data.mdx.frontmatter.tags,
+          },
         }}
       />
       <BlogPostJsonLd
@@ -64,7 +63,7 @@ const PostLayout = ({ data }) => {
       </section>
       <section className="post">
         <Container>
-          {oldPost && <OldPostWarning/>}
+          {oldPost && <OldPostWarning />}
           <MDXProvider components={components}>
             <MDXRenderer>
               {data.mdx.body}
@@ -73,8 +72,8 @@ const PostLayout = ({ data }) => {
         </Container>
       </section>
     </Layout>
-  )
-}
+  );
+};
 
 export const query = graphql`
   query($id: String!) {
@@ -103,6 +102,6 @@ export const query = graphql`
       }
     }
   }
-`
+`;
 
-export default PostLayout
+export default PostLayout;

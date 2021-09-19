@@ -18,42 +18,42 @@ const Layout = ({ title, description, children }) => {
         }
       }
     }
-  `)
+  `);
 
   let mainTitle = data.site.siteMetadata.siteTitle;
+  let seoTitle = data.site.siteMetadata.siteTitle;
   if (title) {
     mainTitle = `${title} | ${data.site.siteMetadata.siteTitle}`;
-  } else {
-    title = data.site.siteMetadata.siteTitle;
+    seoTitle = title;
   }
 
+  let seoDescription = description;
   if (!description) {
-    description = data.site.siteMetadata.defaultDescription;
+    seoDescription = data.site.siteMetadata.defaultDescription;
   }
 
   return (
     <>
       <GatsbySeo
         title={mainTitle}
-        description={description}
+        description={seoDescription}
         language="en"
-
         openGraph={{
           url: data.site.siteMetadata.siteUrl,
-          title: title,
-          description,
+          title: seoTitle,
+          description: seoDescription,
           images: [
             {
-              url: data.site.siteMetadata.ogImage
-            }
+              url: data.site.siteMetadata.ogImage,
+            },
           ],
           site_name: data.site.siteMetadata.siteTitle,
-          locale: "enGB"
+          locale: 'enGB',
         }}
         twitter={{
           handle: data.site.siteMetadata.twitterUsername,
           site: data.site.siteMetadata.twitterUsername,
-          cardType: 'summary_large_image'
+          cardType: 'summary_large_image',
         }}
       />
 
@@ -61,7 +61,7 @@ const Layout = ({ title, description, children }) => {
         <Navbar bg="primary" variant="dark" expand="sm">
           <Container fluid>
             <Navbar.Brand>{data.site.siteMetadata.siteTitle}</Navbar.Brand>
-            <Navbar.Toggle aria-controls="navbar-nav"/>
+            <Navbar.Toggle aria-controls="navbar-nav" />
             <Navbar.Collapse id="navbar-nav">
               <Nav className="me-auto">
                 <Link className="nav-link" activeClassName="active" to="/">Home</Link>
@@ -86,7 +86,7 @@ const Layout = ({ title, description, children }) => {
         </footer>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;
