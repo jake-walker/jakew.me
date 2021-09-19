@@ -32,7 +32,7 @@ const OldPostWarning = () => {
 const PostLayout = ({ data }) => {
   const oldPost = ((new Date()).getFullYear() -
                    (new Date(data.mdx.frontmatter.rawDate)).getFullYear()) > 4;
-  const url = `${data.site.siteMetadata.siteUrl}${data.mdx.frontmatter.slug}`;
+  const url = `${data.site.siteMetadata.siteUrl}/${data.mdx.frontmatter.slug}`;
   const description = data.mdx.frontmatter.description || data.mdx.excerpt
 
   return (
@@ -86,6 +86,11 @@ export const query = graphql`
         description
         tags
         slug
+        feature {
+          image {
+            publicURL
+          }
+        }
       }
       timeToRead
       body

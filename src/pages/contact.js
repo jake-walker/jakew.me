@@ -1,7 +1,8 @@
 import * as React from 'react'
-import { Container, Form, Button } from 'react-bootstrap';
+import { Container, Button } from 'react-bootstrap';
 import Layout from '../components/layout';
-import { Mail, Linkedin, GitHub, Twitter, Key, Package, Video, Gitlab, Send } from 'react-feather';
+import { Mail, Linkedin, GitHub, Twitter, Key, Package, Video, Gitlab } from 'react-feather';
+import ContactForm from '../components/contact';
 
 const SocialLinks = [
   {
@@ -57,29 +58,7 @@ const ContactPage = () => {
       <section>
         <Container>
           <h1 className="title">Contact</h1>
-          <Form method="post" netlify-honeypot="bot-field" data-netlify="true" name="contact">
-            <input type="hidden" name="bot-field"/>
-            <input type="hidden" name="form-name" value="contact"/>
-
-            <Form.Group className="mb-3">
-              <Form.Label>Name</Form.Label>
-              <Form.Control type="text" name="name"/>
-            </Form.Group>
-
-            <Form.Group className="mb-3">
-              <Form.Label>Email address</Form.Label>
-              <Form.Control type="email" name="email"/>
-            </Form.Group>
-
-            <Form.Group className="mb-3">
-              <Form.Label>Message</Form.Label>
-              <Form.Control as="textarea" rows={5} name="message"/>
-            </Form.Group>
-
-            <Button variant="primary" type="submit">
-              <Send className="me-1"/> Submit
-            </Button>
-          </Form>
+          <ContactForm/>
         </Container>
       </section>
 
