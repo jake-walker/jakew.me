@@ -51,5 +51,11 @@ module.exports = {
     },
     'gatsby-plugin-next-seo',
     'gatsby-plugin-sitemap',
+    {
+      resolve: 'gatsby-plugin-canonical-urls',
+      options: {
+        siteUrl: 'https://jakew.me',
+      },
+    },
   ],
 };
