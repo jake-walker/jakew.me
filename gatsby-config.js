@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 module.exports = {
   siteMetadata: {
     title: 'Jake Walker',
@@ -8,7 +10,6 @@ module.exports = {
     twitterUsername: '@_jakewalker1',
   },
   plugins: [
-    'gatsby-remark-images',
     'gatsby-plugin-image',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
@@ -26,35 +27,38 @@ module.exports = {
         icon: 'src/images/avatarbg.png',
       },
     },
-    {
-      resolve: 'gatsby-plugin-mdx',
-      options: {
-        extensions: ['.mdx', '.md'],
-        gatsbyRemarkPlugins: [
-          {
-            resolve: 'gatsby-remark-images',
-            options: {
-              maxWidth: 590,
-            },
-          },
-          'gatsby-remark-prismjs',
-          'gatsby-remark-copy-linked-files',
-        ],
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'blog',
-        path: `${__dirname}/content/blog/`,
-      },
-    },
     'gatsby-plugin-next-seo',
     'gatsby-plugin-sitemap',
     {
       resolve: 'gatsby-plugin-canonical-urls',
       options: {
         siteUrl: 'https://jakew.me',
+      },
+    },
+    {
+      resolve: 'gatsby-source-ghost',
+      options: {
+        apiUrl: 'https://ghost.jakew.me',
+        contentApiKey: process.env.GHOST_API_KEY,
+        version: 'v3',
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-remote-images',
+      options: {
+        nodeType: 'GhostPost',
+        imagePath: 'feature_image',
+      },
+    },
+    {
+      resolve: 'gatsby-transformer-rehype',
+      options: {
+        filter: (node) => node.internal.type === 'GhostPost',
+        source: (node) => node.html,
+        plugins: [
+          'gatsby-rehype-ghost-links',
+          'gatsby-rehype-prismjs',
+        ],
       },
     },
   ],

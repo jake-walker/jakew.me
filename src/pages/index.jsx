@@ -39,7 +39,7 @@ const IndexPage = ({ data }) => (
       <Container>
         <h2 className="title">Latest Blog Posts</h2>
         {
-            data.allMdx.edges.map(({ node }) => (
+            data.posts.nodes.map((node) => (
               <PostCard key={node.id} post={node} />
             ))
           }
@@ -51,25 +51,18 @@ const IndexPage = ({ data }) => (
 
 export const query = graphql`
   query {
-    allMdx(sort: {fields: frontmatter___date, order: DESC}, limit: 3) {
-      edges {
-        node {
-          id
-          frontmatter {
-            slug
-            title
-            date(formatString: "D MMM YYYY")
-            description
-            feature {
-              image {
-                childImageSharp {
-                  gatsbyImageData(layout: FULL_WIDTH)
-                }
-              }
-            }
+    posts: allGhostPost(limit: 3, sort: {fields: published_at, order: DESC}) {
+      nodes {
+        id
+        slug
+        title
+        published_at(formatString: "D MMM YYYY")
+        excerpt
+        reading_time
+        localImage {
+          childImageSharp {
+            gatsbyImageData(layout: FULL_WIDTH)
           }
-          excerpt
-          timeToRead
         }
       }
     }

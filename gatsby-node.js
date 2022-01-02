@@ -2,15 +2,10 @@
 exports.createPages = async function ({ actions, graphql, reporter }) {
   const result = await graphql(`
     query {
-      allMdx {
-        edges {
-          node {
-            id
-            frontmatter {
-              slug
-              date(formatString: "YYYY/MM/DD")
-            }
-          }
+      posts: allGhostPost {
+        nodes {
+          slug
+          id
         }
       }
     }
@@ -21,9 +16,9 @@ exports.createPages = async function ({ actions, graphql, reporter }) {
     return;
   }
 
-  result.data.allMdx.edges.forEach(({ node }) => {
+  result.data.posts.nodes.forEach((node) => {
     actions.createPage({
-      path: node.frontmatter.slug,
+      path: `/blog/${node.slug}`,
       component: require.resolve('./src/templates/blog-post.jsx'),
       context: {
         id: node.id,

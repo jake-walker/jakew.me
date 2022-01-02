@@ -2,3 +2,16 @@ $primary: #8000ff;
 $secondary: #e100ff;
 
 @import "~bootstrap/scss/bootstrap";
+
+.post table {
+  @extend .table;
+}
+
+.post img {
+  @extend .img-fluid;
+}
+
+// .post .kg-embed-card {
+//   @extend .ratio;
+//   @extend .ratio-16x9;
+// }

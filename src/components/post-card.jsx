@@ -9,7 +9,7 @@ import BackgroundImage from 'gatsby-background-image';
 import { AlignLeft, BookOpen } from 'react-feather';
 
 const PostCard = ({ post }) => {
-  const featureImage = getImage(post.frontmatter.feature?.image) || null;
+  const featureImage = getImage(post.localImage) || null;
   const bgFeatureImage = convertToBgImage(featureImage);
 
   return (
@@ -26,16 +26,16 @@ const PostCard = ({ post }) => {
         </Col>
         <Col sm={12} md={8}>
           <Card.Body>
-            <Card.Title>{post.frontmatter.title}</Card.Title>
+            <Card.Title>{post.title}</Card.Title>
             <Card.Text>
-              {post.frontmatter.description || post.excerpt}
+              {post.excerpt}
             </Card.Text>
             <Card.Text>
               <small className="text-muted">
-                {post.frontmatter.date} &bull; {post.timeToRead} min
+                {post.published_at} &bull; {post.reading_time} min
               </small>
             </Card.Text>
-            <Link to={`/${post.frontmatter.slug}`} className="btn btn-primary"><BookOpen className="me-1" /> Read</Link>
+            <Link to={`/blog/${post.slug}`} className="btn btn-primary"><BookOpen className="me-1" /> Read</Link>
           </Card.Body>
         </Col>
       </Row>

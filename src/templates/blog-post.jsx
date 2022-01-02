@@ -1,21 +1,11 @@
 import { graphql } from 'gatsby';
-import { MDXRenderer } from 'gatsby-plugin-mdx';
 import * as React from 'react';
 import { Container, Alert } from 'react-bootstrap';
 import { BlogPostJsonLd, GatsbySeo } from 'gatsby-plugin-next-seo';
-import { MDXProvider } from '@mdx-js/react';
 import Layout from '../components/layout';
 
 import 'prismjs/themes/prism-okaidia.css';
 import './blog-post.css';
-
-const Blockquote = (props) => <blockquote className="blockquote text-end" {...props} />;
-const Table = (props) => <table className="table" {...props} />;
-
-const components = {
-  blockquote: Blockquote,
-  table: Table,
-};
 
 const OldPostWarning = () => (
   <Alert variant="secondary" className="mb-5">
@@ -30,45 +20,51 @@ const OldPostWarning = () => (
 
 const PostLayout = ({ data }) => {
   const oldPost = ((new Date()).getFullYear()
-                   - (new Date(data.mdx.frontmatter.rawDate)).getFullYear()) > 4;
-  const url = `${data.site.siteMetadata.siteUrl}/${data.mdx.frontmatter.slug}`;
-  const description = data.mdx.frontmatter.description || data.mdx.excerpt;
+                   - (new Date(data.post.raw_date)).getFullYear()) > 4;
+  const url = `${data.site.siteMetadata.siteUrl}/blog/${data.post.slug}`;
+  const ogTitle = data.post.og_title || data.post.title;
+  const ogDescription = data.post.og_description || data.post.excerpt;
+  const ogImage = data.post.og_image || data.post.feature_image;
 
   return (
-    <Layout title={data.mdx.frontmatter.title} description={description}>
+    <Layout title={data.post.title} description={ogDescription}>
       <GatsbySeo
         openGraph={{
-          title: data.mdx.frontmatter.title,
-          description,
+          title: ogTitle,
+          description: ogDescription,
           url,
           type: 'article',
           article: {
-            publishedTime: data.mdx.frontmatter.rawDate,
-            tags: data.mdx.frontmatter.tags,
+            publishedTime: data.post.raw_date,
+            modifiedTime: data.post.updated_at,
+            tags: data.post.tags.map((tag) => tag.name),
           },
+          images: [
+            {
+              url: ogImage,
+            },
+          ],
         }}
       />
       <BlogPostJsonLd
         url={url}
-        title={data.mdx.frontmatter.title}
-        dataPublished={data.mdx.frontmatter.rawDate}
-        authorName={data.site.siteMetadata.author}
-        description={description}
+        title={ogTitle}
+        images={[ogImage]}
+        dataPublished={data.post.raw_date}
+        dateModified={data.post.updated_at}
+        authorName={data.post.primary_author.name}
+        description={ogDescription}
       />
       <section className="bg-light">
         <Container>
-          <h1>{data.mdx.frontmatter.title}</h1>
-          <p className="lead">{data.mdx.frontmatter.date} &bull; {data.mdx.timeToRead} min read</p>
+          <h1>{data.post.title}</h1>
+          <p className="lead">{data.post.published_at} &bull; {data.post.reading_time} min read &bull; <span className="fw-lighter">by {data.post.primary_author.name}</span></p>
         </Container>
       </section>
       <section className="post">
         <Container>
           {oldPost && <OldPostWarning />}
-          <MDXProvider components={components}>
-            <MDXRenderer>
-              {data.mdx.body}
-            </MDXRenderer>
-          </MDXProvider>
+          <div dangerouslySetInnerHTML={{ __html: data.post.childHtmlRehype.html }} />
         </Container>
       </section>
     </Layout>
@@ -77,28 +73,31 @@ const PostLayout = ({ data }) => {
 
 export const query = graphql`
   query($id: String!) {
-    mdx(id: {eq: $id}) {
-      frontmatter {
-        title
-        date(formatString: "DD MMM YYYY")
-        rawDate: date
-        description
-        tags
-        slug
-        feature {
-          image {
-            publicURL
-          }
-        }
-      }
-      timeToRead
-      body
+    post: ghostPost(id: {eq: $id}) {
+      title
+      published_at(formatString: "D MMM YYYY")
+      raw_date: published_at
       excerpt
+      og_title
+      og_description
+      og_image
+      reading_time
+      childHtmlRehype {
+        html
+      }
+      slug
+      primary_author {
+        name
+      }
+      tags {
+        name
+      }
+      feature_image
+      updated_at
     }
     site {
       siteMetadata {
         siteUrl
-        author
       }
     }
   }
