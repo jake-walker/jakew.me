@@ -1,13 +1,14 @@
 import { graphql } from 'gatsby';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import * as React from 'react';
-import { Container, Alert } from 'react-bootstrap';
+import { Container, Alert, Row, Col } from 'react-bootstrap';
 import { BlogPostJsonLd, GatsbySeo } from 'gatsby-plugin-next-seo';
 import { MDXProvider } from '@mdx-js/react';
 import Layout from '../components/layout';
 
 import 'prismjs/themes/prism-okaidia.css';
 import './blog-post.css';
+import TableOfContents from '../components/table-of-contents';
 
 const Blockquote = (props) => <blockquote className="blockquote text-end" {...props} />;
 const Table = (props) => <table className="table" {...props} />;
@@ -61,14 +62,23 @@ const PostLayout = ({ data }) => {
           <p className="lead">{data.mdx.frontmatter.date} &bull; {data.mdx.timeToRead} min read</p>
         </Container>
       </section>
-      <section className="post">
-        <Container>
-          {oldPost && <OldPostWarning />}
-          <MDXProvider components={components}>
-            <MDXRenderer>
-              {data.mdx.body}
-            </MDXRenderer>
-          </MDXProvider>
+      <section>
+        <Container fluid>
+          <Row>
+            <Col md={2} className="d-none d-lg-block">
+              {data.mdx.tableOfContents.items && <TableOfContents toc={data.mdx.tableOfContents} />}
+            </Col>
+            <Col md={8} sm={12}>
+              <Container className="post pt-3">
+                {oldPost && <OldPostWarning />}
+                <MDXProvider components={components}>
+                  <MDXRenderer>
+                    {data.mdx.body}
+                  </MDXRenderer>
+                </MDXProvider>
+              </Container>
+            </Col>
+          </Row>
         </Container>
       </section>
     </Layout>
@@ -94,6 +104,7 @@ export const query = graphql`
       timeToRead
       body
       excerpt
+      tableOfContents(maxDepth: 3)
     }
     site {
       siteMetadata {

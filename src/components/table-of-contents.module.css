@@ -1,0 +1,29 @@
+.base {
+  font-size: 0.85rem;
+}
+
+.base-list {
+  padding-left: 0;
+}
+
+.base-list ul {
+  padding-left: 16px;
+}
+
+.link {
+  margin: 0;
+  padding: 4px;
+  display: block;
+  text-decoration: none;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.title {
+  margin-bottom: 10px;
+  padding: 4px;
+  color: var(--bs-gray);
+  border-bottom: 1px solid var(--bs-gray);
+}
