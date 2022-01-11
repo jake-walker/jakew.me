@@ -30,6 +30,8 @@ const OldPostWarning = () => (
 );
 
 const PostLayout = ({ data }) => {
+  console.log(data.mdx);
+
   const oldPost = ((new Date()).getFullYear()
                    - (new Date(data.mdx.frontmatter.rawDate)).getFullYear()) > 4;
   const url = `${data.site.siteMetadata.siteUrl}/${data.mdx.frontmatter.slug}`;
@@ -65,10 +67,10 @@ const PostLayout = ({ data }) => {
       <section>
         <Container fluid>
           <Row>
-            <Col md={2} className="d-none d-lg-block">
+            <Col lg={2} className="d-none d-lg-block">
               {data.mdx.tableOfContents.items && <TableOfContents toc={data.mdx.tableOfContents} />}
             </Col>
-            <Col md={8} sm={12}>
+            <Col lg={8} sm={12}>
               <Container className="post pt-3">
                 {oldPost && <OldPostWarning />}
                 <MDXProvider components={components}>
