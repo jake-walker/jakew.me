@@ -30,8 +30,6 @@ const OldPostWarning = () => (
 );
 
 const PostLayout = ({ data }) => {
-  console.log(data.mdx);
-
   const oldPost = ((new Date()).getFullYear()
                    - (new Date(data.mdx.frontmatter.rawDate)).getFullYear()) > 4;
   const url = `${data.site.siteMetadata.siteUrl}/${data.mdx.frontmatter.slug}`;
