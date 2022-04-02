@@ -115,7 +115,7 @@ Although the VPN is now working, it may be worth setting up automatic updates to
 docker run -d \
            --name watchtower \
            -v /var/run/docker.sock:/var/run/docker.sock \
-           containerrr/watchtower wireguard
+           containrrr/watchtower wireguard
 ```
 
 If you have more containers that you would like to keep updated, it would be worth checking out the [watchtower documentation](https://containrrr.dev/watchtower/) to make sure that you have it set up properly for how you would expect. I have mine set up by adding a label to each container that I would like to have updates on and leaving critical containers to be updated manually. You can also configure other useful things like notifications when containers get updated.
