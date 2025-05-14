@@ -1,4 +1,4 @@
-import rss from "@astrojs/rss";
+import rss, { type RSSFeedItem } from "@astrojs/rss";
 import type { APIRoute } from "astro";
 import { getCollection } from "astro:content";
 import rehypeParse from "rehype-parse";
@@ -30,8 +30,9 @@ export const GET: APIRoute = async (context) => {
         author: 'Jake Walker',
         content: String(result.value),
         description: p.data.excerpt,
-        link: `/${p.data.slug}`
-      }
+        link: `/${p.data.slug}`,
+        pubDate: p.data.published_at !== null && p.data.published_at !== undefined ? new Date(p.data.published_at) : new Date()
+      } satisfies RSSFeedItem;
     }))
   });
 }
