@@ -1,48 +1,15 @@
-# Astro Starter Kit: Basics
+# jakew.me
 
-```sh
-pnpm create astro@latest -- --template basics
-```
+Hey! This is the source code for my website at <https://jakew.me>. It is powered the [Astro](https://astro.build/) web framework and uses [Ghost](https://ghost.org/) as a headless CMS.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+## Development
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+I use pnpm for this project, but any corepack package manager should work too.
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+To get started, run `pnpm install` to grab all the dependencies. Then, run `pnpm dev` to start a local development server.
 
-## 🚀 Project Structure
+## License
 
-Inside of your Astro project, you'll see the following folders and files:
+The source code contained in this repository is licensed under an [MIT](https://opensource.org/licenses/MIT) license. All the content, including posts from Ghost and any images that aren't under any other license\* are licensed under [Creative Commons Attribution 4.0 International (CC-BY-4.0)](https://creativecommons.org/licenses/by/4.0/).
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+<small>\* - Some images that I use fall under a different license, for example, images from <a href="https://unsplash.com/">Unsplash</a> fall under <a href="https://unsplash.com/license">their license</a>. If in doubt, please feel free to get in touch for clarification 🙂</small>
