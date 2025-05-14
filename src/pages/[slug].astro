@@ -1,0 +1,142 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import { DateTime } from "luxon";
+import { render } from "astro:content";
+
+import "../styles/post.css";
+import { getImage } from "astro:assets";
+import OldPost from "../components/OldPost.astro";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("ghostPosts");
+  return posts.map((post) => ({
+    params: { slug: post.data.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+
+const optimizedFeature =
+  post.data.feature_image != null
+    ? await getImage({ src: post.data.feature_image, inferSize: true })
+    : null;
+const publishDate =
+  post.data.published_at != null
+    ? DateTime.fromISO(post.data.published_at)
+    : null;
+const daysOld =
+  post.data.updated_at != null
+    ? Math.round(
+        Math.abs(DateTime.fromISO(post.data.updated_at).diffNow("days").days)
+      )
+    : 0;
+
+const { Content } = await render(post);
+---
+
+<Layout
+  title={post.data.title}
+  seoOverride={{
+    description: post.data.meta_description ?? post.data.excerpt,
+    openGraph: {
+      basic: {
+        title: post.data.title,
+        image: `/og/${post.data.slug}.png`,
+        type: "article",
+      },
+      image: {
+        width: 1200,
+        height: 630,
+      },
+      optional: {
+        description: post.data.og_description ?? post.data.excerpt,
+        siteName: "Jake Walker",
+      },
+      article: {
+        publishedTime: post.data.published_at ?? undefined,
+        modifiedTime: post.data.updated_at ?? undefined,
+        authors: ["Jake Walker"],
+        tags: post.data.tags?.map((t) => t.name),
+      },
+    },
+    twitter: {
+      card: "summary_large_image",
+      creator: "@_jakewalker1",
+      site: "@_jakewalker1",
+      description: post.data.og_description ?? post.data.excerpt,
+      title: post.data.title,
+    },
+  }}
+>
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      mainEntityOfPage: {
+        "@type": "WebPage",
+        "@id": Astro.url,
+      },
+      headline: post.data.title,
+      description: post.data.excerpt,
+      image: optimizedFeature
+        ? new URL(optimizedFeature.src, Astro.site).href
+        : undefined,
+      author: {
+        "@type": "Person",
+        name: "Jake Walker",
+        url: "https://jakew.me",
+      },
+      datePublished: post.data.published_at
+        ? new Date(post.data.published_at).toISOString().split("T")[0]
+        : undefined,
+      dateModified: post.data.updated_at
+        ? new Date(post.data.updated_at).toISOString().split("T")[0]
+        : undefined,
+    })}
+  />
+  <section
+    class:list={optimizedFeature != null
+      ? ["text-white"]
+      : ["bg-primary-200 text-primary-400"]}
+    style={{
+      background:
+        optimizedFeature != null
+          ? `linear-gradient(0deg, rgba(128, 0, 255, 0.6), rgba(128, 0, 255, 0.6)), url(${optimizedFeature.src})`
+          : undefined,
+      backgroundSize: "cover",
+      backgroundBlendMode: "multiply",
+    }}
+  >
+    <div
+      class="container mx-auto text-center flex flex-col gap-3 min-h-80 justify-center max-w-2xl"
+    >
+      <h1
+        class="text-2xl md:text-4xl font-semibold"
+        class:list={optimizedFeature != null ? [] : ["text-primary-900"]}
+      >
+        {post.data.title}
+      </h1>
+      <p class="text-xl">{post.data.custom_excerpt}</p>
+      <p class="text-xl">
+        {
+          publishDate &&
+            publishDate.setLocale("en-GB").toLocaleString(DateTime.DATE_MED)
+        }
+        &nbsp;&bull;&nbsp;
+        {post.data.reading_time} min
+      </p>
+    </div>
+  </section>
+  <section>
+    {daysOld > 1096 && <OldPost />}
+
+    <div
+      class="prose mg:prose-lg lg:prose-xl prose-code:before:content-none prose-code:after:content-none prose-code:bg-primary-50 prose-code:rounded-md prose-code:font-semibold prose-pre:prose-code:bg-transparent prose-code:p-1 mx-auto my-8 dark:prose-invert dark:prose-code:bg-primary-950"
+    >
+      <Content />
+    </div>
+  </section>
+</Layout>

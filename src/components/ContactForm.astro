@@ -1,0 +1,109 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<form class="max-w-sm mx-auto">
+  <div
+    id="formMessage"
+    class="bg-primary-100 text-primary-900 dark:bg-primary-950 dark:text-primary-200 p-4 rounded-xl mb-4 hidden"
+  >
+  </div>
+
+  <div class="mb-5">
+    <label
+      for="name"
+      class="block mb-2 font-medium text-zinc-900 dark:text-zinc-50">Name</label
+    >
+    <input
+      name="name"
+      type="text"
+      autocomplete="name"
+      class="bg-zinc-50 dark:bg-zinc-900 border border-zinc-300 dark:border-zinc-600 text-zinc-900 dark:text-zinc-50 rounded-lg focus:ring-primary-500 focus:border-primary-500 w-full p-2.5"
+      required
+    />
+  </div>
+
+  <div class="mb-5">
+    <label
+      for="email"
+      class="block mb-2 font-medium text-zinc-900 dark:text-zinc-50"
+      >Email</label
+    >
+    <input
+      name="email"
+      type="email"
+      id="email"
+      autocomplete="email"
+      class="bg-zinc-50 dark:bg-zinc-900 border border-zinc-300 dark:border-zinc-600 text-zinc-900 dark:text-zinc-50 rounded-lg focus:ring-primary-500 focus:border-primary-500 w-full p-2.5"
+    />
+  </div>
+
+  <div class="mb-5">
+    <label
+      for="message"
+      class="block mb-2 font-medium text-zinc-900 dark:text-zinc-50"
+      >Message</label
+    >
+    <textarea
+      name="message"
+      id="message"
+      class="bg-zinc-50 dark:bg-zinc-900 border border-zinc-300 dark:border-zinc-600 text-zinc-900 dark:text-zinc-50 rounded-lg focus:ring-primary-500 focus:border-primary-500 w-full p-2.5"
+    ></textarea>
+  </div>
+
+  <div class="mb-5 min-h-[65px]">
+    <div
+      class="cf-turnstile"
+      data-sitekey={import.meta.env.PUBLIC_TURNSTILE_SITE_KEY}
+      data-size="flexible"
+    >
+    </div>
+  </div>
+
+  <button
+    type="submit"
+    class="inline-block float-end bg-primary-100 text-primary-900 dark:bg-primary-950 dark:text-primary-100 py-2 px-6 rounded-full no-underline hover:brightness-95 dark:hover:brightness-110 transition-all"
+    ><Icon name="tabler:send" class="inline size-6 me-2" />Send</button
+  >
+</form>
+
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" defer
+></script>
+
+<script>
+  import { actions, isInputError } from "astro:actions";
+
+  const form = document.querySelector("form");
+  const formMessage = document.querySelector("div#formMessage")!;
+
+  form?.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(form);
+    formData.set(
+      "cf-turnstile-response",
+      (window as any).turnstile.getResponse()
+    );
+    const { error } = await actions.submitContact(formData);
+
+    if (isInputError(error)) {
+      formMessage.innerHTML =
+        "<p><strong>Whoops!</strong> " +
+        error.issues.map((i) => i.message).join(". ") +
+        ".</p>";
+    } else if (error !== undefined) {
+      if (typeof error === "object" && "message" in error) {
+        formMessage.innerHTML =
+          "<p><strong>Whoops!</strong> " + error.message + ".</p>";
+      } else {
+        formMessage.innerHTML =
+          "<p><strong>Sorry!</strong> Something went wrong.</p>";
+      }
+    } else if (!error) {
+      formMessage.innerHTML =
+        "<p><strong>Thank You!</strong> Your message has been sent and I'll get back to you as soon as I can.</p>";
+    }
+
+    formMessage.classList.remove("hidden");
+  });
+</script>

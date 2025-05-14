@@ -1,0 +1,65 @@
+---
+import { Icon } from "astro-icon/components";
+
+const links = [
+  {
+    name: "Bluesky",
+    icon: "tabler:brand-bluesky",
+    username: "@jakew.me",
+    link: "https://bsky.app/profile/jakew.me",
+  },
+  {
+    name: "LinkedIn",
+    icon: "tabler:brand-linkedin",
+    username: "jake-walker1",
+    link: "https://www.linkedin.com/in/jake-walker1",
+  },
+  {
+    name: "GitHub",
+    icon: "tabler:brand-github",
+    username: "jake-walker",
+    link: "https://github.com/jake-walker",
+  },
+  {
+    name: "GitLab",
+    icon: "tabler:brand-gitlab",
+    username: "_jakew",
+    link: "https://gitlab.com/_jakew",
+  },
+  {
+    name: "X",
+    icon: "tabler:brand-x",
+    username: "@_jakewalker1",
+    link: "https://x.com/_jakewalker1",
+  },
+  {
+    name: "NPM",
+    icon: "tabler:brand-nodejs",
+    username: "jakew",
+    link: "https://www.npmjs.com/~jakew",
+  },
+  {
+    name: "PyPI",
+    icon: "tabler:brand-python",
+    username: "jakew1",
+    link: "https://pypi.org/user/jakew1",
+  },
+  {
+    name: "Tindie Marketplace",
+    icon: "tabler:shopping-bag",
+    link: "https://www.tindie.com/stores/jakew",
+  },
+];
+---
+
+{
+  links.map((link) => (
+    <a
+      class="inline-block bg-primary-100 text-primary-900 dark:bg-primary-950 dark:text-primary-100 py-2 px-6 rounded-full me-4 mb-4 no-underline hover:brightness-95 dark:hover:brightness-110 transition-all"
+      href={link.link}
+    >
+      {link.icon && <Icon name={link.icon} class="inline size-6 me-2" />}
+      {link.name}
+    </a>
+  ))
+}

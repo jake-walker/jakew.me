@@ -1,0 +1,104 @@
+@import "./global.css";
+
+.kg-card figcaption {
+  @apply text-center text-base;
+}
+
+.kg-card.kg-image-card img {
+  @apply mx-auto;
+}
+
+.kg-card.kg-embed-card * {
+  @apply mx-auto;
+}
+
+.kg-file-card-container {
+  @apply flex flex-row-reverse gap-4 p-4 bg-primary-100 dark:bg-primary-950 rounded-xl hover:brightness-95 no-underline transition-all;
+}
+
+.kg-file-card-icon {
+  @apply size-8 text-primary-900 dark:text-primary-200;
+}
+
+.kg-file-card-contents {
+  @apply grow text-primary-900 dark:text-primary-200;
+}
+
+.kg-file-card-title {
+  @apply text-xl no-underline;
+}
+
+.kg-file-card-metadata {
+  @apply block text-sm gap-2 no-underline text-primary-400;
+}
+
+.kg-file-card-caption {
+  @apply text-base;
+}
+
+.kg-file-card-filename, .kg-file-card-filesize {
+  @apply inline;
+}
+
+.kg-file-card-filesize::before {
+  display: inline-block;
+  content: "•";
+  margin-left: 6px;
+  margin-right: 6px;
+}
+
+.kg-callout-card-red {
+  @apply bg-red-100 text-red-900 dark:bg-red-900 dark:text-red-100;
+}
+
+.kg-callout-card strong {
+  @apply text-inherit;
+}
+
+.kg-callout-card:not([class*="kg-callout-card-"]) {
+  @apply bg-primary-100 text-primary-900 dark:bg-primary-950 dark:text-primary-200;
+}
+
+.kg-card.kg-callout-card {
+  @apply p-4 rounded-xl flex flex-row gap-4;
+}
+
+.kg-callout-emoji {
+  @apply text-2xl;
+}
+
+.kg-gallery-row {
+  @apply flex flex-row gap-4;
+}
+
+video {
+  @apply mx-auto;
+}
+
+p > img {
+  @apply mx-auto;
+}
+
+.kg-toggle-card {
+  @apply bg-primary-100 text-primary-900 dark:bg-primary-950 dark:text-primary-200 rounded-xl p-4 mt-4;
+}
+
+.kg-toggle-card h4 {
+  @apply m-0 text-xl text-primary-900 dark:text-primary-200 font-normal;
+}
+
+.kg-toggle-card strong {
+  @apply text-primary-900 dark:text-primary-200;
+}
+
+.kg-toggle-card p, .kg-toggle-card ul, .kg-toggle-card li {
+  @apply my-0;
+}
+
+button.kg-toggle-card-icon {
+  @apply hidden;
+}
+
+.kg-toggle-content {
+  @apply text-base;
+}
