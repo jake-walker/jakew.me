@@ -52,6 +52,8 @@ export const collections = {
           if (cursor.current.success) posts.push(...cursor.current.data);
         }
 
+        posts.sort((a, b) => new Date(b.published_at ?? b.created_at).getTime() - new Date(a.published_at ?? a.created_at).getTime());
+
         for (const post of posts) {
           const parsedPost = await parseData({
             id: post.id,
