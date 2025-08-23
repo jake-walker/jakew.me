@@ -1,0 +1,45 @@
+name: Deploy
+on:
+  workflow_dispatch:
+    inputs:
+      notifyUrl:
+        description: Webhook to call when build is complete
+        type: string
+        required: true
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22.15.0
+          cache: "pnpm"
+      - name: Install dependencies
+        run: pnpm install
+      - name: Build
+        run: pnpm run build
+        env:
+          BREVO_API_KEY: ${{ secrets.BREVO_API_KEY }}
+          GHOST_URL: https://ghost.jakew.me
+          GHOST_CONTENT_API_KEY: ${{ secrets.GHOST_CONTENT_API_KEY }}
+          NOTIFICATION_RECIPIENT_NAME: Jake Walker
+          NOTIFICATION_RECIPIENT_EMAIL: ${{ secrets.NOTIFICATION_RECIPIENT_EMAIL }}
+          NOTIFICATION_SENDER: ${{ secrets.NOTIFICATION_SENDER }}
+          PUBLIC_TURNSTILE_SITE_KEY: 0x4AAAAAABdJSZBVGC81SO1M
+          TURNSTILE_SECRET_KEY: ${{ secrets.TURNSTILE_SECRET_KEY }}
+      - name: Build & Deploy Worker
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      - name: Notify
+        run: |
+          NOTIFY_URL=$(cat $GITHUB_EVENT_PATH | jq -r '.inputs.notifyUrl')
+          echo "::add-mask::$NOTIFY_URL"
+          curl $NOTIFY_URL
