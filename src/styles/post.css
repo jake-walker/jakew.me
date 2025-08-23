@@ -102,3 +102,39 @@ button.kg-toggle-card-icon {
 .kg-toggle-content {
   @apply text-base;
 }
+
+.kg-bookmark-card {
+  @apply bg-primary-100 text-primary-900 dark:bg-primary-950 dark:text-primary-200 rounded-xl p-4 mt-4;
+}
+
+.kg-bookmark-container {
+  @apply flex flex-row gap-4 no-underline;
+}
+
+.kg-bookmark-content {
+  @apply flex flex-col gap-4;
+}
+
+.kg-bookmark-title {
+  @apply underline hover:no-underline text-xl;
+}
+
+.kg-bookmark-description {
+  @apply text-sm text-primary-900 dark:text-primary-200;
+}
+
+.kg-bookmark-metadata {
+  @apply text-sm flex flex-row w-full items-center gap-4 text-primary-900 dark:text-primary-200;
+}
+
+.kg-bookmark-thumbnail {
+  @apply self-center;
+}
+
+.kg-bookmark-thumbnail > img {
+  @apply m-0 max-w-32 max-h-32;
+}
+
+[classname=kg-bookmark-icon] {
+  @apply size-8 m-0;
+}

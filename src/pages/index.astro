@@ -47,7 +47,7 @@ const optimizedHeroImage = await getImage({ src: heroImage });
   <section>
     <div class="container mx-auto text-center">
       <h2 class="text-4xl mb-16">Blog</h2>
-      <div class="grid md:grid-cols-3 xl:grid-cols-4 gap-8">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
         {
           posts.map((post, i) => (
             <BlogPostCard

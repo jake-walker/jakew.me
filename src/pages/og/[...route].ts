@@ -62,7 +62,7 @@ export const GET: APIRoute = async ({ params, request }) => {
         color: white;
         padding: 4em;
       ">
-        <img style="width: 164px; height: 164px; background: white; border-radius: 999px; margin-left: auto;" src="https://gateway.pinata.cloud/ipfs/bafkreiaefpkbox44yc6dzdg4mle24shc6u2cdlyuaegvl3n65vaudmsqfi"/>
+        <img style="width: 164px; height: 164px; background: white; border-radius: 999px; margin-left: auto;" src="https://ipfs.io/ipfs/bafkreiaefpkbox44yc6dzdg4mle24shc6u2cdlyuaegvl3n65vaudmsqfi"/>
         <div style="flex: 1; display: flex;"></div>
         <h1 style="font-family: 'Inter Medium'; font-size: ${routeName === 'main' ? '8em' : '5em'};">${info.title}</h1>
         <p style="font-size: 3em; ${info.description == null ? 'display: none;' : ''}">${info.description != null ? info.description : ''}</p>
