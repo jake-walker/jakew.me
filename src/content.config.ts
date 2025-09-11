@@ -52,6 +52,10 @@ export const collections = {
           if (cursor.current.success) posts.push(...cursor.current.data);
         }
 
+        if (posts.length === 0) {
+          throw new AstroError('No posts returned from Ghost Content API');
+        }
+
         posts.sort((a, b) => new Date(b.published_at ?? b.created_at).getTime() - new Date(a.published_at ?? a.created_at).getTime());
 
         for (const post of posts) {
