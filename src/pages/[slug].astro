@@ -7,6 +7,7 @@ import { render } from "astro:content";
 import "../styles/post.css";
 import { getImage } from "astro:assets";
 import OldPost from "../components/OldPost.astro";
+import Remark42Embed from "../components/remark42-embed.svelte";
 
 export async function getStaticPaths() {
   const posts = await getCollection("ghostPosts");
@@ -29,7 +30,7 @@ const publishDate =
 const daysOld =
   post.data.updated_at != null
     ? Math.round(
-        Math.abs(DateTime.fromISO(post.data.updated_at).diffNow("days").days)
+        Math.abs(DateTime.fromISO(post.data.updated_at).diffNow("days").days),
       )
     : 0;
 
@@ -137,6 +138,11 @@ const { Content } = await render(post);
       class="prose mg:prose-lg lg:prose-xl prose-code:before:content-none prose-code:after:content-none prose-code:bg-primary-50 prose-code:rounded-md prose-code:font-semibold prose-pre:prose-code:bg-transparent prose-code:p-1 mx-auto my-8 dark:prose-invert dark:prose-code:bg-primary-950"
     >
       <Content />
+    </div>
+
+    <div class="container mx-auto">
+      <h2 class="text-4xl mb-4">Comments</h2>
+      <Remark42Embed client:visible />
     </div>
   </section>
 </Layout>

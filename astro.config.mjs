@@ -8,6 +8,8 @@ import og from "astro-og";
 
 import sitemap from "@astrojs/sitemap";
 
+import svelte from "@astrojs/svelte";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://jakew.me",
@@ -54,7 +56,7 @@ export default defineConfig({
     "/rss.xml": "/rss",
   },
 
-  integrations: [icon(), mdx(), og(), sitemap()],
+  integrations: [icon(), mdx(), og(), sitemap(), svelte()],
 
   adapter: cloudflare({
     imageService: "compile",
