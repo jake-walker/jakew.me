@@ -58,13 +58,13 @@ export const GET: APIRoute = async ({ params, request }) => {
       <div style="
         background: linear-gradient(90deg, rgb(140, 20, 255), rgb(171, 115, 255));
         display: flex; flex-direction: column; justify-items: center; align-items: flex-start;
-        font-family: 'Inter Regular'; height: 100%;
+        font-family: 'Gabarito Regular'; height: 100%;
         color: white;
         padding: 4em;
       ">
         <img style="width: 164px; height: 164px; background: white; border-radius: 999px; margin-left: auto;" src="https://ipfs.io/ipfs/bafkreiaefpkbox44yc6dzdg4mle24shc6u2cdlyuaegvl3n65vaudmsqfi"/>
         <div style="flex: 1; display: flex;"></div>
-        <h1 style="font-family: 'Inter Medium'; font-size: ${routeName === 'main' ? '8em' : '5em'};">${info.title}</h1>
+        <h1 style="font-family: 'Gabarito Medium'; font-size: ${routeName === 'main' ? '8em' : '5em'};">${info.title}</h1>
         <p style="font-size: 3em; ${info.description == null ? 'display: none;' : ''}">${info.description != null ? info.description : ''}</p>
       </div>
     `,
@@ -74,13 +74,13 @@ export const GET: APIRoute = async ({ params, request }) => {
     satori: {
       fonts: [
         {
-          name: "Inter Regular",
-          data: await loadFont("https://cdn.jsdelivr.net/gh/cygnus-rom/external_inter-fonts/Inter-Regular.ttf"),
+          name: "Gabarito Regular",
+          data: await loadFont("https://cdn.jsdelivr.net/gh/naipefoundry/gabarito/fonts/ttf/Gabarito-Regular.ttf"),
           style: "normal"
         },
         {
-          name: "Inter Medium",
-          data: await loadFont("https://cdn.jsdelivr.net/gh/cygnus-rom/external_inter-fonts/Inter-Medium.ttf"),
+          name: "Gabarito Medium",
+          data: await loadFont("https://cdn.jsdelivr.net/gh/naipefoundry/gabarito/fonts/ttf/Gabarito-Medium.ttf"),
           style: "normal"
         }
       ]

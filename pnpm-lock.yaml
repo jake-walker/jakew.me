@@ -23,6 +23,9 @@ importers:
       '@astrojs/svelte':
         specifier: ^7.2.5
         version: 7.2.5(@types/node@25.0.9)(astro@5.16.12(@types/node@25.0.9)(jiti@2.6.1)(lightningcss@1.30.2)(rollup@4.55.3)(terser@5.39.0)(typescript@5.9.3)(yaml@2.8.2))(jiti@2.6.1)(lightningcss@1.30.2)(svelte@5.47.1)(terser@5.39.0)(typescript@5.9.3)(yaml@2.8.2)
+      '@fontsource-variable/gabarito':
+        specifier: ^5.2.8
+        version: 5.2.8
       '@iconify-json/tabler':
         specifier: ^1.2.26
         version: 1.2.26
@@ -785,6 +788,9 @@ packages:
     engines: {node: '>=18'}
     cpu: [x64]
     os: [win32]
+
+  '@fontsource-variable/gabarito@5.2.8':
+    resolution: {integrity: sha512-wIAwvNwzfoYMm4iisswaUYgCxDWFe6JdKDL1gjgUjYe7LU1u/zjGekEigJgkabvMgZbWyJjkRNCb2gJlcMxvpg==}
 
   '@iconify-json/tabler@1.2.26':
     resolution: {integrity: sha512-92G+ZD70AZgeJf07JfQzH+isnai6DwPcMBuF/qL1F+xAxdXCJzGd3w2RmsRvOmB+w1ImmWEEDms50QivQIjd6g==}
@@ -3912,6 +3918,8 @@ snapshots:
 
   '@esbuild/win32-x64@0.27.0':
     optional: true
+
+  '@fontsource-variable/gabarito@5.2.8': {}
 
   '@iconify-json/tabler@1.2.26':
     dependencies:
