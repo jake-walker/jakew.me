@@ -8,12 +8,14 @@ import path from "node:path";
 
 const posts = await getCollection('ghostPosts');
 
+const truncateAfterWord = (str: string, chars: number, placeholder = "...") =>  str.length < chars ? str : `${str.substring( 0, str.substring(0, chars - placeholder.length).lastIndexOf(" "))}${placeholder}`;
+
 const items: {
   [route: string]: { title: string, description?: string }
 } = {
   ...Object.fromEntries(posts.map((p) => [p.data.slug, {
     title: p.data.title,
-    description: p.data.excerpt
+    description: truncateAfterWord(p.data.excerpt, 110)
   }])),
   main: {
     title: 'Jake Walker'
