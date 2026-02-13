@@ -1,0 +1,113 @@
+---
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+import { DateTime } from "luxon";
+import { type Project } from "../lib/types";
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+---
+
+<div>
+  <div
+    class:list={{
+      "bg-primary-100 text-primary-900 dark:bg-primary-950 dark:text-primary-300":
+        !project.featured,
+      "bg-primary-950 text-primary-300 dark:bg-primary-500 dark:text-primary-200 text-lg":
+        project.featured,
+    }}
+    class="text-start rounded-xl p-6"
+  >
+    <div class="flex flex-row gap-4">
+      <div>
+        <div
+          class:list={{
+            "rounded-full": !project.iconUrl,
+            "bg-primary-300 dark:bg-primary-500":
+              !project.iconUrl && !project.featured,
+            "bg-primary-300 dark:bg-primary-300 text-primary-600":
+              !project.iconUrl && project.featured,
+          }}
+          class="block size-18"
+        >
+          {
+            project.iconUrl ? (
+              <Image
+                src={project.iconUrl}
+                alt={`${project.name} icon`}
+                inferSize={true}
+              />
+            ) : (
+              <Icon
+                name="tabler:box"
+                class="block size-12 my-auto mx-auto h-full"
+              />
+            )
+          }
+        </div>
+      </div>
+      <div>
+        <h5
+          class:list={{
+            "text-primary-950 dark:text-primary-100 text-xl": !project.featured,
+            "text-primary-100 dark:text-primary-50 text-2xl": project.featured,
+          }}
+          class="font-medium underline-offset-2 transition-all mb-1"
+        >
+          {project.name}
+          {
+            project.badgeText && (
+              <span
+                class:list={{
+                  "bg-primary-900 text-primary-50": !project.featured,
+                  "bg-primary-600 dark:bg-primary-400 text-primary-50":
+                    project.featured,
+                }}
+                class="text-xs rounded-full py-1 px-3 my-auto"
+              >
+                {project.badgeText}
+              </span>
+            )
+          }
+        </h5>
+        <p class="mb-1">{project.description}</p>
+        {
+          project.language && (
+            <p
+              class="mb-2 italic"
+              class:list={[project.featured ? "text-sm" : "text-xs"]}
+            >
+              Language: {project.language}
+            </p>
+          )
+        }
+      </div>
+    </div>
+    <div class="flex flex-row justify-end gap-4 mt-2">
+      {
+        project.links.map((link) => (
+          <a
+            href={link.url}
+            class:list={{
+              "bg-primary-300 text-primary-950 hover:bg-primary-400 dark:hover:bg-primary-200":
+                !project.featured,
+              "text-base bg-primary-800 text-primary-100 hover:bg-primary-700 dark:bg-primary-900 dark:text-primary-100 dark:hover:bg-primary-800":
+                project.featured,
+            }}
+            class="rounded-md py-1 px-2"
+          >
+            <Icon
+              name={link.icon ?? "tabler:external-link"}
+              class="inline me-1"
+            />
+            {link.title}
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</div>

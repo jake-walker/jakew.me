@@ -7,4 +7,5 @@ interface ImportMetaEnv {
   readonly NOTIFICATION_RECIPIENT_EMAIL: string;
   readonly BREVO_API_KEY: string;
   readonly GHOST_URL: string;
+  readonly GITHUB_API_KEY?: string;
 }

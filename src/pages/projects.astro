@@ -1,0 +1,138 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+import { type Project } from "../lib/types";
+import ProjectCard from "../components/ProjectCard.astro";
+
+const githubRepos = await getCollection("githubRepos");
+const forgejoRepos = await getCollection("forgejoRepos");
+
+const projects: { [key: string]: Project } = {
+  nextrep: {
+    name: "NextRep",
+    badgeText: "Closed Source",
+    links: [
+      {
+        icon: "tabler:brand-apple",
+        title: "App Store (iOS)",
+        url: "https://apps.apple.com/us/app/nextrep/id6742240563",
+      },
+      { icon: "tabler:link", title: "Website", url: "https://nextrep.app" },
+    ],
+    description: "Workout app for iOS written in SwiftUI.",
+    language: "Swift & SwiftUI",
+    iconUrl: "https://nextrep.app/icon.png",
+    featured: true,
+    createdAt: new Date(2024, 12, 8, 16, 38, 0, 0),
+    updatedAt: new Date(),
+  },
+  ...githubRepos
+    .filter(
+      (repo) =>
+        repo.data.description !== null &&
+        repo.data.archived !== true &&
+        !repo.data.fork,
+    )
+    .reduce((acc: { [key: string]: Project }, item) => {
+      acc[`github:${item.data.name}`] = {
+        name: item.data.name,
+        links: [
+          {
+            title: "GitHub Repo",
+            url: item.data.html_url,
+            icon: "tabler:brand-github",
+          },
+        ],
+        description: item.data.description!,
+        createdAt: item.data.created_at,
+        updatedAt: item.data.pushed_at,
+        language: item.data.language ?? undefined,
+      };
+      return acc;
+    }, {}),
+  ...forgejoRepos
+    .filter(
+      (repo) =>
+        repo.data.description !== null &&
+        repo.data.archived !== true &&
+        !repo.data.fork,
+    )
+    .reduce((acc: { [key: string]: Project }, item) => {
+      acc[`forgejo:${item.data.name}`] = {
+        name: item.data.name,
+        links: [
+          {
+            title: "Repo",
+            url: item.data.html_url,
+            icon: "tabler:git-merge",
+          },
+        ],
+        description: item.data.description!,
+        createdAt: item.data.created_at,
+        updatedAt: item.data.updated_at,
+        language: item.data.language ?? undefined,
+      };
+      return acc;
+    }, {}),
+};
+
+if ("github:workout-converter" in projects) {
+  projects["github:workout-converter"].featured = true;
+  projects["github:workout-converter"].links = [
+    {
+      title: "npm",
+      url: "https://npmjs.com/package/@jakew/workout-converter",
+      icon: "tabler:package-import",
+    },
+    {
+      title: "JSR",
+      url: "https://jsr.io/@jakew/workout-converter",
+      icon: "tabler:package-import",
+    },
+    ...projects["github:workout-converter"].links,
+  ];
+}
+if ("github:vh7" in projects) {
+  projects["github:vh7"].featured = true;
+  projects["github:vh7"].links = [
+    {
+      title: "Website",
+      url: "https://vh7.uk",
+      icon: "tabler:link",
+    },
+    ...projects["github:vh7"].links,
+  ];
+}
+---
+
+<Layout>
+  <section>
+    <div class="container mx-auto">
+      <div class="text-center max-w-140 mx-auto mb-12">
+        <h1 class="text-3xl font-extrabold mb-4">Projects</h1>
+        <p class="text-lg">
+          Check out the projects I've been working on recently from GitHub and
+          my self-hosted Git forge.
+        </p>
+      </div>
+
+      <div class="grid lg:grid-cols-2 xl:grid-cols-3 gap-8 mb-8">
+        {
+          Object.entries(projects)
+            .filter((p) => p[1].featured)
+            .sort((a, b) => b[1].updatedAt - a[1].updatedAt)
+            .map(([id, project]) => <ProjectCard project={project} />)
+        }
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+        {
+          Object.entries(projects)
+            .filter((p) => !p[1].featured)
+            .sort((a, b) => b[1].updatedAt - a[1].updatedAt)
+            .map(([id, project]) => <ProjectCard project={project} />)
+        }
+      </div>
+    </div>
+  </section>
+</Layout>

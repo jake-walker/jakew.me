@@ -33,6 +33,7 @@ jobs:
           NOTIFICATION_SENDER: ${{ secrets.NOTIFICATION_SENDER }}
           PUBLIC_TURNSTILE_SITE_KEY: 0x4AAAAAABdJSZBVGC81SO1M
           TURNSTILE_SECRET_KEY: ${{ secrets.TURNSTILE_SECRET_KEY }}
+          GITHUB_API_KEY: ${{ secrets.GH_PAT }}
       - name: Build & Deploy Worker
         uses: cloudflare/wrangler-action@v3
         with:
