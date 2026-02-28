@@ -93,6 +93,7 @@ if ("github:workout-converter" in projects) {
   ];
 }
 if ("github:vh7" in projects) {
+  projects["github:vh7"].name = "VH7";
   projects["github:vh7"].featured = true;
   projects["github:vh7"].links = [
     {
@@ -102,6 +103,19 @@ if ("github:vh7" in projects) {
     },
     ...projects["github:vh7"].links,
   ];
+}
+if ("github:kourt" in projects) {
+  projects["github:kourt"].name = "Kourt";
+  projects["github:kourt"].featured = true;
+  projects["github:kourt"].links = [
+    {
+      title: "Website",
+      url: "https://kourt.jakewalker.xyz",
+      icon: "tabler:link",
+    },
+    ...projects["github:kourt"].links,
+  ];
+  projects["github:kourt"].iconUrl = "https://kourt.jakewalker.xyz/icon.png";
 }
 ---
 
