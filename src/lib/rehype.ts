@@ -13,8 +13,15 @@ export function rehypeAnchorRewrite() {
 
       if (href === null) return;
 
-      href.searchParams.delete("ref");
-      href.searchParams.set("ref", "jakew.me")
+      const ref = href.searchParams.get("ref");
+
+      if (ref !== null) {
+        href.searchParams.set("ref", "jakew.me");
+      }
+
+      if (href.host === "ghost.jakew.me") {
+        href.host = "jakew.me";
+      }
 
       node.properties.href = href.toString();
     });
