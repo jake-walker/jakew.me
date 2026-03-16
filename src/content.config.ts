@@ -43,7 +43,9 @@ export const collections = {
 
         logger.info("Fetching posts from Ghost Content API");
 
-        let cursor = await api.posts.browse().include({ authors: true, tags: true }).paginate().catch((err) => {
+        let cursor = await api.posts.browse({
+          order: "published_at DESC"
+        }).include({ authors: true, tags: true }).paginate().catch((err) => {
           throw new AstroError('Failed to fetch posts from Ghost Content API', err);
         });
 
@@ -56,8 +58,6 @@ export const collections = {
         if (posts.length === 0) {
           throw new AstroError('No posts returned from Ghost Content API');
         }
-
-        posts.sort((a, b) => new Date(b.published_at ?? b.created_at).getTime() - new Date(a.published_at ?? a.created_at).getTime());
 
         for (const post of posts) {
           const parsedPost = await parseData({
