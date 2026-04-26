@@ -1,6 +1,3 @@
-import { GhostCMSContentAPIFactory } from "astro-ghostcms-loader/api";
-import { TagsLoader } from "astro-ghostcms-loader/loaders";
-import { postsSchema, tagsSchema, type Post } from "astro-ghostcms-loader/schemas";
 import { defineCollection } from "astro:content";
 import { AstroError } from "astro/errors";
 import { unified } from "unified";
@@ -10,6 +7,7 @@ import rehypeShiki from "@shikijs/rehype";
 import type { AstroConfig } from "astro";
 import { rehypeAnchorRewrite, rehypeCollectImages, rehypeImages, rehypeGhostVideoCard } from "./lib/rehype";
 import { z } from "astro/zod";
+import { postsSchema, type Post, ghostClient } from "./lib/ghost";
 
 function createParser(opts?: AstroConfig) {
   return unified().use(rehypeParse, { fragment: true })
@@ -21,14 +19,7 @@ function createParser(opts?: AstroConfig) {
     .use(rehypeStringify);
 }
 
-const api = GhostCMSContentAPIFactory(import.meta.env.GHOST_URL, import.meta.env.GHOST_CONTENT_API_KEY, 'v5.0');
-
 export const collections = {
-  // ...ghost,
-  ghostTags: defineCollection({
-    schema: tagsSchema,
-    loader: TagsLoader(api),
-  }),
   ghostPosts: defineCollection({
     schema: postsSchema,
     loader: {
@@ -39,21 +30,13 @@ export const collections = {
 
         const parser = createParser(config);
 
-        const posts: Post[] = [];
-
         logger.info("Fetching posts from Ghost Content API");
 
-        let cursor = await api.posts.browse({
-          order: "published_at DESC"
-        }).include({ authors: true, tags: true }).paginate().catch((err) => {
-          throw new AstroError('Failed to fetch posts from Ghost Content API', err);
+        const posts = await ghostClient.posts.browse({
+          order: "published_at DESC",
+          include: ["authors", "tags"],
+          limit: "all"
         });
-
-        if (cursor.current.success) posts.push(...cursor.current.data);
-        while (cursor.next) {
-          cursor = await cursor.next.paginate();
-          if (cursor.current.success) posts.push(...cursor.current.data);
-        }
 
         if (posts.length === 0) {
           throw new AstroError('No posts returned from Ghost Content API');
@@ -62,7 +45,7 @@ export const collections = {
         for (const post of posts) {
           const parsedPost = await parseData({
             id: post.id,
-            data: post,
+            data: post as any,
           });
 
           const result = await parser.process(parsedPost.html.trim());
@@ -153,7 +136,7 @@ export const collections = {
       let repos: any[] = [];
 
       while (true) {
-        const res = await fetch(`https://git.jakew.me/api/v1/users/jakew/repos?page=${page}`);
+        const res = await fetch(`https://git.boop.fi/api/v1/users/jakew/repos?page=${page}`);
 
         if (!res.ok) {
           break;
