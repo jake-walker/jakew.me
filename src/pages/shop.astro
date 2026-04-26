@@ -5,8 +5,6 @@ import Button from "../components/Button.astro";
 import { gql } from "graphql-request";
 import { client } from "../lib/shop";
 
-export const prerender = false;
-
 const ProductsQuery = gql`
   query ProductsQuery {
     products(where: { featured: true }) {
