@@ -38,7 +38,7 @@
     "unist-util-visit": "^5.0.0",
     "vfile": "^6.0.3"
   },
-  "packageManager": "pnpm@10.10.0+sha512.d615db246fe70f25dcfea6d8d73dee782ce23e2245e3c4f6f888249fb568149318637dca73c2c5c8ef2a4ca0d5657fb9567188bfab47f566d1ee6ce987815c39",
+  "packageManager": "pnpm@10.33.2+sha512.a90faf6feeab71ad6c6e57f94e0fe1a12f5dcc22cd754db40ae9593eb6a3e0b6b12e3540218bb37ae083404b1f2ce6db2a4121e979829b4aff94b99f49da1cf8",
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.19",
     "@types/hast": "^3.0.4",
@@ -46,7 +46,10 @@
     "@types/sanitize-html": "^2.16.0",
     "@types/turndown": "^5.0.6",
     "astro-og": "^0.3.2",
-    "wrangler": "^4.59.3"
+    "dotenv": "^17.3.1",
+    "graphql": "^16.13.2",
+    "graphql-request": "^7.4.0",
+    "wrangler": "^4.85.0"
   },
   "pnpm": {
     "onlyBuiltDependencies": [

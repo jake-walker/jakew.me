@@ -14,9 +14,10 @@ import svelte from "@astrojs/svelte";
 export default defineConfig({
   site: "https://jakew.me",
   output: "static",
+  prefetch: true,
 
   image: {
-    domains: ["ghost.jakew.me", "jakew.me"],
+    domains: ["ghost.jakew.me", "jakew.me", "shop.jakew.me"],
     remotePatterns: [{ protocol: "https" }],
   },
 

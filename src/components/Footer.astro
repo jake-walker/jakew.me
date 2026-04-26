@@ -1,5 +1,11 @@
 ---
 import { Icon } from "astro-icon/components";
+
+interface Props {
+  extraLinks?: { title: string; href: string; icon?: string }[];
+}
+
+const { extraLinks } = Astro.props;
 ---
 
 <div class="bg-zinc-200 text-zinc-600 dark:bg-zinc-900 dark:text-zinc-400">
@@ -27,11 +33,25 @@ import { Icon } from "astro-icon/components";
         >.
       </p>
       <p class="text-xs mt-2">
-        <a
-          href={new URL("rss", Astro.site)}
-          class="underline hover:no-underline"
-          ><Icon name="tabler:rss" class="inline size-4" /> RSS</a
-        >
+        {
+          [
+            {
+              title: "RSS",
+              href: new URL("rss", Astro.site),
+              icon: "tabler:rss",
+            },
+            ...(extraLinks ?? []),
+          ].map((link, i) => (
+            <a
+              href={link.href}
+              class="underline hover:no-underline"
+              class:list={[i > 0 && "ms-2"]}
+            >
+              {link.icon && <Icon name={link.icon} class="inline size-4" />}
+              {link.title}
+            </a>
+          ))
+        }
       </p>
     </div>
   </div>

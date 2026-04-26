@@ -1,0 +1,23 @@
+---
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  class?: string;
+  link: string;
+  icon?: string;
+}
+
+const { link, icon, class: className } = Astro.props;
+---
+
+<a
+  href={link}
+  class:list={[
+    "bg-primary-500 hover:bg-primary-300 text-white hover:text-primary-900 py-4 px-6 text-lg rounded-full",
+    ...(className ?? []),
+  ]}
+>
+  {icon && <Icon name={icon} size={24} class="inline" />}
+  <slot />
+</a>

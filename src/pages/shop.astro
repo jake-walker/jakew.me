@@ -1,0 +1,92 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ProductCard from "../components/ProductCard.astro";
+import Button from "../components/Button.astro";
+import { gql } from "graphql-request";
+import { client } from "../lib/shop";
+
+export const prerender = false;
+
+const ProductsQuery = gql`
+  query ProductsQuery {
+    products(where: { featured: true }) {
+      nodes {
+        title
+        shortDescription
+        link
+        featuredImage {
+          node {
+            guid
+            altText
+          }
+        }
+        ... on SimpleProduct {
+          price
+        }
+      }
+    }
+  }
+`;
+
+const products = (await client.request(ProductsQuery)).products.nodes as {
+  title: string;
+  shortDescription?: string;
+  link: string;
+  featuredImage: {
+    node?: {
+      guid: string;
+      altText?: string;
+    };
+  };
+  price: string;
+}[];
+---
+
+<Layout
+  footer={{
+    extraLinks: [
+      {
+        title: "Refund and Returns Policy",
+        href: "https://shop.jakew.me/refund_returns/",
+        icon: "tabler:gavel",
+      },
+    ],
+  }}
+>
+  <section>
+    <div class="container mx-auto">
+      <div class="text-center max-w-140 mx-auto mb-12">
+        <h1 class="text-3xl font-extrabold mb-4">Shop</h1>
+        <p class="text-lg">
+          These are things I've built for myself that turned out to be useful
+          enough to share. Every board here has been designed, tested, and
+          assembled by me - if you have any questions or feedback, I'm always
+          happy to hear it.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mb-8">
+        {
+          products.map((product) => (
+            <ProductCard
+              title={product.title}
+              description={product.shortDescription}
+              link={product.link}
+              featuredImage={{
+                url: product.featuredImage.node?.guid,
+                alt: product.featuredImage.node?.altText,
+              }}
+              price={product.price}
+            />
+          ))
+        }
+      </div>
+
+      <div class="text-center pt-4">
+        <Button link="https://shop.jakew.me" icon="tabler:arrow-right"
+          >See more</Button
+        >
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,68 @@
+---
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  title: string;
+  description?: string;
+  featuredImage?: {
+    url?: string;
+    alt?: string;
+  };
+  price: string;
+  link: string;
+}
+
+const props = Astro.props;
+---
+
+<div>
+  <div
+    class="text-start bg-primary-100 text-primary-900 dark:bg-primary-950 dark:text-primary-300 rounded-xl"
+  >
+    {
+      props.featuredImage?.url && (
+        <a href={props.link}>
+          <Image
+            class="rounded-t-xl"
+            src={props.featuredImage.url}
+            alt={props.featuredImage.alt ?? `Feature for "${props.title}"`}
+            inferSize={true}
+          />
+        </a>
+      )
+    }
+    <div class="p-4">
+      <a href={props.link}
+        ><h5
+          class="text-xl font-medium hover:underline underline-offset-2 transition-all mb-2 text-primary-950 dark:text-primary-100"
+        >
+          {props.title}
+        </h5></a
+      >
+      <p class="mb-2 text-lg">
+        {props.price}
+        <span class="text-xs text-primary-400">+shipping</span>
+      </p>
+
+      {
+        props.description && (
+          <p
+            class="mb-2 text-primary-400"
+            set:text={props.description.replace(/<\/?[^>]+(>|$)/g, "")}
+          />
+        )
+      }
+
+      <div class="flex justify-end mb-2">
+        <a
+          href={props.link}
+          class="block bg-primary-500 text-white py-2 px-4 rounded-full"
+        >
+          <Icon name="tabler:arrow-up-right" class="inline" />
+          View in Shop
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

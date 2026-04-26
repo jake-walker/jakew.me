@@ -3,13 +3,15 @@ import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 import "../styles/global.css";
 import { SEO, type Props as SEOProps } from "astro-seo";
+import type { ComponentProps } from "astro/types";
 
 interface Props {
   title?: string;
   seoOverride?: SEOProps;
+  footer?: ComponentProps<typeof Footer>;
 }
 
-const { title, seoOverride } = Astro.props;
+const { title, seoOverride, footer: footerProps } = Astro.props;
 ---
 
 <!doctype html>
@@ -57,6 +59,6 @@ const { title, seoOverride } = Astro.props;
   <body class="grid grid-rows-[auto_1fr_auto] grid-cols-[100%]">
     <Navbar />
     <slot />
-    <Footer />
+    <Footer {...footerProps} />
   </body>
 </html>

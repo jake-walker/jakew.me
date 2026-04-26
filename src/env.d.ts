@@ -8,4 +8,5 @@ interface ImportMetaEnv {
   readonly BREVO_API_KEY: string;
   readonly GHOST_URL: string;
   readonly GITHUB_API_KEY?: string;
+  readonly SHOP_APPLICATION_PASSWORD?: string;
 }
