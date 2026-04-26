@@ -20,7 +20,7 @@ export const GET: APIRoute = async (context) => {
 
   return rss({
     title: 'Jake Walker',
-    description: 'Avid Coder, Cyber Security Guy and Tinkerer',
+    description: 'Coder, maker, and builder of things',
     site: context.site?.href ?? 'https://jakew.me',
     items: await Promise.all(posts.filter((p) => p.rendered !== undefined).map(async (p) => {
       const result = await parser.process(p.data.html);
