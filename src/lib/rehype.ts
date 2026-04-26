@@ -3,6 +3,7 @@ import type { Properties, Root } from 'hast';
 import { VFile } from "vfile";
 import type { AstroConfig } from "astro";
 import { isRemoteAllowed } from "astro/assets/utils";
+import { withoutKeysCaseInsensitive } from "./util";
 
 export function rehypeAnchorRewrite() {
   return function (tree: Root) {
@@ -72,22 +73,20 @@ export function rehypeImages() {
       if (typeof node.properties?.src !== 'string') return;
 
       const src = decodeURI(node.properties.src);
+      const ignoredProperties = ["srcset", "sizes"];
       let newProperties: Properties;
 
       if (file.data.astro?.localImagePaths?.includes(src)) {
-        newProperties = { ...node.properties, src };
+        newProperties = { ...withoutKeysCaseInsensitive(node.properties, ignoredProperties), src };
       } else if (file.data.astro?.remoteImagePaths?.includes(src)) {
         newProperties = {
           inferSize: 'width' in node.properties && 'height' in node.properties ? undefined : true,
-          ...node.properties,
+          ...withoutKeysCaseInsensitive(node.properties, ignoredProperties),
           src,
         };
       } else {
         return;
       }
-
-      delete newProperties["srcset"];
-      delete newProperties["sizes"];
 
       const index = imageOccuranceMap.get(node.properties.src) || 0;
       imageOccuranceMap.set(node.properties.src, index + 1);
@@ -97,7 +96,7 @@ export function rehypeImages() {
   }
 }
 
-// Based on: Astro - remark-collect-images.ts (https://vh7.uk/view/kWxY)
+// Based on: Astro - remark-collect-images.ts (https://vh7.uk/kWxY)
 export function rehypeCollectImages(opts?: AstroConfig['image']) {
   const domains = opts?.domains ?? [];
   const remotePatterns = opts?.remotePatterns ?? [];
