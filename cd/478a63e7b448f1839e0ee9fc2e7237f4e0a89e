@@ -1,0 +1,31 @@
+src/pages/og/[...route].ts
+  s_df15dda37c59a1::t_5bf8f761b182ac 5,17-23,28-30,61-68
+  s_df15dda37c59a1::t_e87d6ceb44dfe2 10-14,85-102,104,106,109-110,113
+  s_df15dda37c59a1::t_ef64e3808066bf 105
+  s_df15dda37c59a1::t_92ec5b43b6a788 71-79,81
+  s_df15dda37c59a1::t_618122c051a02d 107-108
+  h_2463f6ed1216b2 9,27,84
+  s_df15dda37c59a1::t_3047c3ad535d42 70,82-83,103
+  s_df15dda37c59a1::t_942dec2d15dc10 69,80
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.11",
+  "base_commit_sha": "cd478a63e7b448f1839e0ee9fc2e7237f4e0a89e",
+  "prompts": {},
+  "humans": {
+    "h_2463f6ed1216b2": {
+      "author": "Jake Walker <hi@jakew.me>"
+    }
+  },
+  "sessions": {
+    "s_df15dda37c59a1": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019ef445-81d1-75b0-ade0-b0bfb5a0bcdd",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Jake Walker <hi@jakew.me>"
+    }
+  }
+}
