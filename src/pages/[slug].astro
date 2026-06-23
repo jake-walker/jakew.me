@@ -34,13 +34,30 @@ const daysOld =
       )
     : 0;
 
+const maxSeoDescriptionLength = 160;
+const truncateAtWord = (text: string, maxLength: number) => {
+  if (text.length <= maxLength) {
+    return text;
+  }
+
+  const truncated = text.slice(0, maxLength + 1).trimEnd();
+  const lastSpace = truncated.lastIndexOf(" ");
+  const splitAt = lastSpace > 0 ? lastSpace : maxLength;
+
+  return `${truncated.slice(0, splitAt).trimEnd()}...`;
+};
+const fallbackDescription = truncateAtWord(
+  post.data.excerpt,
+  maxSeoDescriptionLength,
+);
+
 const { Content } = await render(post);
 ---
 
 <Layout
   title={post.data.title}
   seoOverride={{
-    description: post.data.meta_description ?? post.data.excerpt,
+    description: post.data.meta_description ?? fallbackDescription,
     openGraph: {
       basic: {
         title: post.data.title,
@@ -52,7 +69,7 @@ const { Content } = await render(post);
         height: 630,
       },
       optional: {
-        description: post.data.og_description ?? post.data.excerpt,
+        description: post.data.og_description ?? fallbackDescription,
         siteName: "Jake Walker",
       },
       article: {
@@ -66,7 +83,7 @@ const { Content } = await render(post);
       card: "summary_large_image",
       creator: "@_jakewalker1",
       site: "@_jakewalker1",
-      description: post.data.og_description ?? post.data.excerpt,
+      description: post.data.og_description ?? fallbackDescription,
       title: post.data.title,
     },
   }}
