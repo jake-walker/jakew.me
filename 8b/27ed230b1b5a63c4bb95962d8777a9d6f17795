@@ -1,0 +1,19 @@
+src/pages/[slug].astro
+  s_f40d8297c1205c::t_d6dba341dc5ef5 37-53,60,72,86
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.11",
+  "base_commit_sha": "8b27ed230b1b5a63c4bb95962d8777a9d6f17795",
+  "prompts": {},
+  "sessions": {
+    "s_f40d8297c1205c": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019ef45d-11d2-7730-b374-94b9180148f4",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Jake Walker <hi@jakew.me>"
+    }
+  }
+}
