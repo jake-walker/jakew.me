@@ -7,7 +7,15 @@ import { getCollection } from "astro:content";
 import BlogPostCard from "../components/BlogPostCard.astro";
 import TagLine from "../components/TagLine.svelte";
 
-const posts = await getCollection("ghostPosts");
+const posts = (await getCollection("ghostPosts")).toSorted((a, b) => {
+  const aDate = a.data.published_at ?? a.data.created_at;
+  const bDate = b.data.published_at ?? b.data.created_at;
+
+  const aTime = aDate !== undefined ? new Date(aDate).getTime() : 0;
+  const bTime = bDate !== undefined ? new Date(bDate).getTime() : 0;
+
+  return bTime - aTime;
+});
 const optimizedHeroImage = await getImage({ src: heroImage });
 ---
 

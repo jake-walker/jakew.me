@@ -42,6 +42,16 @@ export const collections = {
           throw new AstroError('No posts returned from Ghost Content API');
         }
 
+        posts.sort((a, b) => {
+          const aDate = a.published_at ?? a.created_at;
+          const bDate = b.published_at ?? b.created_at;
+
+          const aTime = aDate !== undefined ? new Date(aDate).getTime() : 0;
+          const bTime = bDate !== undefined ? new Date(bDate).getTime() : 0;
+
+          return bTime - aTime;
+        });
+
         for (const post of posts) {
           const parsedPost = await parseData({
             id: post.id,
