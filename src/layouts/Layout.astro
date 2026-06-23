@@ -4,6 +4,7 @@ import Footer from "../components/Footer.astro";
 import "../styles/global.css";
 import { SEO, type Props as SEOProps } from "astro-seo";
 import type { ComponentProps } from "astro/types";
+import { getPageOGImagePath } from "../lib/og-pages";
 
 interface Props {
   title?: string;
@@ -12,6 +13,7 @@ interface Props {
 }
 
 const { title, seoOverride, footer: footerProps } = Astro.props;
+const ogImage = getPageOGImagePath(title);
 ---
 
 <!doctype html>
@@ -25,7 +27,7 @@ const { title, seoOverride, footer: footerProps } = Astro.props;
         basic: {
           title: title ?? "Jake Walker",
           type: "website",
-          image: "/og/main.png",
+          image: ogImage,
         },
         image: {
           width: 1200,
