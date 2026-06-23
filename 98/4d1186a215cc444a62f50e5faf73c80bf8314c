@@ -1,0 +1,14 @@
+src/content.config.ts
+  h_2463f6ed1216b2 45-54
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.5.11",
+  "base_commit_sha": "984d1186a215cc444a62f50e5faf73c80bf8314c",
+  "prompts": {},
+  "humans": {
+    "h_2463f6ed1216b2": {
+      "author": "Jake Walker <hi@jakew.me>"
+    }
+  }
+}
