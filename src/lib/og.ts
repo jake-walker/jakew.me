@@ -69,8 +69,8 @@ export async function renderOGImage(info: OGImageInfo) {
       "></div>
       <img style="position: relative; width: 164px; height: 164px; background: #ddcdff; border-radius: 999px; margin-left: auto;" src="https://ipfs.io/ipfs/bafkreiaefpkbox44yc6dzdg4mle24shc6u2cdlyuaegvl3n65vaudmsqfi"/>
       <div style="position: relative; flex: 1; display: flex;"></div>
-      <h1 style="position: relative; margin: 0; line-height: 1.05; font-family: 'Gabarito Medium'; font-size: ${meta === "" ? "8em" : "5.2em"};">${escapeHtml(info.title)}</h1>
-      <p style="position: relative; margin: 0.6em 0 0; font-size: 1.8em; color: rgba(255, 255, 255, 0.82); ${meta === "" ? "display: none;" : ""}">${escapeHtml(meta)}</p>
+      <h1 style="position: relative; margin: 0; line-height: 1.05; font-family: 'Gabarito Medium'; font-size: ${meta === "" ? "8em" : "5.2em"};">${info.title}</h1>
+      <p style="position: relative; margin: 0.6em 0 0; font-size: 1.8em; color: rgba(255, 255, 255, 0.82); ${meta === "" ? "display: none;" : ""}">${meta}</p>
     </div>
   `;
 
