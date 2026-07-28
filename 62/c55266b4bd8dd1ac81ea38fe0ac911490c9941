@@ -1,0 +1,18 @@
+src/pages/docs/protohex.mdx
+  h_2463f6ed1216b2 1-131
+src/pages/docs/index.mdx
+  h_2463f6ed1216b2 1-12
+src/components/DocsIndex.astro
+  h_2463f6ed1216b2 1-30
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.16",
+  "base_commit_sha": "62c55266b4bd8dd1ac81ea38fe0ac911490c9941",
+  "prompts": {},
+  "humans": {
+    "h_2463f6ed1216b2": {
+      "author": "Jake Walker <hi@jakew.me>"
+    }
+  }
+}
