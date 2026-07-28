@@ -1,0 +1,30 @@
+---
+const modules = import.meta.glob("/src/pages/docs/*.mdx", { eager: true });
+
+const pages = Object.entries(modules)
+  .filter(([path]) => !path.endsWith("/index.mdx"))
+  .map(([path, mod]) => {
+    const filename = path
+      .split("/")
+      .pop()!
+      .replace(/\.mdx$/, "");
+    const frontmatter = (mod as { frontmatter?: { title?: string } })
+      .frontmatter;
+
+    return {
+      title: frontmatter?.title ?? filename,
+      href: `/docs/${filename}/`,
+    };
+  })
+  .sort((a, b) => a.title.localeCompare(b.title));
+---
+
+<ul>
+  {
+    pages.map((page) => (
+      <li>
+        <a href={page.href}>{page.title}</a>
+      </li>
+    ))
+  }
+</ul>
