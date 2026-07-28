@@ -1,0 +1,54 @@
+src/pages/index.astro
+  s_e1456fc667df82::t_3d677e65ce3756 20-25,31
+wrangler.jsonc
+  s_e1456fc667df82::t_aa3f6eb80e6305 2,4
+package.json
+  s_e1456fc667df82::t_c5145b9685a2aa 55
+src/actions/index.ts
+  h_2463f6ed1216b2 3
+astro.config.mjs
+  h_2463f6ed1216b2 5,37-40,42-44,69,72-74
+  s_e1456fc667df82::t_e38b1ef60ed9bb 4,26
+src/components/Button.astro
+  s_e1456fc667df82::t_1ce921574fdf61 2,11-17,27
+src/components/ProjectCard.astro
+  s_e1456fc667df82::t_1ce921574fdf61 6-12,19-27,61,105-127
+  h_2463f6ed1216b2 83
+src/components/ProductCard.astro
+  s_e1456fc667df82::t_40e1c22e4372f1 3,62
+  h_2463f6ed1216b2 44
+src/env.d.ts
+  s_e1456fc667df82::t_14cfee4a58cd54 1-2
+src/components/ContactForm.astro
+  s_e1456fc667df82::t_40e1c22e4372f1 2,66
+src/components/Footer.astro
+  s_e1456fc667df82::t_1ce921574fdf61 2-4,11-15,38,51-66
+src/components/SocialLinks.astro
+  s_e1456fc667df82::t_40e1c22e4372f1 2-9,14,20,26,32,38,44,50,56,63-75
+src/components/BlogPostCard.astro
+  s_e1456fc667df82::t_befb55ac03fa37 69
+  h_2463f6ed1216b2 57
+src/lib/og.ts
+  h_2463f6ed1216b2 3-4,78,80,93-101,103-110
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.16",
+  "base_commit_sha": "e3de55ea9b7fdf33a8ecc024051a952b56fe07fe",
+  "prompts": {},
+  "humans": {
+    "h_2463f6ed1216b2": {
+      "author": "Jake Walker <hi@jakew.me>"
+    }
+  },
+  "sessions": {
+    "s_e1456fc667df82": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019fa924-2ca3-7181-81cb-8145435db412",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Jake Walker <hi@jakew.me>"
+    }
+  }
+}
