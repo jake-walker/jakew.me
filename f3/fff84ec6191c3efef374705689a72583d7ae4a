@@ -1,0 +1,35 @@
+astro.config.mjs
+  h_2463f6ed1216b2 5,37-40,66,69-71
+  s_e1456fc667df82::t_e38b1ef60ed9bb 4,26
+src/pages/index.astro
+  s_e1456fc667df82::t_3d677e65ce3756 20-25,31
+src/lib/og.ts
+  s_e1456fc667df82::t_0cf615e8c79f79 95
+package.json
+  s_e1456fc667df82::t_c5145b9685a2aa 54
+wrangler.jsonc
+  s_e1456fc667df82::t_aa3f6eb80e6305 2,4
+src/actions/index.ts
+  h_2463f6ed1216b2 3
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.16",
+  "base_commit_sha": "f3fff84ec6191c3efef374705689a72583d7ae4a",
+  "prompts": {},
+  "humans": {
+    "h_2463f6ed1216b2": {
+      "author": "Jake Walker <hi@jakew.me>"
+    }
+  },
+  "sessions": {
+    "s_e1456fc667df82": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019fa924-2ca3-7181-81cb-8145435db412",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Jake Walker <hi@jakew.me>"
+    }
+  }
+}
