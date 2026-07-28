@@ -1,6 +1,5 @@
 ---
-import { Image } from "astro:assets";
-import { Icon } from "astro-icon/components";
+import IconArrowRight from "~icons/tabler/arrow-right";
 
 interface Props {
   class?: string;
@@ -9,6 +8,13 @@ interface Props {
 }
 
 const { link, icon, class: className } = Astro.props;
+
+const iconComponents = {
+  "tabler:arrow-right": IconArrowRight,
+};
+const ButtonIcon = icon
+  ? iconComponents[icon as keyof typeof iconComponents]
+  : undefined;
 ---
 
 <a
@@ -18,6 +24,6 @@ const { link, icon, class: className } = Astro.props;
     ...(className ?? []),
   ]}
 >
-  {icon && <Icon name={icon} size={24} class="inline" />}
+  {ButtonIcon && <ButtonIcon class="inline size-6" />}
   <slot />
 </a>

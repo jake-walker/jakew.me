@@ -1,3 +1,5 @@
+/// <reference types="unplugin-icons/types/astro" />
+
 interface ImportMetaEnv {
   readonly GHOST_CONTENT_API_KEY: string;
   readonly PUBLIC_TURNSTILE_SITE_KEY: string;

@@ -2,7 +2,6 @@
 import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 import { DateTime } from "luxon";
-import { Icon } from "astro-icon/components";
 
 interface Props {
   post: CollectionEntry<"ghostPosts">;
@@ -55,7 +54,7 @@ const link = `/${post.data.slug}`;
               .setLocale("en-GB")
               .toLocaleString(DateTime.DATE_MED)
         }
-        &bull;
+        {" "}&bull;{" "}
         {post.data.reading_time} min read
       </p>
       {
@@ -67,7 +66,7 @@ const link = `/${post.data.slug}`;
                 href={tag.url}
                 class="inline-block text-primary-950 bg-primary-200 py-1 px-2 rounded-lg text-sm hover:brightness-95 transition-all"
               >
-                <Icon name="tabler:tag" class="inline" />
+                <IconTag class="inline" />
                 {tag.name}
               </a>
             ))}

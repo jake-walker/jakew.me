@@ -17,17 +17,18 @@ const posts = (await getCollection("ghostPosts")).toSorted((a, b) => {
   return bTime - aTime;
 });
 const optimizedHeroImage = await getImage({ src: heroImage });
+const websiteSchema = {
+  "@context": "https://schema.org/",
+  "@type": "WebSite",
+  name: "Jake Walker",
+  url: Astro.site,
+};
 ---
 
 <Layout>
   <script
     type="application/ld+json"
-    set:html={JSON.stringify({
-      "@context": "https://schema.org/",
-      "@type": "WebSite",
-      name: "Jake Walker",
-      url: Astro.site,
-    })}
+    set:html={JSON.stringify(websiteSchema)}
   />
   <div
     class="min-h-80 md:min-h-120 flex flex-col items-center justify-center text-white"

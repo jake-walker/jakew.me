@@ -1,7 +1,8 @@
 // @ts-check
 import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "astro/config";
-import icon from "astro-icon";
+import { satteri } from "@astrojs/markdown-satteri";
+import Icons from "unplugin-icons/vite";
 import mdx from "@astrojs/mdx";
 import cloudflare from "@astrojs/cloudflare";
 import og from "astro-og";
@@ -22,6 +23,7 @@ export default defineConfig({
   },
 
   markdown: {
+    processor: satteri(),
     shikiConfig: {
       themes: {
         light: "catppuccin-latte",
@@ -31,8 +33,15 @@ export default defineConfig({
   },
 
   vite: {
-    // @ts-ignore
-    plugins: [tailwindcss()],
+    plugins: [
+      tailwindcss(),
+      Icons({
+        compiler: "astro",
+      }),
+    ],
+    ssr: {
+      external: ["@cf-wasm/satori", "@cf-wasm/resvg"],
+    },
   },
 
   redirects: {
@@ -57,12 +66,12 @@ export default defineConfig({
     "/rss.xml": "/rss",
   },
 
-  integrations: [icon(), mdx(), og(), sitemap(), svelte()],
+  integrations: [mdx(), og(), sitemap(), svelte()],
 
   adapter: cloudflare({
-    imageService: "compile",
-    platformProxy: {
-      enabled: true,
+    imageService: {
+      build: "compile",
+      runtime: "passthrough",
     },
   }),
 });

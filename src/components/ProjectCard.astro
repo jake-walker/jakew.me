@@ -3,13 +3,28 @@ import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 import { DateTime } from "luxon";
 import { type Project } from "../lib/types";
-import { Icon } from "astro-icon/components";
+import IconBox from "~icons/tabler/box";
+import IconBrandApple from "~icons/tabler/brand-apple";
+import IconBrandGithub from "~icons/tabler/brand-github";
+import IconExternalLink from "~icons/tabler/external-link";
+import IconGitMerge from "~icons/tabler/git-merge";
+import IconLink from "~icons/tabler/link";
+import IconPackageImport from "~icons/tabler/package-import";
 
 interface Props {
   project: Project;
 }
 
 const { project } = Astro.props;
+
+const iconComponents = {
+  "tabler:brand-apple": IconBrandApple,
+  "tabler:brand-github": IconBrandGithub,
+  "tabler:external-link": IconExternalLink,
+  "tabler:git-merge": IconGitMerge,
+  "tabler:link": IconLink,
+  "tabler:package-import": IconPackageImport,
+};
 ---
 
 <div>
@@ -43,10 +58,7 @@ const { project } = Astro.props;
                 inferSize={true}
               />
             ) : (
-              <Icon
-                name="tabler:box"
-                class="block size-12 my-auto mx-auto h-full"
-              />
+              <IconBox class="block size-12 my-auto mx-auto h-full" />
             )
           }
         </div>
@@ -68,7 +80,7 @@ const { project } = Astro.props;
                   "bg-primary-600 dark:bg-primary-400 text-primary-50":
                     project.featured,
                 }}
-                class="text-xs rounded-full py-1 px-3 my-auto"
+                class="text-xs rounded-full py-1 px-3 my-auto ms-2"
               >
                 {project.badgeText}
               </span>
@@ -90,24 +102,29 @@ const { project } = Astro.props;
     </div>
     <div class="flex flex-col sm:flex-row items-end justify-end gap-4 mt-2">
       {
-        project.links.map((link) => (
-          <a
-            href={link.url}
-            class:list={{
-              "bg-primary-300 text-primary-950 hover:bg-primary-400 dark:hover:bg-primary-200":
-                !project.featured,
-              "text-base bg-primary-800 text-primary-100 hover:bg-primary-700 dark:bg-primary-900 dark:text-primary-100 dark:hover:bg-primary-800":
-                project.featured,
-            }}
-            class="rounded-md py-1 px-2"
-          >
-            <Icon
-              name={link.icon ?? "tabler:external-link"}
-              class="inline me-1"
-            />
-            {link.title}
-          </a>
-        ))
+        project.links.map((link) => {
+          const LinkIcon =
+            iconComponents[
+              (link.icon ??
+                "tabler:external-link") as keyof typeof iconComponents
+            ];
+
+          return (
+            <a
+              href={link.url}
+              class:list={{
+                "bg-primary-300 text-primary-950 hover:bg-primary-400 dark:hover:bg-primary-200":
+                  !project.featured,
+                "text-base bg-primary-800 text-primary-100 hover:bg-primary-700 dark:bg-primary-900 dark:text-primary-100 dark:hover:bg-primary-800":
+                  project.featured,
+              }}
+              class="rounded-md py-1 px-2"
+            >
+              <LinkIcon class="inline me-1" />
+              {link.title}
+            </a>
+          );
+        })
       }
     </div>
   </div>

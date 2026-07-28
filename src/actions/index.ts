@@ -1,6 +1,6 @@
 import { defineAction, ActionError } from "astro:actions";
 import sanitizeHtml from "sanitize-html";
-import { z } from "astro:schema";
+import { z } from "astro/zod";
 
 async function validateTurnstileToken(turnstileSecretKey: string, turnstileToken: string, ip: string): Promise<boolean> {
   const formData = new FormData();

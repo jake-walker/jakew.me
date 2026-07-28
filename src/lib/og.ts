@@ -1,6 +1,7 @@
 import { DateTime } from "luxon";
-import { satoriAstroOG } from "satori-astro";
 import { html } from "satori-html";
+import { satori } from "@cf-wasm/satori";
+import { Resvg } from "@cf-wasm/resvg";
 
 const escapeHtml = (str: string) => str
   .replaceAll("&", "&amp;")
@@ -74,24 +75,37 @@ export async function renderOGImage(info: OGImageInfo) {
     </div>
   `;
 
-  return await satoriAstroOG({
-    template: html(template),
+  const svg = await satori(html(template), {
     width: 1200,
-    height: 630
-  }).toResponse({
-    satori: {
-      fonts: [
-        {
-          name: "Gabarito Regular",
-          data: await loadFont("https://cdn.jsdelivr.net/gh/naipefoundry/gabarito/fonts/ttf/Gabarito-Regular.ttf"),
-          style: "normal"
-        },
-        {
-          name: "Gabarito Medium",
-          data: await loadFont("https://cdn.jsdelivr.net/gh/naipefoundry/gabarito/fonts/ttf/Gabarito-Medium.ttf"),
-          style: "normal"
-        }
-      ]
+    height: 630,
+    fonts: [
+      {
+        name: "Gabarito Regular",
+        data: await loadFont("https://cdn.jsdelivr.net/gh/naipefoundry/gabarito/fonts/ttf/Gabarito-Regular.ttf"),
+        style: "normal"
+      },
+      {
+        name: "Gabarito Medium",
+        data: await loadFont("https://cdn.jsdelivr.net/gh/naipefoundry/gabarito/fonts/ttf/Gabarito-Medium.ttf"),
+        style: "normal"
+      }
+    ]
+  });
+  const resvg = new Resvg(svg);
+  const png = resvg.render().asPng();
+
+  const body = new ReadableStream({
+    async start(controller) {
+      controller.enqueue(png);
+      controller.close();
     }
   });
+
+  return new Response(body, {
+    headers: {
+      "Content-Type": "image/png",
+      "Cache-Control": "public, immutable, no-transform, max-age=31536000",
+    },
+    status: 200,
+  })
 }

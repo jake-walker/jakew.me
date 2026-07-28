@@ -1,11 +1,18 @@
 ---
-import { Icon } from "astro-icon/components";
+import IconCreativeCommonsBy from "~icons/tabler/creative-commons-by";
+import IconGavel from "~icons/tabler/gavel";
+import IconRss from "~icons/tabler/rss";
 
 interface Props {
   extraLinks?: { title: string; href: string; icon?: string }[];
 }
 
 const { extraLinks } = Astro.props;
+
+const iconComponents = {
+  "tabler:gavel": IconGavel,
+  "tabler:rss": IconRss,
+};
 ---
 
 <div class="bg-zinc-200 text-zinc-600 dark:bg-zinc-900 dark:text-zinc-400">
@@ -28,7 +35,7 @@ const { extraLinks } = Astro.props;
           rel="license"
           href="https://creativecommons.org/licenses/by/4.0/"
           class="underline hover:no-underline"
-          ><Icon name="tabler:creative-commons-by" class="inline size-5" /> CC BY
+          ><IconCreativeCommonsBy class="inline size-5" /> CC BY
           4.0</a
         >.
       </p>
@@ -41,16 +48,22 @@ const { extraLinks } = Astro.props;
               icon: "tabler:rss",
             },
             ...(extraLinks ?? []),
-          ].map((link, i) => (
-            <a
-              href={link.href}
-              class="underline hover:no-underline"
-              class:list={[i > 0 && "ms-2"]}
-            >
-              {link.icon && <Icon name={link.icon} class="inline size-4" />}
-              {link.title}
-            </a>
-          ))
+          ].map((link, i) => {
+            const LinkIcon = link.icon
+              ? iconComponents[link.icon as keyof typeof iconComponents]
+              : undefined;
+
+            return (
+              <a
+                href={link.href}
+                class="underline hover:no-underline"
+                class:list={[i > 0 && "ms-2"]}
+              >
+                {LinkIcon && <LinkIcon class="inline size-4" />}
+                {link.title}
+              </a>
+            );
+          })
         }
       </p>
     </div>

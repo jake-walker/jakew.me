@@ -1,65 +1,76 @@
 ---
-import { Icon } from "astro-icon/components";
+import IconBrandBluesky from "~icons/tabler/brand-bluesky";
+import IconBrandMastodon from "~icons/tabler/brand-mastodon";
+import IconBrandLinkedin from "~icons/tabler/brand-linkedin";
+import IconBrandGithub from "~icons/tabler/brand-github";
+import IconBrandGitlab from "~icons/tabler/brand-gitlab";
+import IconBrandNodejs from "~icons/tabler/brand-nodejs";
+import IconBrandPython from "~icons/tabler/brand-python";
+import IconShoppingBag from "~icons/tabler/shopping-bag";
 
 const links = [
   {
     name: "Bluesky",
-    icon: "tabler:brand-bluesky",
+    icon: IconBrandBluesky,
     username: "@jakew.me",
     link: "https://bsky.app/profile/jakew.me",
   },
   {
     name: "Mastodon",
-    icon: "tabler:brand-mastodon",
+    icon: IconBrandMastodon,
     username: "@jakew@social.lol",
     link: "https://social.lol/@jakew",
   },
   {
     name: "LinkedIn",
-    icon: "tabler:brand-linkedin",
+    icon: IconBrandLinkedin,
     username: "jake-walker1",
     link: "https://www.linkedin.com/in/jake-walker1",
   },
   {
     name: "GitHub",
-    icon: "tabler:brand-github",
+    icon: IconBrandGithub,
     username: "jake-walker",
     link: "https://github.com/jake-walker",
   },
   {
     name: "GitLab",
-    icon: "tabler:brand-gitlab",
+    icon: IconBrandGitlab,
     username: "_jakew",
     link: "https://gitlab.com/_jakew",
   },
   {
     name: "NPM",
-    icon: "tabler:brand-nodejs",
+    icon: IconBrandNodejs,
     username: "jakew",
     link: "https://www.npmjs.com/~jakew",
   },
   {
     name: "PyPI",
-    icon: "tabler:brand-python",
+    icon: IconBrandPython,
     username: "jakew1",
     link: "https://pypi.org/user/jakew1",
   },
   {
     name: "Tindie Marketplace",
-    icon: "tabler:shopping-bag",
+    icon: IconShoppingBag,
     link: "https://www.tindie.com/stores/jakew",
   },
 ];
 ---
 
 {
-  links.map((link) => (
-    <a
-      class="inline-block bg-primary-100 text-primary-900 dark:bg-primary-950 dark:text-primary-100 py-2 px-6 rounded-full me-4 mb-4 no-underline hover:brightness-95 dark:hover:brightness-110 transition-all"
-      href={link.link}
-    >
-      {link.icon && <Icon name={link.icon} class="inline size-6 me-2" />}
-      {link.name}
-    </a>
-  ))
+  links.map((link) => {
+    const LinkIcon = link.icon;
+
+    return (
+      <a
+        class="inline-block bg-primary-100 text-primary-900 dark:bg-primary-950 dark:text-primary-100 py-2 px-6 rounded-full me-4 mb-4 no-underline hover:brightness-95 dark:hover:brightness-110 transition-all"
+        href={link.link}
+      >
+        <LinkIcon class="inline size-6 me-2" />
+        {link.name}
+      </a>
+    );
+  })
 }
