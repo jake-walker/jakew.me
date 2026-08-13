@@ -1,0 +1,30 @@
+src/styles/post.css
+  s_9dda47553ed216::t_43c2fb89ac20c8 88-93
+  s_9dda47553ed216::t_973da3130ad693 8,115
+  s_9dda47553ed216::t_715cb6b945a33b 70-73,75-87,94-107
+src/components/PostImageLightbox.svelte
+  s_9dda47553ed216::t_43c2fb89ac20c8 1-95
+src/pages/[slug].astro
+  s_9dda47553ed216::t_43c2fb89ac20c8 11,156,160
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "3b5b4c4a7576202f53cb7bc880643548b9b09934",
+  "prompts": {},
+  "humans": {
+    "h_2463f6ed1216b2": {
+      "author": "Jake Walker <hi@jakew.me>"
+    }
+  },
+  "sessions": {
+    "s_9dda47553ed216": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "019ffc6d-fbe7-7221-84fd-4a0d179a0aa1",
+        "model": "gpt-5.5"
+      },
+      "human_author": "Jake Walker <hi@jakew.me>"
+    }
+  }
+}
