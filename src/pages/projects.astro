@@ -54,6 +54,7 @@ const projects: { [key: string]: Project } = {
     .filter(
       (repo) =>
         repo.data.description !== null &&
+        repo.data.description.trim() !== "" &&
         repo.data.archived !== true &&
         !repo.data.fork,
     )
