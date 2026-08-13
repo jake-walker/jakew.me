@@ -1,34 +1,19 @@
 import rss, { type RSSFeedItem } from "@astrojs/rss";
 import type { APIRoute } from "astro";
 import { getCollection } from "astro:content";
-import rehypeParse from "rehype-parse";
-import type { AstroConfig } from "astro";
-import { unified } from "unified";
-import { rehypeAnchorRewrite, rehypeCollectImages, rehypeGhostVideoCard, rehypeImages } from "../lib/rehype";
-import rehypeStringify from "rehype-stringify";
-
-function createParser() {
-  return unified().use(rehypeParse, { fragment: true })
-    .use(rehypeAnchorRewrite)
-    .use(rehypeGhostVideoCard)
-    .use(rehypeStringify);
-}
 
 export const GET: APIRoute = async (context) => {
   const posts = await getCollection('ghostPosts');
-  const parser = createParser();
 
   return rss({
     title: 'Jake Walker',
     description: 'Coder, maker, and builder of things',
     site: context.site?.href ?? 'https://jakew.me',
     items: await Promise.all(posts.filter((p) => p.rendered !== undefined).map(async (p) => {
-      const result = await parser.process(p.data.html);
-
       return {
         title: p.data.title,
         author: 'Jake Walker',
-        content: String(result.value),
+        content: p.data.basicHtml,
         description: p.data.excerpt,
         link: `/${p.data.slug}`,
         pubDate: p.data.published_at !== null && p.data.published_at !== undefined ? new Date(p.data.published_at) : new Date()
