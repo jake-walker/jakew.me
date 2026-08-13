@@ -8,6 +8,7 @@ import "../styles/post.css";
 import { getImage } from "astro:assets";
 import OldPost from "../components/OldPost.astro";
 import Remark42Embed from "../components/remark42-embed.svelte";
+import PostImageLightbox from "../components/PostImageLightbox.svelte";
 
 export async function getStaticPaths() {
   const posts = await getCollection("ghostPosts");
@@ -152,10 +153,11 @@ const { Content } = await render(post);
     {daysOld > 1096 && <OldPost />}
 
     <div
-      class="prose mg:prose-lg lg:prose-xl prose-code:before:content-none prose-code:after:content-none prose-code:bg-primary-50 prose-code:rounded-md prose-code:font-semibold prose-pre:prose-code:bg-transparent prose-code:p-1 mx-auto my-8 dark:prose-invert dark:prose-code:bg-primary-950"
+      class="blog-post-content prose mg:prose-lg lg:prose-xl prose-code:before:content-none prose-code:after:content-none prose-code:bg-primary-50 prose-code:rounded-md prose-code:font-semibold prose-pre:prose-code:bg-transparent prose-code:p-1 mx-auto my-8 dark:prose-invert dark:prose-code:bg-primary-950"
     >
       <Content />
     </div>
+    <PostImageLightbox client:idle />
 
     <div
       class="container mx-auto border border-primary-200 dark:border-primary-900 rounded-xl p-4"
