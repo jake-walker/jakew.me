@@ -1,0 +1,16 @@
+package.json
+  h_2463f6ed1216b2 12-14,25
+pnpm-lock.yaml
+  h_2463f6ed1216b2 12,15,18,51
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "978b7ac995cdac06047c780955b311c861d83f7b",
+  "prompts": {},
+  "humans": {
+    "h_2463f6ed1216b2": {
+      "author": "Jake Walker <hi@jakew.me>"
+    }
+  }
+}
